@@ -1,10 +1,10 @@
-﻿using eShopLegacyMVC.Models;
+﻿using eShopWinForms.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace eShopLegacyMVC.Models
+namespace eShopWinForms.Models
 {
     public class CatalogItemHiLoGenerator
     {
