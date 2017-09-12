@@ -1,10 +1,10 @@
-﻿using eShopWinForms.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
+using eShopWinForms.eShopServiceReference;
 
 namespace eShopLegacyMVC.Controllers
 {

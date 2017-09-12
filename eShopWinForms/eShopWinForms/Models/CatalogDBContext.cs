@@ -1,4 +1,5 @@
-﻿using eShopWinForms.Models.Infrastructure;
+﻿using eShopWinForms.eShopServiceReference;
+using eShopWinForms.Models.Infrastructure;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;

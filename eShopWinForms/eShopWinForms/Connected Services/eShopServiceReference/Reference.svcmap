@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0f24dec6-15f5-4619-8358-73005219cdff" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/eShopServiceLib/Service1/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="8f6efe78-383f-4103-b53c-73c983b3b3e7" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/eShopServiceLib/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="755aa9f3-cf8b-4754-ae14-611f942cefa4" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/eShopServiceLib/Service1/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="4ce90e8d-0a42-44db-a222-cf719c903602" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/eShopServiceLib/Service1/mex" />
+    <MetadataFile FileName="eShopServiceLibrary.xsd" MetadataType="Schema" ID="2e1d4399-ad3e-4669-be8a-d8b6c38c9cf3" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/eShopServiceLib/Service1/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

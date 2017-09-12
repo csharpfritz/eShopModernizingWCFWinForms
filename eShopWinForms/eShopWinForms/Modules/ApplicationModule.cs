@@ -1,6 +1,5 @@
 ﻿using eShopWinForms.Models;
 using eShopWinForms.Models.Infrastructure;
-using eShopWinForms.Services;
 
 namespace eShopWinForms.Modules
 {
