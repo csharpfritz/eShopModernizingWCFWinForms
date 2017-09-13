@@ -1,39 +1,81 @@
-﻿using System;
+﻿using eShopServiceLibrary.Models;
+using eShopServiceLibrary.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace eShopServiceLibrary
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "CatalogService" in both code and config file together.
     public class CatalogService : ICatalogService
     {
-        public string RemoveCatalogItem(CatalogItem catalogItem)
+        private CatalogDBContext db;
+        private CatalogItemHiLoGenerator indexGenerator;
+
+        public CatalogService()
         {
-            throw new NotImplementedException();
         }
 
-        public string UpdateCatalogItem(CatalogItem catalogItem)
+        public CatalogService(CatalogDBContext db, CatalogItemHiLoGenerator indexGenerator)
         {
-            throw new NotImplementedException();
-        }
-   
-        public string CreateCatalogItem(CatalogItem catalogItem)
-        {
-            throw new NotImplementedException();
+            this.db = db;
+            this.indexGenerator = indexGenerator;
         }
 
-        void ICatalogService.CreateCatalogItem(CatalogItem catalogItem)
+        public PaginatedItemsViewModel<CatalogItem> GetCatalogItemsPaginated(int pageSize, int pageIndex)
         {
-            throw new NotImplementedException();
+            var totalItems = db.CatalogItems.LongCount();
+
+            var itemsOnPage = db.CatalogItems
+                .Include(c => c.CatalogBrand)
+                .Include(c => c.CatalogType)
+                .OrderBy(c => c.Id)
+                .Skip(pageSize * pageIndex)
+                .Take(pageSize)
+                .ToList();
+
+            return new PaginatedItemsViewModel<CatalogItem>(
+                pageIndex, pageSize, totalItems, itemsOnPage);
         }
 
-        void ICatalogService.UpdateCatalogItem(CatalogItem catalogItem)
+        public CatalogItem FindCatalogItem(int id)
         {
-            throw new NotImplementedException();
+            return db.CatalogItems.Include(c => c.CatalogBrand).Include(c => c.CatalogType).FirstOrDefault(ci => ci.Id == id);
+        }
+        public IEnumerable<CatalogType> GetCatalogTypes()
+        {
+            return db.CatalogTypes;
         }
 
-        void ICatalogService.RemoveCatalogItem(CatalogItem catalogItem)
+        public IEnumerable<CatalogBrand> GetCatalogBrands()
         {
-            throw new NotImplementedException();
+            return db.CatalogBrands;
+        }
+
+        public void CreateCatalogItem(CatalogItem catalogItem)
+        {
+            catalogItem.Id = indexGenerator.GetNextSequenceValue(db);
+            db.CatalogItems.Add(catalogItem);
+            db.SaveChanges();
+        }
+
+        public void UpdateCatalogItem(CatalogItem catalogItem)
+        {
+            db.Entry(catalogItem).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
+        public void RemoveCatalogItem(CatalogItem catalogItem)
+        {
+            db.CatalogItems.Remove(catalogItem);
+            db.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            db.Dispose();
         }
     }
 }

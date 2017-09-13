@@ -1,10 +1,8 @@
-﻿using eShopWinForms.eShopServiceReference;
-using eShopWinForms.Models.Infrastructure;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 
-namespace eShopWinForms.Models
+namespace eShopServiceLibrary.Models
 {
     public class CatalogDBContext : DbContext
     {

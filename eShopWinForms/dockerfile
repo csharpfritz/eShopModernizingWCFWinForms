@@ -1,0 +1,2 @@
+FROM microsoft/mssql-server-windows
+ADDDB shop eShopDatabase.mdf

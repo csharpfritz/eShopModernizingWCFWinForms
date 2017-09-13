@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eShopServiceLibrary.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -9,8 +10,16 @@ namespace eShopServiceLibrary
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
-    public interface ICatalogService
+    public interface ICatalogService : IDisposable
     {
+        [OperationContract]
+        CatalogItem FindCatalogItem(int id);
+        [OperationContract]
+        IEnumerable<CatalogBrand> GetCatalogBrands();
+        //[OperationContract]
+        //PaginatedItemsViewModel<CatalogItem> GetCatalogItemsPaginated(int pageSize, int pageIndex);
+        [OperationContract]
+        IEnumerable<CatalogType> GetCatalogTypes();
         [OperationContract]
         void CreateCatalogItem(CatalogItem catalogItem);
         [OperationContract]
@@ -78,15 +87,21 @@ namespace eShopServiceLibrary
         public bool OnReorder { get; set; }
     }
 
+    [DataContract]
     public class CatalogBrand
     {
+        [DataMember]
         public int Id { get; set; }
+        [DataMember]
         public string Brand { get; set; }
     }
 
+    [DataContract]
     public class CatalogType
     {
+        [DataMember]
         public int Id { get; set; }
+        [DataMember]
         public string Type { get; set; }
     }
 }

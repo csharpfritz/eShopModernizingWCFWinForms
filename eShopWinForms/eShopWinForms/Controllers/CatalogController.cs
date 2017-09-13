@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Net;
-using eShopWinForms.Models;
 using eShopWinForms.eShopServiceReference;
 
 namespace eShopWinForms.Controllers

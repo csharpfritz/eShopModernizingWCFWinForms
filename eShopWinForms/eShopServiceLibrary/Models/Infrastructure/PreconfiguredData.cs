@@ -1,10 +1,9 @@
-﻿using eShopWinForms.eShopServiceReference;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace eShopWinForms.Models.Infrastructure
+namespace eShopServiceLibrary.Models.Infrastructure
 {
     public static class PreconfiguredData
     {
