@@ -1,6 +1,4 @@
-﻿using eShopWinForms.Models;
-using eShopWinForms.Models.Infrastructure;
-
+﻿
 namespace eShopWinForms.Modules
 {
     public class ApplicationModule

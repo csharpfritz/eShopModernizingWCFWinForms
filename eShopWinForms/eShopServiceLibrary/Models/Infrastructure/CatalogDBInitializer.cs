@@ -1,5 +1,4 @@
-﻿using eShopWinForms.eShopServiceReference;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
@@ -10,7 +9,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace eShopWinForms.Models.Infrastructure
+namespace eShopServiceLibrary.Models.Infrastructure
 {
     public class CatalogDBInitializer : CreateDatabaseIfNotExists<CatalogDBContext>
     {
@@ -26,7 +25,7 @@ namespace eShopWinForms.Models.Infrastructure
         public CatalogDBInitializer(CatalogItemHiLoGenerator indexGenerator)
         {
             this.indexGenerator = indexGenerator;
-            useCustomizationData = bool.Parse(ConfigurationManager.AppSettings["UseCustomizationData"]);
+            useCustomizationData = false;
         }
 
         protected override void Seed(CatalogDBContext context)
