@@ -39,7 +39,7 @@ namespace eShopServiceLibrary
             return catalogItems.FirstOrDefault(x => x.Id == id);
         }
 
-        List<CatalogItem> ICatalogService.GetCatalogItems()
+        public IEnumerable<CatalogItem> GetCatalogItems()
         {
             return catalogItems;
         }
@@ -97,6 +97,11 @@ namespace eShopServiceLibrary
         List<CatalogType> ICatalogService.GetCatalogTypes()
         {
             return catalogTypes;
+        }
+
+        List<CatalogItem> ICatalogService.GetCatalogItems()
+        {
+            throw new NotImplementedException();
         }
     }
 }

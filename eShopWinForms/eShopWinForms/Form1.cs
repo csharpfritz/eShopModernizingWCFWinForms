@@ -15,6 +15,8 @@ namespace eShopWinForms
         public Form1()
         {
             InitializeComponent();
+            eShopServiceLibrary.CatalogServiceMock mock = new eShopServiceLibrary.CatalogServiceMock();
+            catalogItemDataGridView.DataSource = mock.GetCatalogItems();
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
