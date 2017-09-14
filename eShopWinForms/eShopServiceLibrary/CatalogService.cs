@@ -77,5 +77,10 @@ namespace eShopServiceLibrary
         {
             ents.Dispose();
         }
+
+        public List<CatalogItem> GetCatalogItems()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
