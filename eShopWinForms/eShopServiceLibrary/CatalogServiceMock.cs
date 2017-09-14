@@ -39,6 +39,11 @@ namespace eShopServiceLibrary
             return catalogItems.FirstOrDefault(x => x.Id == id);
         }
 
+        List<CatalogItem> ICatalogService.GetCatalogItems()
+        {
+            return catalogItems;
+        }
+
         public IEnumerable<CatalogType> GetCatalogTypes()
         {
             return PreconfiguredData.GetPreconfiguredCatalogTypes();
