@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 using eShopWinForms.eShopServiceReference;
+using eShopServiceLibrary;
 
 namespace eShopWinForms.Controllers
 {
     public class CatalogController
     {
-        private ICatalogService service;
+        private eShopServiceLibrary.ICatalogService service;
 
-        public CatalogController(ICatalogService service)
+        public CatalogController(eShopServiceLibrary.ICatalogService service)
         {
             this.service = service;
         }

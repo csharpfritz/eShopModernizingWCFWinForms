@@ -62,11 +62,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\ServiceReference1\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\CatalogController.cs" />
     <Compile Include="Controllers\PicController.cs" />
     <Compile Include="Form1.cs">
@@ -99,16 +94,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\eShopServiceReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReference1\eShopServiceLibrary.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReference1\service.wsdl" />
-    <None Include="Connected Services\ServiceReference1\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReference1\service1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="fonts\Montserrat-Bold.eot" />
@@ -147,12 +132,6 @@
     </None>
     <None Include="Connected Services\eShopServiceReference\configuration.svcinfo" />
     <None Include="Connected Services\eShopServiceReference\configuration91.svcinfo" />
-    <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
-    <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
-    <None Include="Connected Services\ServiceReference1\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="fonts\Montserrat-Bold.svg" />
     <Content Include="fonts\Montserrat-Regular.svg" />
     <Content Include="Images\brand.png" />
@@ -178,7 +157,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\eShopServiceReference\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />

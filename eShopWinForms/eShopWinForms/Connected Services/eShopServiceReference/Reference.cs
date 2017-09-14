@@ -9,406 +9,47 @@
 //------------------------------------------------------------------------------
 
 namespace eShopWinForms.eShopServiceReference {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CatalogItem", Namespace="http://schemas.datacontract.org/2004/07/eShopServiceLibrary")]
-    [System.SerializableAttribute()]
-    public partial class CatalogItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int AvailableStockField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private eShopWinForms.eShopServiceReference.CatalogBrand CatalogBrandField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CatalogBrandIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private eShopWinForms.eShopServiceReference.CatalogType CatalogTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CatalogTypeIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int MaxStockThresholdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool OnReorderField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PictureFileNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PictureUriField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal PriceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int RestockThresholdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AvailableStock {
-            get {
-                return this.AvailableStockField;
-            }
-            set {
-                if ((this.AvailableStockField.Equals(value) != true)) {
-                    this.AvailableStockField = value;
-                    this.RaisePropertyChanged("AvailableStock");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public eShopWinForms.eShopServiceReference.CatalogBrand CatalogBrand {
-            get {
-                return this.CatalogBrandField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CatalogBrandField, value) != true)) {
-                    this.CatalogBrandField = value;
-                    this.RaisePropertyChanged("CatalogBrand");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CatalogBrandId {
-            get {
-                return this.CatalogBrandIdField;
-            }
-            set {
-                if ((this.CatalogBrandIdField.Equals(value) != true)) {
-                    this.CatalogBrandIdField = value;
-                    this.RaisePropertyChanged("CatalogBrandId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public eShopWinForms.eShopServiceReference.CatalogType CatalogType {
-            get {
-                return this.CatalogTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CatalogTypeField, value) != true)) {
-                    this.CatalogTypeField = value;
-                    this.RaisePropertyChanged("CatalogType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CatalogTypeId {
-            get {
-                return this.CatalogTypeIdField;
-            }
-            set {
-                if ((this.CatalogTypeIdField.Equals(value) != true)) {
-                    this.CatalogTypeIdField = value;
-                    this.RaisePropertyChanged("CatalogTypeId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int MaxStockThreshold {
-            get {
-                return this.MaxStockThresholdField;
-            }
-            set {
-                if ((this.MaxStockThresholdField.Equals(value) != true)) {
-                    this.MaxStockThresholdField = value;
-                    this.RaisePropertyChanged("MaxStockThreshold");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool OnReorder {
-            get {
-                return this.OnReorderField;
-            }
-            set {
-                if ((this.OnReorderField.Equals(value) != true)) {
-                    this.OnReorderField = value;
-                    this.RaisePropertyChanged("OnReorder");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PictureFileName {
-            get {
-                return this.PictureFileNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PictureFileNameField, value) != true)) {
-                    this.PictureFileNameField = value;
-                    this.RaisePropertyChanged("PictureFileName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PictureUri {
-            get {
-                return this.PictureUriField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PictureUriField, value) != true)) {
-                    this.PictureUriField = value;
-                    this.RaisePropertyChanged("PictureUri");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Price {
-            get {
-                return this.PriceField;
-            }
-            set {
-                if ((this.PriceField.Equals(value) != true)) {
-                    this.PriceField = value;
-                    this.RaisePropertyChanged("Price");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int RestockThreshold {
-            get {
-                return this.RestockThresholdField;
-            }
-            set {
-                if ((this.RestockThresholdField.Equals(value) != true)) {
-                    this.RestockThresholdField = value;
-                    this.RaisePropertyChanged("RestockThreshold");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CatalogBrand", Namespace="http://schemas.datacontract.org/2004/07/eShopServiceLibrary")]
-    [System.SerializableAttribute()]
-    public partial class CatalogBrand : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BrandField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Brand {
-            get {
-                return this.BrandField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BrandField, value) != true)) {
-                    this.BrandField = value;
-                    this.RaisePropertyChanged("Brand");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CatalogType", Namespace="http://schemas.datacontract.org/2004/07/eShopServiceLibrary")]
-    [System.SerializableAttribute()]
-    public partial class CatalogType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TypeField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Type {
-            get {
-                return this.TypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
-                    this.TypeField = value;
-                    this.RaisePropertyChanged("Type");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="eShopServiceReference.ICatalogService")]
     public interface ICatalogService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/CreateCatalogItem", ReplyAction="http://tempuri.org/ICatalogService/CreateCatalogItemResponse")]
-        void CreateCatalogItem(eShopWinForms.eShopServiceReference.CatalogItem catalogItem);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/FindCatalogItem", ReplyAction="http://tempuri.org/ICatalogService/FindCatalogItemResponse")]
+        eShopServiceLibrary.CatalogItem FindCatalogItem(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/FindCatalogItem", ReplyAction="http://tempuri.org/ICatalogService/FindCatalogItemResponse")]
+        System.Threading.Tasks.Task<eShopServiceLibrary.CatalogItem> FindCatalogItemAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetCatalogBrands", ReplyAction="http://tempuri.org/ICatalogService/GetCatalogBrandsResponse")]
+        eShopServiceLibrary.CatalogBrand[] GetCatalogBrands();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetCatalogBrands", ReplyAction="http://tempuri.org/ICatalogService/GetCatalogBrandsResponse")]
+        System.Threading.Tasks.Task<eShopServiceLibrary.CatalogBrand[]> GetCatalogBrandsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetCatalogTypes", ReplyAction="http://tempuri.org/ICatalogService/GetCatalogTypesResponse")]
+        eShopServiceLibrary.CatalogType[] GetCatalogTypes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetCatalogTypes", ReplyAction="http://tempuri.org/ICatalogService/GetCatalogTypesResponse")]
+        System.Threading.Tasks.Task<eShopServiceLibrary.CatalogType[]> GetCatalogTypesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/CreateCatalogItem", ReplyAction="http://tempuri.org/ICatalogService/CreateCatalogItemResponse")]
-        System.Threading.Tasks.Task CreateCatalogItemAsync(eShopWinForms.eShopServiceReference.CatalogItem catalogItem);
+        void CreateCatalogItem(eShopServiceLibrary.CatalogItem catalogItem);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/CreateCatalogItem", ReplyAction="http://tempuri.org/ICatalogService/CreateCatalogItemResponse")]
+        System.Threading.Tasks.Task CreateCatalogItemAsync(eShopServiceLibrary.CatalogItem catalogItem);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/UpdateCatalogItem", ReplyAction="http://tempuri.org/ICatalogService/UpdateCatalogItemResponse")]
-        void UpdateCatalogItem(eShopWinForms.eShopServiceReference.CatalogItem catalogItem);
+        void UpdateCatalogItem(eShopServiceLibrary.CatalogItem catalogItem);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/UpdateCatalogItem", ReplyAction="http://tempuri.org/ICatalogService/UpdateCatalogItemResponse")]
-        System.Threading.Tasks.Task UpdateCatalogItemAsync(eShopWinForms.eShopServiceReference.CatalogItem catalogItem);
+        System.Threading.Tasks.Task UpdateCatalogItemAsync(eShopServiceLibrary.CatalogItem catalogItem);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/RemoveCatalogItem", ReplyAction="http://tempuri.org/ICatalogService/RemoveCatalogItemResponse")]
-        void RemoveCatalogItem(eShopWinForms.eShopServiceReference.CatalogItem catalogItem);
+        void RemoveCatalogItem(eShopServiceLibrary.CatalogItem catalogItem);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/RemoveCatalogItem", ReplyAction="http://tempuri.org/ICatalogService/RemoveCatalogItemResponse")]
-        System.Threading.Tasks.Task RemoveCatalogItemAsync(eShopWinForms.eShopServiceReference.CatalogItem catalogItem);
+        System.Threading.Tasks.Task RemoveCatalogItemAsync(eShopServiceLibrary.CatalogItem catalogItem);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -438,27 +79,51 @@ namespace eShopWinForms.eShopServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public void CreateCatalogItem(eShopWinForms.eShopServiceReference.CatalogItem catalogItem) {
+        public eShopServiceLibrary.CatalogItem FindCatalogItem(int id) {
+            return base.Channel.FindCatalogItem(id);
+        }
+        
+        public System.Threading.Tasks.Task<eShopServiceLibrary.CatalogItem> FindCatalogItemAsync(int id) {
+            return base.Channel.FindCatalogItemAsync(id);
+        }
+        
+        public eShopServiceLibrary.CatalogBrand[] GetCatalogBrands() {
+            return base.Channel.GetCatalogBrands();
+        }
+        
+        public System.Threading.Tasks.Task<eShopServiceLibrary.CatalogBrand[]> GetCatalogBrandsAsync() {
+            return base.Channel.GetCatalogBrandsAsync();
+        }
+        
+        public eShopServiceLibrary.CatalogType[] GetCatalogTypes() {
+            return base.Channel.GetCatalogTypes();
+        }
+        
+        public System.Threading.Tasks.Task<eShopServiceLibrary.CatalogType[]> GetCatalogTypesAsync() {
+            return base.Channel.GetCatalogTypesAsync();
+        }
+        
+        public void CreateCatalogItem(eShopServiceLibrary.CatalogItem catalogItem) {
             base.Channel.CreateCatalogItem(catalogItem);
         }
         
-        public System.Threading.Tasks.Task CreateCatalogItemAsync(eShopWinForms.eShopServiceReference.CatalogItem catalogItem) {
+        public System.Threading.Tasks.Task CreateCatalogItemAsync(eShopServiceLibrary.CatalogItem catalogItem) {
             return base.Channel.CreateCatalogItemAsync(catalogItem);
         }
         
-        public void UpdateCatalogItem(eShopWinForms.eShopServiceReference.CatalogItem catalogItem) {
+        public void UpdateCatalogItem(eShopServiceLibrary.CatalogItem catalogItem) {
             base.Channel.UpdateCatalogItem(catalogItem);
         }
         
-        public System.Threading.Tasks.Task UpdateCatalogItemAsync(eShopWinForms.eShopServiceReference.CatalogItem catalogItem) {
+        public System.Threading.Tasks.Task UpdateCatalogItemAsync(eShopServiceLibrary.CatalogItem catalogItem) {
             return base.Channel.UpdateCatalogItemAsync(catalogItem);
         }
         
-        public void RemoveCatalogItem(eShopWinForms.eShopServiceReference.CatalogItem catalogItem) {
+        public void RemoveCatalogItem(eShopServiceLibrary.CatalogItem catalogItem) {
             base.Channel.RemoveCatalogItem(catalogItem);
         }
         
-        public System.Threading.Tasks.Task RemoveCatalogItemAsync(eShopWinForms.eShopServiceReference.CatalogItem catalogItem) {
+        public System.Threading.Tasks.Task RemoveCatalogItemAsync(eShopServiceLibrary.CatalogItem catalogItem) {
             return base.Channel.RemoveCatalogItemAsync(catalogItem);
         }
     }
