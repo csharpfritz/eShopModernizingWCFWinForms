@@ -86,8 +86,9 @@
             this.SuspendLayout();
             // 
             // catalogItemBindingSource
-            // 
-            this.catalogItemBindingSource.DataSource = typeof(eShopServiceLibrary.CatalogItem);
+            //
+            eShopServiceLibrary.CatalogServiceMock mock = new eShopServiceLibrary.CatalogServiceMock();
+            this.catalogItemBindingSource.DataSource = mock;
             // 
             // tableLayoutPanel1
             // 

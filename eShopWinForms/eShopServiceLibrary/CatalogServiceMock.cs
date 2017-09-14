@@ -98,5 +98,6 @@ namespace eShopServiceLibrary
         {
             return catalogTypes;
         }
+
     }
 }

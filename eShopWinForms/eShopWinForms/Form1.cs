@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using eShopServiceLibrary;
 
 namespace eShopWinForms
 {
@@ -15,6 +16,8 @@ namespace eShopWinForms
         public Form1()
         {
             InitializeComponent();
+            CatalogServiceMock mock = new CatalogServiceMock();
+            catalogItemDataGridView.DataSource = mock.GetCatalogItems();
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
