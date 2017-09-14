@@ -12,18 +12,15 @@ namespace eShopServiceLibrary
     public class CatalogService : ICatalogService
     {
         private eShopDatabaseEntities ents;
-        private CatalogItemHiLoGenerator indexGenerator;
 
         public CatalogService()
         {
             ents = new eShopDatabaseEntities();
-            indexGenerator = new CatalogItemHiLoGenerator();
         }
 
-        public CatalogService(eShopDatabaseEntities ents, CatalogItemHiLoGenerator indexGenerator)
+        public CatalogService(eShopDatabaseEntities ents)
         {
             this.ents = ents;
-            this.indexGenerator = indexGenerator;
         }
 
         public PaginatedItemsViewModel<CatalogItem> GetCatalogItemsPaginated(int pageSize, int pageIndex)
@@ -44,7 +41,7 @@ namespace eShopServiceLibrary
 
         public CatalogItem FindCatalogItem(int id)
         {
-            return ents.CatalogItems.Include(c => c.CatalogBrand).Include(c => c.CatalogType).FirstOrDefault(ci => ci.Id == id);
+            return ents.CatalogItems.FirstOrDefault(x => x.Id == id);
         }
         public List<CatalogType> GetCatalogTypes()
         {
@@ -58,7 +55,8 @@ namespace eShopServiceLibrary
 
         public void CreateCatalogItem(CatalogItem catalogItem)
         {
-            catalogItem.Id = indexGenerator.GetNextSequenceValue(ents);
+            var maxId = ents.CatalogItems.Max(i => i.Id);
+            catalogItem.Id = ++maxId;
             ents.CatalogItems.Add(catalogItem);
             ents.SaveChanges();
         }

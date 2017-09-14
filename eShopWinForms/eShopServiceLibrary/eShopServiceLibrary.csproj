@@ -62,6 +62,7 @@
       <DependentUpon>eShopEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CatalogService.cs" />
+    <Compile Include="CatalogServiceMock.cs" />
     <Compile Include="CatalogType.cs">
       <DependentUpon>eShopEntityModel.tt</DependentUpon>
     </Compile>
