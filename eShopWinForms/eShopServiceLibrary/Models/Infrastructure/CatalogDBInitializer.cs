@@ -11,7 +11,7 @@ using System.Web;
 
 namespace eShopServiceLibrary.Models.Infrastructure
 {
-    public class CatalogDBInitializer : CreateDatabaseIfNotExists<CatalogDBContext>
+    public class CatalogDBInitializer : CreateDatabaseIfNotExists<eShopDatabaseEntities>
     {
         private const string DBCatalogSequenceName = "catalog_type_hilo";
         private const string DBBrandSequenceName = "catalog_brand_hilo";
@@ -28,7 +28,7 @@ namespace eShopServiceLibrary.Models.Infrastructure
             useCustomizationData = false;
         }
 
-        protected override void Seed(CatalogDBContext context)
+        protected override void Seed(eShopDatabaseEntities context)
         {
             ExecuteScript(context, CatalogItemHiLoSequenceScript);
             ExecuteScript(context, CatalogBrandHiLoSequenceScript);
@@ -41,7 +41,7 @@ namespace eShopServiceLibrary.Models.Infrastructure
             
         }
 
-        private void AddCatalogTypes(CatalogDBContext context)
+        private void AddCatalogTypes(eShopDatabaseEntities context)
         {
             var preconfiguredTypes = useCustomizationData
                 ? GetCatalogTypesFromFile()
@@ -58,7 +58,7 @@ namespace eShopServiceLibrary.Models.Infrastructure
             context.SaveChanges();
         }
 
-        private void AddCatalogBrands(CatalogDBContext context)
+        private void AddCatalogBrands(eShopDatabaseEntities context)
         {
             var preconfiguredBrands = useCustomizationData
                 ? GetCatalogBrandsFromFile()
@@ -75,7 +75,7 @@ namespace eShopServiceLibrary.Models.Infrastructure
             context.SaveChanges();
         }
 
-        private void AddCatalogItems(CatalogDBContext context)
+        private void AddCatalogItems(eShopDatabaseEntities context)
         {
             var preconfiguredItems = useCustomizationData
                 ? GetCatalogItemsFromFile(context)
@@ -163,7 +163,7 @@ namespace eShopServiceLibrary.Models.Infrastructure
             };
         }
 
-        static IEnumerable<CatalogItem> GetCatalogItemsFromFile(CatalogDBContext context)
+        static IEnumerable<CatalogItem> GetCatalogItemsFromFile(eShopDatabaseEntities context)
         {
             var contentRootPath = "";
             string csvFileCatalogItems = Path.Combine(contentRootPath, "Setup", "CatalogItems.csv");
@@ -248,7 +248,7 @@ namespace eShopServiceLibrary.Models.Infrastructure
                 {
                     if (int.TryParse(restockThresholdString, out int restockThreshold))
                     {
-                        catalogItem.RestockThreshold = restockThreshold;
+                        //catalogItem.RestockThreshold = restockThreshold;
                     }
                     else
                     {
@@ -265,7 +265,7 @@ namespace eShopServiceLibrary.Models.Infrastructure
                 {
                     if (int.TryParse(maxStockThresholdString, out int maxStockThreshold))
                     {
-                        catalogItem.MaxStockThreshold = maxStockThreshold;
+                        //catalogItem.MaxStockThreshold = maxStockThreshold;
                     }
                     else
                     {
@@ -282,7 +282,7 @@ namespace eShopServiceLibrary.Models.Infrastructure
                 {
                     if (bool.TryParse(onReorderString, out bool onReorder))
                     {
-                        catalogItem.OnReorder = onReorder;
+                        //catalogItem.OnReorder = onReorder;
                     }
                     else
                     {
@@ -322,14 +322,14 @@ namespace eShopServiceLibrary.Models.Infrastructure
             return csvheaders;
         }
 
-        private static int GetSequenceIdFromSelectedDBSequence(CatalogDBContext context, string dBSequenceName)
+        private static int GetSequenceIdFromSelectedDBSequence(eShopDatabaseEntities context, string dBSequenceName)
         {
             var rawQuery = context.Database.SqlQuery<Int64>($"SELECT NEXT VALUE FOR {dBSequenceName}");
             var sequenceId = (int)rawQuery.Single();
             return sequenceId;
         }
 
-        private void ExecuteScript(CatalogDBContext context, string scriptFile)
+        private void ExecuteScript(eShopDatabaseEntities context, string scriptFile)
         {
             var scriptFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, scriptFile);
             context.Database.ExecuteSqlCommand(File.ReadAllText(scriptFilePath));
