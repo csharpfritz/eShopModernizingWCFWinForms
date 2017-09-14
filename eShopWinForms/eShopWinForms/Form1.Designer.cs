@@ -103,7 +103,7 @@
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.43439F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.56561F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 970F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1024F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(907, 1293);
             this.tableLayoutPanel1.TabIndex = 1;
@@ -123,10 +123,10 @@
             // 
             this.tabControl.Controls.Add(this.MainCatalog);
             this.tabControl.Controls.Add(this.tabPage1);
-            this.tabControl.Location = new System.Drawing.Point(3, 282);
+            this.tabControl.Location = new System.Drawing.Point(3, 228);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(901, 964);
+            this.tabControl.Size = new System.Drawing.Size(901, 991);
             this.tabControl.TabIndex = 0;
             // 
             // MainCatalog
@@ -135,7 +135,7 @@
             this.MainCatalog.Location = new System.Drawing.Point(8, 39);
             this.MainCatalog.Name = "MainCatalog";
             this.MainCatalog.Padding = new System.Windows.Forms.Padding(3);
-            this.MainCatalog.Size = new System.Drawing.Size(885, 917);
+            this.MainCatalog.Size = new System.Drawing.Size(885, 944);
             this.MainCatalog.TabIndex = 0;
             this.MainCatalog.Text = "Main Catalog ";
             this.MainCatalog.UseVisualStyleBackColor = true;
@@ -162,7 +162,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.8125F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.1875F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
             this.tableLayoutPanel3.Controls.Add(this.catalogBrandComboBox, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.catalogTypeComboBox, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 2, 0);
@@ -179,7 +179,7 @@
             this.catalogBrandComboBox.DataSource = this.catalogBrandBindingSource1;
             this.catalogBrandComboBox.DisplayMember = "Brand";
             this.catalogBrandComboBox.FormattingEnabled = true;
-            this.catalogBrandComboBox.Location = new System.Drawing.Point(489, 3);
+            this.catalogBrandComboBox.Location = new System.Drawing.Point(487, 3);
             this.catalogBrandComboBox.Name = "catalogBrandComboBox";
             this.catalogBrandComboBox.Size = new System.Drawing.Size(132, 33);
             this.catalogBrandComboBox.TabIndex = 3;
@@ -194,9 +194,9 @@
             this.catalogTypeComboBox.DataSource = this.catalogTypeBindingSource;
             this.catalogTypeComboBox.DisplayMember = "Type";
             this.catalogTypeComboBox.FormattingEnabled = true;
-            this.catalogTypeComboBox.Location = new System.Drawing.Point(134, 3);
+            this.catalogTypeComboBox.Location = new System.Drawing.Point(133, 3);
             this.catalogTypeComboBox.Name = "catalogTypeComboBox";
-            this.catalogTypeComboBox.Size = new System.Drawing.Size(262, 33);
+            this.catalogTypeComboBox.Size = new System.Drawing.Size(261, 33);
             this.catalogTypeComboBox.TabIndex = 2;
             this.catalogTypeComboBox.ValueMember = "Id";
             this.catalogTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.catalogTypeComboBox_SelectedIndexChanged);
@@ -208,7 +208,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(402, 0);
+            this.label1.Location = new System.Drawing.Point(400, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 25);
             this.label1.TabIndex = 2;
@@ -396,9 +396,9 @@
             // 
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox3.Image = global::eShopWinForms.Properties.Resources.main_banner;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 71);
+            this.pictureBox3.Location = new System.Drawing.Point(3, 58);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(901, 205);
+            this.pictureBox3.Size = new System.Drawing.Size(901, 164);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
