@@ -1,2 +1,13 @@
 FROM microsoft/mssql-server-windows
-ADDDB shop eShopDatabase.mdf
+
+#copy the database files from host to container
+COPY containerScripts/createDatabases.sql createDatabases.sql
+COPY containerScripts/populateDatabases.sql populateDatabases.sql
+COPY containerScripts/eShopEntityModel.edmx.sql generateModel.sql
+COPY containerScripts/entrypoint.ps1 entrypoint.ps1
+
+#set environment variables
+ENV sa_password=Testing11@@
+ENV ACCEPT_EULA=Y
+
+#CMD .\entrypoint -sa_password $env:sa_password

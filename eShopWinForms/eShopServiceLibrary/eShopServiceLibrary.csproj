@@ -55,9 +55,32 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CatalogBrand.cs">
+      <DependentUpon>eShopEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogItem.cs">
+      <DependentUpon>eShopEntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CatalogService.cs" />
+    <Compile Include="CatalogType.cs">
+      <DependentUpon>eShopEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="eShopEntityModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eShopEntityModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="eShopEntityModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eShopEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="eShopEntityModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eShopEntityModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="ICatalogService.cs" />
-    <Compile Include="Models\CatalogDBContext.cs" />
     <Compile Include="Models\CatalogItemHiLoGenerator.cs" />
     <Compile Include="Models\Infrastructure\CatalogDBInitializer.cs" />
     <Compile Include="Models\Infrastructure\PreconfiguredData.cs" />
@@ -65,11 +88,34 @@
     <Compile Include="ViewModel\PaginatedItemsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="eShopEntityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>eShopEntityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="eShopEntityModel.edmx.diagram">
+      <DependentUpon>eShopEntityModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="eShopEntityModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>eShopEntityModel.Context.cs</LastGenOutput>
+      <DependentUpon>eShopEntityModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="eShopEntityModel.edmx.sql" />
+    <Content Include="eShopEntityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>eShopEntityModel.edmx</DependentUpon>
+      <LastGenOutput>eShopEntityModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

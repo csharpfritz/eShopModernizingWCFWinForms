@@ -11,24 +11,26 @@ namespace eShopServiceLibrary
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "CatalogService" in both code and config file together.
     public class CatalogService : ICatalogService
     {
-        private CatalogDBContext db;
+        private eShopDatabaseEntities ents;
         private CatalogItemHiLoGenerator indexGenerator;
 
         public CatalogService()
         {
+            ents = new eShopDatabaseEntities();
+            indexGenerator = new CatalogItemHiLoGenerator();
         }
 
-        public CatalogService(CatalogDBContext db, CatalogItemHiLoGenerator indexGenerator)
+        public CatalogService(eShopDatabaseEntities ents, CatalogItemHiLoGenerator indexGenerator)
         {
-            this.db = db;
+            this.ents = ents;
             this.indexGenerator = indexGenerator;
         }
 
         public PaginatedItemsViewModel<CatalogItem> GetCatalogItemsPaginated(int pageSize, int pageIndex)
         {
-            var totalItems = db.CatalogItems.LongCount();
+            var totalItems = ents.CatalogItems.LongCount();
 
-            var itemsOnPage = db.CatalogItems
+            var itemsOnPage = ents.CatalogItems
                 .Include(c => c.CatalogBrand)
                 .Include(c => c.CatalogType)
                 .OrderBy(c => c.Id)
@@ -42,40 +44,40 @@ namespace eShopServiceLibrary
 
         public CatalogItem FindCatalogItem(int id)
         {
-            return db.CatalogItems.Include(c => c.CatalogBrand).Include(c => c.CatalogType).FirstOrDefault(ci => ci.Id == id);
+            return ents.CatalogItems.Include(c => c.CatalogBrand).Include(c => c.CatalogType).FirstOrDefault(ci => ci.Id == id);
         }
-        public IEnumerable<CatalogType> GetCatalogTypes()
+        public List<CatalogType> GetCatalogTypes()
         {
-            return db.CatalogTypes;
+            return ents.CatalogTypes.ToList();
         }
 
-        public IEnumerable<CatalogBrand> GetCatalogBrands()
+        public List<CatalogBrand> GetCatalogBrands()
         {
-            return db.CatalogBrands;
+            return ents.CatalogBrands.ToList();
         }
 
         public void CreateCatalogItem(CatalogItem catalogItem)
         {
-            catalogItem.Id = indexGenerator.GetNextSequenceValue(db);
-            db.CatalogItems.Add(catalogItem);
-            db.SaveChanges();
+            catalogItem.Id = indexGenerator.GetNextSequenceValue(ents);
+            ents.CatalogItems.Add(catalogItem);
+            ents.SaveChanges();
         }
 
         public void UpdateCatalogItem(CatalogItem catalogItem)
         {
-            db.Entry(catalogItem).State = EntityState.Modified;
-            db.SaveChanges();
+            ents.Entry(catalogItem).State = EntityState.Modified;
+            ents.SaveChanges();
         }
 
         public void RemoveCatalogItem(CatalogItem catalogItem)
         {
-            db.CatalogItems.Remove(catalogItem);
-            db.SaveChanges();
+            ents.CatalogItems.Remove(catalogItem);
+            ents.SaveChanges();
         }
 
         public void Dispose()
         {
-            db.Dispose();
+            ents.Dispose();
         }
     }
 }
