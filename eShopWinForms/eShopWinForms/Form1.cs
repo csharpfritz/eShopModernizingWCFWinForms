@@ -16,6 +16,7 @@ namespace eShopWinForms
     {
         public Form1()
         {
+            
             InitializeComponent();
             LoadInitialData();
         }
@@ -34,34 +35,38 @@ namespace eShopWinForms
 
         private void LoadInitialData()
         {
-            CatalogServiceMock mock = new CatalogServiceMock();
-            IEnumerable<CatalogItem> items = mock.GetCatalogItems();
+            eShopServiceReference.ICatalogService service = new eShopServiceReference.CatalogServiceClient();
+            //CatalogServiceMock service = new CatalogServiceMock();
+            IEnumerable<CatalogItem> items = service.GetCatalogItems();
             IList<CatalogItem> itemsList = items.ToList();
             
             //Load Image Column
             DataGridViewImageColumn imgcol = new DataGridViewImageColumn();
             catalogItemDataGridView.Columns.Insert(0, imgcol);
-            
-            for (int i = 0; i < itemsList.Count; i++)
-            {
-                catalogItemDataGridView.Rows.Add();
-                Image img = Image.FromFile("C:/IgniteDemo/eShopModernizingWCFWinForms/eShopWinForms/eShopWinForms/Assets/Images/Catalog/" + itemsList[i].PictureFileName);
-                Image thumb = img.GetThumbnailImage(192, 108, null, IntPtr.Zero);
-                catalogItemDataGridView[0, i].Value = thumb;
+            imgcol.Name = "PictureFileName";
 
-                //Load ListBoxData
-                //listBox1.DataSource = itemsList[i].Id;
-                listBox1.DataSource = itemsList;
-            }
-            
             //Load other data
             //catalogItemDataGridView.AutoGenerateColumns = false;
-            //catalogItemDataGridView.DataSource = itemsList;
+            catalogItemDataGridView.DataSource = itemsList;
+
+            //////for (int i = 0; i < itemsList.Count; i++)
+            //////{
+            //////    catalogItemDataGridView.Rows.Add();
+            //////    Image img = Image.FromFile("C:/IgniteDemo/eShopModernizingWCFWinForms/eShopWinForms/eShopWinForms/Assets/Images/Catalog/" + itemsList[i].PictureFileName);
+            //////    Image thumb = img.GetThumbnailImage(192, 108, null, IntPtr.Zero);
+            //////    catalogItemDataGridView[0, i].Value = thumb;
+
+            //////    //Load ListBoxData
+            //////    //listBox1.DataSource = itemsList[i].Id;
+            //////    listBox1.DataSource = itemsList;
+            //////}
+            
+
             
             //Load ComboBoxData
             //catalogTypeComboBox.Items[0] = "All";
-            catalogTypeComboBox.DataSource = mock.GetCatalogTypes();
-            catalogBrandComboBox.DataSource = mock.GetCatalogBrands();
+            catalogTypeComboBox.DataSource = service.GetCatalogTypes();
+            catalogBrandComboBox.DataSource = service.GetCatalogBrands();
 
         }
 
@@ -85,7 +90,10 @@ namespace eShopWinForms
 
         }
 
-       
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

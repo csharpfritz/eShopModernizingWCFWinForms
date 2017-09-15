@@ -80,7 +80,7 @@ namespace eShopServiceLibrary
 
         public List<CatalogItem> GetCatalogItems()
         {
-            throw new NotImplementedException();
+            return ents.CatalogItems.ToList();
         }
     }
 }

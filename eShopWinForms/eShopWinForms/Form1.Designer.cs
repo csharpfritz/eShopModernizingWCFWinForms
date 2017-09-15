@@ -58,6 +58,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.catalogBrandBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.catalogItemBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.catalogItemBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -77,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -103,7 +105,7 @@
             this.pictureBox1.Image = global::eShopWinForms.Properties.Resources.brand;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(213, 41);
+            this.pictureBox1.Size = new System.Drawing.Size(213, 49);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -141,6 +143,29 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.866953F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.13305F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1245, 942);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -151,7 +176,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.8125F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.1875F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 154F));
             this.tableLayoutPanel3.Controls.Add(this.catalogBrandComboBox, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.catalogTypeComboBox, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 2, 0);
@@ -168,7 +193,7 @@
             this.catalogBrandComboBox.DataSource = this.catalogBrandBindingSource1;
             this.catalogBrandComboBox.DisplayMember = "Brand";
             this.catalogBrandComboBox.FormattingEnabled = true;
-            this.catalogBrandComboBox.Location = new System.Drawing.Point(481, 3);
+            this.catalogBrandComboBox.Location = new System.Drawing.Point(477, 3);
             this.catalogBrandComboBox.Name = "catalogBrandComboBox";
             this.catalogBrandComboBox.Size = new System.Drawing.Size(132, 33);
             this.catalogBrandComboBox.TabIndex = 3;
@@ -179,9 +204,9 @@
             this.catalogTypeComboBox.DataSource = this.catalogTypeBindingSource;
             this.catalogTypeComboBox.DisplayMember = "Type";
             this.catalogTypeComboBox.FormattingEnabled = true;
-            this.catalogTypeComboBox.Location = new System.Drawing.Point(131, 3);
+            this.catalogTypeComboBox.Location = new System.Drawing.Point(130, 3);
             this.catalogTypeComboBox.Name = "catalogTypeComboBox";
-            this.catalogTypeComboBox.Size = new System.Drawing.Size(257, 33);
+            this.catalogTypeComboBox.Size = new System.Drawing.Size(254, 33);
             this.catalogTypeComboBox.TabIndex = 2;
             this.catalogTypeComboBox.ValueMember = "Id";
             this.catalogTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.catalogTypeComboBox_SelectedIndexChanged);
@@ -189,7 +214,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(394, 0);
+            this.label1.Location = new System.Drawing.Point(390, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 25);
             this.label1.TabIndex = 2;
@@ -337,15 +362,20 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
+            // catalogItemBindingSource3
+            // 
+            this.catalogItemBindingSource3.DataSource = typeof(eShopServiceLibrary.CatalogItem);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1291, 1317);
+            this.ClientSize = new System.Drawing.Size(1299, 1307);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
             this.Text = "eShop WinForms";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -366,6 +396,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -405,6 +436,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView catalogItemDataGridView;
+        private System.Windows.Forms.BindingSource catalogItemBindingSource3;
     }
 }
 

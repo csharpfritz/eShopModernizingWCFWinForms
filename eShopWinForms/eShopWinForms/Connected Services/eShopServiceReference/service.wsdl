@@ -19,6 +19,12 @@
   <wsdl:message name="ICatalogService_GetCatalogBrands_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCatalogBrandsResponse" />
   </wsdl:message>
+  <wsdl:message name="ICatalogService_GetCatalogItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogItems" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_GetCatalogItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogItemsResponse" />
+  </wsdl:message>
   <wsdl:message name="ICatalogService_GetCatalogTypes_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCatalogTypes" />
   </wsdl:message>
@@ -52,6 +58,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/GetCatalogBrands" message="tns:ICatalogService_GetCatalogBrands_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/GetCatalogBrandsResponse" message="tns:ICatalogService_GetCatalogBrands_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetCatalogItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/GetCatalogItems" message="tns:ICatalogService_GetCatalogItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/GetCatalogItemsResponse" message="tns:ICatalogService_GetCatalogItems_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetCatalogTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/GetCatalogTypes" message="tns:ICatalogService_GetCatalogTypes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/GetCatalogTypesResponse" message="tns:ICatalogService_GetCatalogTypes_OutputMessage" />
@@ -82,6 +92,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetCatalogBrands">
       <soap:operation soapAction="http://tempuri.org/ICatalogService/GetCatalogBrands" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogItems">
+      <soap:operation soapAction="http://tempuri.org/ICatalogService/GetCatalogItems" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

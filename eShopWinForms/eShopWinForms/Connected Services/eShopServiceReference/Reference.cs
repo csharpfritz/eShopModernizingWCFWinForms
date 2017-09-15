@@ -27,6 +27,12 @@ namespace eShopWinForms.eShopServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetCatalogBrands", ReplyAction="http://tempuri.org/ICatalogService/GetCatalogBrandsResponse")]
         System.Threading.Tasks.Task<eShopServiceLibrary.CatalogBrand[]> GetCatalogBrandsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetCatalogItems", ReplyAction="http://tempuri.org/ICatalogService/GetCatalogItemsResponse")]
+        eShopServiceLibrary.CatalogItem[] GetCatalogItems();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetCatalogItems", ReplyAction="http://tempuri.org/ICatalogService/GetCatalogItemsResponse")]
+        System.Threading.Tasks.Task<eShopServiceLibrary.CatalogItem[]> GetCatalogItemsAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetCatalogTypes", ReplyAction="http://tempuri.org/ICatalogService/GetCatalogTypesResponse")]
         eShopServiceLibrary.CatalogType[] GetCatalogTypes();
         
@@ -93,6 +99,14 @@ namespace eShopWinForms.eShopServiceReference {
         
         public System.Threading.Tasks.Task<eShopServiceLibrary.CatalogBrand[]> GetCatalogBrandsAsync() {
             return base.Channel.GetCatalogBrandsAsync();
+        }
+        
+        public eShopServiceLibrary.CatalogItem[] GetCatalogItems() {
+            return base.Channel.GetCatalogItems();
+        }
+        
+        public System.Threading.Tasks.Task<eShopServiceLibrary.CatalogItem[]> GetCatalogItemsAsync() {
+            return base.Channel.GetCatalogItemsAsync();
         }
         
         public eShopServiceLibrary.CatalogType[] GetCatalogTypes() {
