@@ -99,5 +99,10 @@ namespace eShopServiceLibrary
             return catalogTypes;
         }
 
+        List<CatalogItem> ICatalogService.GetCatalogItems()
+        {
+            return catalogItems;
+        }
+
     }
 }

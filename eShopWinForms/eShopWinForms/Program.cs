@@ -18,10 +18,6 @@ namespace eShopWinForms
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-
-            DataGridView dgv = new DataGridView();
-            CatalogServiceMock mock = new CatalogServiceMock();
-            dgv.DataSource = mock;
         }
     }
 }

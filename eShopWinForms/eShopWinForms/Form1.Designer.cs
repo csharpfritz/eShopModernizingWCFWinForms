@@ -43,12 +43,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.typeFilter = new System.Windows.Forms.Label();
             this.catalogItemDataGridView = new System.Windows.Forms.DataGridView();
-            this.PictureFileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
@@ -85,11 +79,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
-            // catalogItemBindingSource
-            //
-            eShopServiceLibrary.CatalogServiceMock mock = new eShopServiceLibrary.CatalogServiceMock();
-            this.catalogItemBindingSource.DataSource = mock;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -106,9 +95,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.56561F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1024F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(907, 1293);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1267, 1293);
             this.tableLayoutPanel1.TabIndex = 1;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // pictureBox1
             // 
@@ -127,7 +115,7 @@
             this.tabControl.Location = new System.Drawing.Point(3, 228);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(901, 991);
+            this.tabControl.Size = new System.Drawing.Size(1261, 991);
             this.tabControl.TabIndex = 0;
             // 
             // MainCatalog
@@ -136,7 +124,7 @@
             this.MainCatalog.Location = new System.Drawing.Point(8, 39);
             this.MainCatalog.Name = "MainCatalog";
             this.MainCatalog.Padding = new System.Windows.Forms.Padding(3);
-            this.MainCatalog.Size = new System.Drawing.Size(885, 944);
+            this.MainCatalog.Size = new System.Drawing.Size(1245, 944);
             this.MainCatalog.TabIndex = 0;
             this.MainCatalog.Text = "Main Catalog ";
             this.MainCatalog.UseVisualStyleBackColor = true;
@@ -153,7 +141,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.866953F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.13305F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(895, 942);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1245, 942);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -163,7 +151,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.8125F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.1875F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel3.Controls.Add(this.catalogBrandComboBox, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.catalogTypeComboBox, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 2, 0);
@@ -180,36 +168,28 @@
             this.catalogBrandComboBox.DataSource = this.catalogBrandBindingSource1;
             this.catalogBrandComboBox.DisplayMember = "Brand";
             this.catalogBrandComboBox.FormattingEnabled = true;
-            this.catalogBrandComboBox.Location = new System.Drawing.Point(487, 3);
+            this.catalogBrandComboBox.Location = new System.Drawing.Point(481, 3);
             this.catalogBrandComboBox.Name = "catalogBrandComboBox";
             this.catalogBrandComboBox.Size = new System.Drawing.Size(132, 33);
             this.catalogBrandComboBox.TabIndex = 3;
             this.catalogBrandComboBox.ValueMember = "Brand";
-            // 
-            // catalogBrandBindingSource1
-            // 
-            this.catalogBrandBindingSource1.DataSource = typeof(eShopServiceLibrary.CatalogBrand);
             // 
             // catalogTypeComboBox
             // 
             this.catalogTypeComboBox.DataSource = this.catalogTypeBindingSource;
             this.catalogTypeComboBox.DisplayMember = "Type";
             this.catalogTypeComboBox.FormattingEnabled = true;
-            this.catalogTypeComboBox.Location = new System.Drawing.Point(133, 3);
+            this.catalogTypeComboBox.Location = new System.Drawing.Point(131, 3);
             this.catalogTypeComboBox.Name = "catalogTypeComboBox";
-            this.catalogTypeComboBox.Size = new System.Drawing.Size(261, 33);
+            this.catalogTypeComboBox.Size = new System.Drawing.Size(257, 33);
             this.catalogTypeComboBox.TabIndex = 2;
             this.catalogTypeComboBox.ValueMember = "Id";
             this.catalogTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.catalogTypeComboBox_SelectedIndexChanged);
             // 
-            // catalogTypeBindingSource
-            // 
-            this.catalogTypeBindingSource.DataSource = typeof(eShopServiceLibrary.CatalogType);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(400, 0);
+            this.label1.Location = new System.Drawing.Point(394, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 25);
             this.label1.TabIndex = 2;
@@ -226,71 +206,16 @@
             // 
             // catalogItemDataGridView
             // 
-            this.catalogItemDataGridView.AutoGenerateColumns = false;
+            this.catalogItemDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.catalogItemDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.catalogItemDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.catalogItemDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PictureFileName,
-            this.dataGridViewTextBoxName,
-            this.dataGridViewTextBoxDescription,
-            this.dataGridViewTextBoxPrice,
-            this.dataGridViewTextBoxType,
-            this.dataGridViewTextBoxBrand});
-            this.catalogItemDataGridView.DataSource = this.catalogItemBindingSource;
             this.catalogItemDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.catalogItemDataGridView.Location = new System.Drawing.Point(3, 67);
             this.catalogItemDataGridView.Name = "catalogItemDataGridView";
             this.catalogItemDataGridView.RowTemplate.Height = 33;
-            this.catalogItemDataGridView.Size = new System.Drawing.Size(889, 872);
+            this.catalogItemDataGridView.Size = new System.Drawing.Size(1239, 872);
             this.catalogItemDataGridView.TabIndex = 1;
-            this.catalogItemDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.catalogItemDataGridView_CellContentClick_1);
-            // 
-            // PictureFileName
-            // 
-            this.PictureFileName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.PictureFileName.DataPropertyName = "PictureFileName";
-            this.PictureFileName.HeaderText = "";
-            this.PictureFileName.Name = "PictureFileName";
-            this.PictureFileName.Width = 37;
-            // 
-            // dataGridViewTextBoxName
-            // 
-            this.dataGridViewTextBoxName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxName.DataPropertyName = "Name";
-            this.dataGridViewTextBoxName.HeaderText = "Name";
-            this.dataGridViewTextBoxName.Name = "dataGridViewTextBoxName";
-            this.dataGridViewTextBoxName.Width = 113;
-            // 
-            // dataGridViewTextBoxDescription
-            // 
-            this.dataGridViewTextBoxDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxDescription.DataPropertyName = "Description";
-            this.dataGridViewTextBoxDescription.HeaderText = "Description";
-            this.dataGridViewTextBoxDescription.Name = "dataGridViewTextBoxDescription";
-            this.dataGridViewTextBoxDescription.Width = 165;
-            // 
-            // dataGridViewTextBoxPrice
-            // 
-            this.dataGridViewTextBoxPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxPrice.DataPropertyName = "Price";
-            this.dataGridViewTextBoxPrice.HeaderText = "Price";
-            this.dataGridViewTextBoxPrice.Name = "dataGridViewTextBoxPrice";
-            this.dataGridViewTextBoxPrice.Width = 106;
-            // 
-            // dataGridViewTextBoxType
-            // 
-            this.dataGridViewTextBoxType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxType.DataPropertyName = "CatalogType";
-            this.dataGridViewTextBoxType.HeaderText = "Type";
-            this.dataGridViewTextBoxType.Name = "dataGridViewTextBoxType";
-            this.dataGridViewTextBoxType.Width = 105;
-            // 
-            // dataGridViewTextBoxBrand
-            // 
-            this.dataGridViewTextBoxBrand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxBrand.DataPropertyName = "CatalogBrand";
-            this.dataGridViewTextBoxBrand.HeaderText = "Brand";
-            this.dataGridViewTextBoxBrand.Name = "dataGridViewTextBoxBrand";
-            this.dataGridViewTextBoxBrand.Width = 114;
+            this.catalogItemDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.catalogItemDataGridView_CellContentClick);
             // 
             // tabPage1
             // 
@@ -299,7 +224,7 @@
             this.tabPage1.Location = new System.Drawing.Point(8, 39);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(885, 917);
+            this.tabPage1.Size = new System.Drawing.Size(1245, 944);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Inventory";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -319,7 +244,6 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.08096F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(840, 914);
             this.tableLayoutPanel4.TabIndex = 5;
-            this.tableLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel4_Paint);
             // 
             // monthCalendar1
             // 
@@ -347,10 +271,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(396, 304);
             this.listBox1.TabIndex = 5;
-            // 
-            // catalogItemBindingSource2
-            // 
-            this.catalogItemBindingSource2.DataSource = typeof(eShopServiceLibrary.CatalogItem);
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -360,6 +281,7 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox2
             // 
@@ -382,6 +304,7 @@
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // idHeader
             // 
@@ -399,7 +322,7 @@
             this.pictureBox3.Image = global::eShopWinForms.Properties.Resources.main_banner;
             this.pictureBox3.Location = new System.Drawing.Point(3, 58);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(901, 164);
+            this.pictureBox3.Size = new System.Drawing.Size(1261, 164);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
@@ -414,20 +337,12 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
-            // catalogBrandBindingSource
-            // 
-            this.catalogBrandBindingSource.DataSource = typeof(eShopServiceLibrary.CatalogBrand);
-            // 
-            // catalogItemBindingSource1
-            // 
-            this.catalogItemBindingSource1.DataSource = typeof(eShopServiceLibrary.CatalogItem);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(930, 1317);
+            this.ClientSize = new System.Drawing.Size(1291, 1317);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
             this.Text = "eShop WinForms";
@@ -468,7 +383,6 @@
         private System.Windows.Forms.ComboBox catalogTypeComboBox;
         private System.Windows.Forms.Label typeFilter;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView catalogItemDataGridView;
         private System.Windows.Forms.BindingSource catalogItemBindingSource1;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage MainCatalog;
@@ -479,7 +393,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.BindingSource catalogItemBindingSource2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PictureFileName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxPrice;
@@ -491,6 +404,7 @@
         private System.Windows.Forms.ColumnHeader availHeader;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView catalogItemDataGridView;
     }
 }
 
