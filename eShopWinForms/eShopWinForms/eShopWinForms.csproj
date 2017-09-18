@@ -90,15 +90,27 @@
     <None Include="Assets\Fonts\segoeui.ttf" />
     <None Include="Assets\Fonts\segoeuib.ttf" />
     <None Include="Assets\Fonts\segoeuil.ttf" />
-    <None Include="Connected Services\eShopServiceReference\eShopServiceLibrary.xsd">
+    <None Include="Connected Services\eShopServiceReference\CatalogService.wsdl" />
+    <None Include="Connected Services\eShopServiceReference\CatalogService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\eShopServiceReference\service.wsdl" />
-    <None Include="Connected Services\eShopServiceReference\service.xsd">
+    <None Include="Connected Services\eShopServiceReference\CatalogService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\eShopServiceReference\service1.xsd">
+    <None Include="Connected Services\eShopServiceReference\CatalogService2.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\eShopServiceReference\CatalogService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\eShopServiceReference\eShopWinForms.eShopServiceReference.CatalogBrand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\eShopServiceReference\eShopWinForms.eShopServiceReference.CatalogItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\eShopServiceReference\eShopWinForms.eShopServiceReference.CatalogType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\eShopServiceLibrary.CatalogBrand.datasource" />
@@ -122,12 +134,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\eShopServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Connected Services\eShopServiceReference\configuration.svcinfo" />
-    <None Include="Connected Services\eShopServiceReference\configuration91.svcinfo" />
     <Content Include="Assets\Images\backgroundPhoto.jpg" />
     <Content Include="Assets\Images\Catalog\1.png" />
     <Content Include="Assets\Images\Catalog\10.png" />
@@ -218,21 +224,22 @@
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <None Include="Connected Services\eShopServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\eShopServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\eShopServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\eShopServiceReference\CatalogService.disco" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\eShopServiceReference\" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\eShopServiceLibrary\eShopServiceLibrary.csproj">
-      <Project>{BB85CA65-BFC8-4EDF-AF8F-0E46277BE387}</Project>
-      <Name>eShopServiceLibrary</Name>
-    </ProjectReference>
+    <WCFMetadataStorage Include="Connected Services\eShopServiceReference\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,4 @@
-namespace eShopServiceLibrary
+namespace eShopWCFService
 {
     using System;
     using System.Collections.Generic;

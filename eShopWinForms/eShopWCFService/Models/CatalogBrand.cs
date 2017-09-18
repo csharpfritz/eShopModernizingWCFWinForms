@@ -1,4 +1,4 @@
-namespace eShopServiceLibrary
+namespace eShopWCFService.Models
 {
     using System;
     using System.Collections.Generic;
@@ -8,7 +8,7 @@ namespace eShopServiceLibrary
     using System.Runtime.Serialization;
 
     [DataContract]
-    public partial class CatalogType
+    public partial class CatalogBrand
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [DataMember]
@@ -16,6 +16,6 @@ namespace eShopServiceLibrary
 
         [StringLength(50)]
         [DataMember]
-        public string Type { get; set; }
+        public string Brand { get; set; }
     }
 }
