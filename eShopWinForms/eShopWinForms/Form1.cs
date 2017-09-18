@@ -16,8 +16,8 @@ namespace eShopWinForms
     public partial class Form1 : Form
     {
         //Start service 
-        //eShopServiceReference.ICatalogService service = new eShopServiceReference.CatalogServiceClient();
-        CatalogServiceMock service = new CatalogServiceMock();
+        eShopServiceReference.ICatalogService service = new eShopServiceReference.CatalogServiceClient();
+        //CatalogServiceMock service = new CatalogServiceMock();
 
         public Form1()
         {
@@ -42,7 +42,7 @@ namespace eShopWinForms
 
         }
 
-        private void LoadCatalogData(CatalogServiceMock service)
+        private void LoadCatalogData(eShopServiceReference.ICatalogService service)
         {
             IEnumerable<CatalogItem> items = service.GetCatalogItems();
             //IList<CatalogItem> itemsList = items.ToList();
@@ -103,7 +103,7 @@ namespace eShopWinForms
 
         }
 
-        private void LoadTypeComboBox(CatalogServiceMock service)
+        private void LoadTypeComboBox(eShopServiceReference.ICatalogService service)
         {
             //Create IEnumerable List
             IEnumerable<CatalogType> types = service.GetCatalogTypes();
@@ -133,7 +133,7 @@ namespace eShopWinForms
                 {
                     string name = property.Name;
                     object value = property.Getter(catalogtype);
-                    if (name == "Id")
+                    if (name == "Type")
                     {
                         catalogTypeComboBox.Items.Add(value);
                     }
@@ -143,7 +143,7 @@ namespace eShopWinForms
             }
         }
 
-        private void LoadBrandComboBox(CatalogServiceMock service)
+        private void LoadBrandComboBox(eShopServiceReference.ICatalogService service)
         {
 
             IEnumerable<CatalogBrand> brands = service.GetCatalogBrands();
@@ -175,7 +175,7 @@ namespace eShopWinForms
                 {
                     string name = property.Name;
                     object value = property.Getter(catalogbrand);
-                    if (name == "Id")
+                    if (name == "Brand")
                     {
                         catalogBrandComboBox.Items.Add(value);
                     }
@@ -188,7 +188,6 @@ namespace eShopWinForms
         private void AllFilter()
         {
             catalogItemDataGridView.Columns["Id"].Visible = false;
-            //catalogItemDataGridView.Columns["AvailableStock"].Visible = false;
             catalogItemDataGridView.Columns["Picturefilename"].Visible = false;
             catalogItemDataGridView.Columns["CatalogBrandId"].Visible = false;
             catalogItemDataGridView.Columns["CatalogTypeId"].Visible = false;
@@ -210,7 +209,7 @@ namespace eShopWinForms
            
             for (int i = 0; i < catalogItemDataGridView.RowCount-1; i++)
             {
-                var rowTypeValue = catalogItemDataGridView["CatalogTypeId", i].Value.ToString();
+                var rowTypeValue = catalogItemDataGridView["CatalogType", i].Value.ToString();
                 
                 if (selectedTypeValue == "All")
                 {
@@ -236,7 +235,7 @@ namespace eShopWinForms
 
             for (int i = 0; i < catalogItemDataGridView.RowCount - 1; i++)
             {
-                var rowBrandValue = catalogItemDataGridView["CatalogBrandId", i].Value.ToString();
+                var rowBrandValue = catalogItemDataGridView["CatalogBrand", i].Value.ToString();
                 if (selectedBrandValue == "All" || selectedBrandValue == "")
                 {
                     AllFilter();
@@ -253,14 +252,48 @@ namespace eShopWinForms
 
         }
 
-        private void LoadListBox(CatalogServiceMock service)
+        private void Filter(string selectedTypeValue, string selectedBrandValue)
         {
-            IEnumerable<CatalogItem> items = service.GetCatalogItems();
+            for (int i = 0; i < catalogItemDataGridView.RowCount - 1; i++)
+            {
+                var rowTypeValue = catalogItemDataGridView["CatalogTypeId", i].Value.ToString();
+                var rowBrandValue = catalogItemDataGridView["CatalogBrandId", i].Value.ToString();
+
+                if (selectedTypeValue == "All" && selectedBrandValue == "All")
+                {
+                    AllFilter();
+                }
+
+                else if (selectedTypeValue == "All" && selectedBrandValue == rowBrandValue)
+                {
+                    catalogItemDataGridView.Rows[i].Visible = true;
+                }
+
+                else if (selectedBrandValue == "All" && selectedTypeValue == rowTypeValue)
+                {
+                    catalogItemDataGridView.Rows[i].Visible = true;
+                }
+
+                else if (rowTypeValue == selectedTypeValue && rowBrandValue == selectedBrandValue)
+                {
+                    catalogItemDataGridView.Rows[i].Visible = true;
+                }
+
+                else
+                {
+                    catalogItemDataGridView.Rows[i].Visible = false;
+                }
+            }
+        }
+
+        private void LoadListBox(eShopServiceReference.ICatalogService service)
+        {
+            
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -286,12 +319,18 @@ namespace eShopWinForms
         private void catalogTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             TypeFilter();
+            //var selectedTypeValue = catalogTypeComboBox.SelectedItem.ToString();
+            //var selectedBrandValue = catalogBrandComboBox.SelectedItem.ToString();
+            //Filter(selectedTypeValue, selectedBrandValue);
 
         }
 
         private void catalogBrandComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             BrandFilter();
+            //var selectedTypeValue = catalogTypeComboBox.SelectedItem.ToString();
+            //var selectedBrandValue = catalogBrandComboBox.SelectedItem.ToString();
+            //Filter(selectedTypeValue, selectedBrandValue);
         }
     }
 
