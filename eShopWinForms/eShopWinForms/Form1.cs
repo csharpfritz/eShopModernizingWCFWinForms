@@ -197,6 +197,11 @@ namespace eShopWinForms
             catalogItemDataGridView.Columns["Name"].DisplayIndex = 1;
             catalogItemDataGridView.Columns["Description"].DisplayIndex = 2;
             catalogItemDataGridView.Columns["Price"].DisplayIndex = 3;
+
+            for (int i = 0; i < catalogItemDataGridView.RowCount - 1; i++)
+            {
+                catalogItemDataGridView.Rows[i].Visible = true;
+            }
         }
 
         private void TypeFilter()
@@ -251,7 +256,6 @@ namespace eShopWinForms
         private void LoadListBox(CatalogServiceMock service)
         {
             IEnumerable<CatalogItem> items = service.GetCatalogItems();
-            listBox1.DataSource = items.
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
