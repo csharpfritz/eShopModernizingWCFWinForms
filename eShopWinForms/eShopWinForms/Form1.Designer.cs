@@ -37,9 +37,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.catalogBrandComboBox = new System.Windows.Forms.ComboBox();
-            this.catalogBrandBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.catalogTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.catalogTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.typeFilter = new System.Windows.Forms.Label();
             this.catalogItemDataGridView = new System.Windows.Forms.DataGridView();
@@ -48,7 +46,6 @@
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.catalogItemBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -56,8 +53,9 @@
             this.availHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.catalogBrandBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.catalogTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.catalogBrandBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.catalogItemBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.catalogItemBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -66,18 +64,16 @@
             this.MainCatalog.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.catalogTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemDataGridView)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource2)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catalogTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -176,7 +172,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.8125F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.1875F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 154F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 155F));
             this.tableLayoutPanel3.Controls.Add(this.catalogBrandComboBox, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.catalogTypeComboBox, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 2, 0);
@@ -190,21 +186,20 @@
             // 
             // catalogBrandComboBox
             // 
-            this.catalogBrandComboBox.DataSource = this.catalogBrandBindingSource1;
             this.catalogBrandComboBox.DisplayMember = "Brand";
             this.catalogBrandComboBox.FormattingEnabled = true;
-            this.catalogBrandComboBox.Location = new System.Drawing.Point(477, 3);
+            this.catalogBrandComboBox.Location = new System.Drawing.Point(476, 3);
             this.catalogBrandComboBox.Name = "catalogBrandComboBox";
             this.catalogBrandComboBox.Size = new System.Drawing.Size(132, 33);
             this.catalogBrandComboBox.TabIndex = 3;
             this.catalogBrandComboBox.ValueMember = "Brand";
+            this.catalogBrandComboBox.SelectedIndexChanged += new System.EventHandler(this.catalogBrandComboBox_SelectedIndexChanged);
             // 
             // catalogTypeComboBox
             // 
-            this.catalogTypeComboBox.DataSource = this.catalogTypeBindingSource;
             this.catalogTypeComboBox.DisplayMember = "Type";
             this.catalogTypeComboBox.FormattingEnabled = true;
-            this.catalogTypeComboBox.Location = new System.Drawing.Point(130, 3);
+            this.catalogTypeComboBox.Location = new System.Drawing.Point(129, 3);
             this.catalogTypeComboBox.Name = "catalogTypeComboBox";
             this.catalogTypeComboBox.Size = new System.Drawing.Size(254, 33);
             this.catalogTypeComboBox.TabIndex = 2;
@@ -214,7 +209,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(390, 0);
+            this.label1.Location = new System.Drawing.Point(389, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 25);
             this.label1.TabIndex = 2;
@@ -289,7 +284,6 @@
             // 
             // listBox1
             // 
-            this.listBox1.DataSource = this.catalogItemBindingSource2;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 25;
             this.listBox1.Location = new System.Drawing.Point(12, 69);
@@ -362,10 +356,6 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
-            // catalogItemBindingSource3
-            // 
-            this.catalogItemBindingSource3.DataSource = typeof(eShopServiceLibrary.CatalogItem);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -384,18 +374,16 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.catalogTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemDataGridView)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.catalogTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource3)).EndInit();
             this.ResumeLayout(false);
 
@@ -414,7 +402,6 @@
         private System.Windows.Forms.ComboBox catalogTypeComboBox;
         private System.Windows.Forms.Label typeFilter;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.BindingSource catalogItemBindingSource1;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage MainCatalog;
         private System.Windows.Forms.TabPage tabPage1;
@@ -423,7 +410,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.BindingSource catalogItemBindingSource2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxPrice;
