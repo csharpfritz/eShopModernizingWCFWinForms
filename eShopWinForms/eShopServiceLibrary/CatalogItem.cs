@@ -22,7 +22,7 @@ namespace eShopServiceLibrary
         [DataMember]
         public decimal Price { get; set; }
         [DataMember]
-        public string Picturefilename { get; set; }
+        public string PictureFileName { get; set; }
         [DataMember]
         public int CatalogBrandId { get; set; }
         [DataMember]

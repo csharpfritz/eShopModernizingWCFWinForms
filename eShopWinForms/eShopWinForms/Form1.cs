@@ -188,7 +188,7 @@ namespace eShopWinForms
         private void AllFilter()
         {
             catalogItemDataGridView.Columns["Id"].Visible = false;
-            catalogItemDataGridView.Columns["AvailableStock"].Visible = false;
+            //catalogItemDataGridView.Columns["AvailableStock"].Visible = false;
             catalogItemDataGridView.Columns["PictureFileName"].Visible = false;
             catalogItemDataGridView.Columns["CatalogBrandId"].Visible = false;
             catalogItemDataGridView.Columns["CatalogTypeId"].Visible = false;
