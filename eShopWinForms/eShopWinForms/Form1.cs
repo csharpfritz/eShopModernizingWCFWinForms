@@ -32,7 +32,9 @@ namespace eShopWinForms
             LoadTypeComboBox(service);
             LoadBrandComboBox(service);
 
+            LoadCalendarProperties();
             LoadListBox(service);
+            LoadListView();
 
         }
 
@@ -45,7 +47,7 @@ namespace eShopWinForms
         private void LoadCatalogData(eShopServiceReference.ICatalogService service)
         {
             IEnumerable<CatalogItem> items = service.GetCatalogItems();
-            //IList<CatalogItem> itemsList = items.ToList();
+            
 
             //Get bound CatalogItem data
             var itemProperties = (from prop in typeof(CatalogItem).GetProperties(BindingFlags.Public | BindingFlags.Instance)
@@ -219,9 +221,31 @@ namespace eShopWinForms
             }
         }
 
+        private void LoadCalendarProperties()
+        {
+            monthCalendar1.MinDate = monthCalendar1.TodayDate;
+            monthCalendar1.MaxSelectionCount = 1;
+
+        }
+
         private void LoadListBox(eShopServiceReference.ICatalogService service)
         {
-            //service.GetAvailableStock(monthCalendar1.DateSelected, 2);
+            IEnumerable<CatalogItem> items = service.GetCatalogItems();
+            IList<CatalogItem> itemsList = items.ToList();
+
+            foreach (var catalogitem in itemsList)
+            {
+                listBox1.Items.Add(catalogitem.Id);
+            }
+            
+
+        }
+
+        private void LoadListView()
+        {
+            listView1.Columns.Add("Date");
+            listView1.Columns.Add("Id");
+            listView1.Columns.Add("Availability");
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -231,10 +255,13 @@ namespace eShopWinForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string id = listBox1.SelectedItem.ToString();
-            string fakeAvail = "test";
-            ListViewItem lvi = new ListViewItem(id);
-            lvi.SubItems.Add(fakeAvail);
+            DateTime date = monthCalendar1.SelectionRange.Start.Date;
+            int id = (int)listBox1.SelectedItem;
+            int availability = service.GetAvailableStock(date, id);
+
+            ListViewItem lvi = new ListViewItem(date.ToString());
+            lvi.SubItems.Add(id.ToString());
+            lvi.SubItems.Add(availability.ToString());
             listView1.Items.Add(lvi);
 
         }

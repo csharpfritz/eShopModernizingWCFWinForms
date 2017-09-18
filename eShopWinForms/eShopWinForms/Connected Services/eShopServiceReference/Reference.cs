@@ -441,18 +441,6 @@ namespace eShopWinForms.eShopServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/CreateAvailableStock", ReplyAction="http://tempuri.org/ICatalogService/CreateAvailableStockResponse")]
         System.Threading.Tasks.Task CreateAvailableStockAsync(eShopWinForms.eShopServiceReference.CatalogItemsStock catalogItemsStock);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetAvailableStock", ReplyAction="http://tempuri.org/ICatalogService/GetAvailableStockResponse")]
-        int GetAvailableStock(System.DateTime date, int catalogItemId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetAvailableStock", ReplyAction="http://tempuri.org/ICatalogService/GetAvailableStockResponse")]
-        System.Threading.Tasks.Task<int> GetAvailableStockAsync(System.DateTime date, int catalogItemId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/CreateAvailableStock", ReplyAction="http://tempuri.org/ICatalogService/CreateAvailableStockResponse")]
-        void CreateAvailableStock(eShopServiceLibrary.CatalogItemsStock catalogItemsStock);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/CreateAvailableStock", ReplyAction="http://tempuri.org/ICatalogService/CreateAvailableStockResponse")]
-        System.Threading.Tasks.Task CreateAvailableStockAsync(eShopServiceLibrary.CatalogItemsStock catalogItemsStock);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/CreateCatalogItem", ReplyAction="http://tempuri.org/ICatalogService/CreateCatalogItemResponse")]
         void CreateCatalogItem(eShopWinForms.eShopServiceReference.CatalogItem catalogItem);
         

@@ -49,8 +49,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.idHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.availHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.catalogBrandBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -87,7 +85,7 @@
             this.tableLayoutPanel1.Controls.Add(this.pictureBox3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox2, 0, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.43439F));
@@ -101,7 +99,7 @@
             // 
             this.pictureBox1.Image = global::eShopWinForms.Properties.Resources.brand;
             this.pictureBox1.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(212, 46);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -113,7 +111,7 @@
             this.tabControl.Controls.Add(this.MainCatalog);
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Location = new System.Drawing.Point(4, 230);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1260, 990);
@@ -123,9 +121,9 @@
             // 
             this.MainCatalog.Controls.Add(this.tableLayoutPanel2);
             this.MainCatalog.Location = new System.Drawing.Point(8, 39);
-            this.MainCatalog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MainCatalog.Margin = new System.Windows.Forms.Padding(4);
             this.MainCatalog.Name = "MainCatalog";
-            this.MainCatalog.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MainCatalog.Padding = new System.Windows.Forms.Padding(4);
             this.MainCatalog.Size = new System.Drawing.Size(1244, 943);
             this.MainCatalog.TabIndex = 0;
             this.MainCatalog.Text = "Main Catalog ";
@@ -138,7 +136,7 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.catalogItemDataGridView, 0, 1);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.866953F));
@@ -183,7 +181,7 @@
             this.tableLayoutPanel3.Controls.Add(this.label1, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.typeFilter, 0, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -195,7 +193,7 @@
             this.catalogBrandComboBox.DisplayMember = "Brand";
             this.catalogBrandComboBox.FormattingEnabled = true;
             this.catalogBrandComboBox.Location = new System.Drawing.Point(476, 4);
-            this.catalogBrandComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.catalogBrandComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.catalogBrandComboBox.Name = "catalogBrandComboBox";
             this.catalogBrandComboBox.Size = new System.Drawing.Size(132, 33);
             this.catalogBrandComboBox.TabIndex = 3;
@@ -207,7 +205,7 @@
             this.catalogTypeComboBox.DisplayMember = "Type";
             this.catalogTypeComboBox.FormattingEnabled = true;
             this.catalogTypeComboBox.Location = new System.Drawing.Point(130, 4);
-            this.catalogTypeComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.catalogTypeComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.catalogTypeComboBox.Name = "catalogTypeComboBox";
             this.catalogTypeComboBox.Size = new System.Drawing.Size(246, 33);
             this.catalogTypeComboBox.TabIndex = 2;
@@ -241,7 +239,7 @@
             this.catalogItemDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.catalogItemDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.catalogItemDataGridView.Location = new System.Drawing.Point(4, 68);
-            this.catalogItemDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.catalogItemDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.catalogItemDataGridView.Name = "catalogItemDataGridView";
             this.catalogItemDataGridView.RowTemplate.Height = 33;
             this.catalogItemDataGridView.Size = new System.Drawing.Size(1236, 870);
@@ -253,9 +251,9 @@
             this.tabPage1.AutoScroll = true;
             this.tabPage1.Controls.Add(this.tableLayoutPanel4);
             this.tabPage1.Location = new System.Drawing.Point(8, 39);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1244, 943);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Inventory";
@@ -270,7 +268,7 @@
             this.tableLayoutPanel4.Controls.Add(this.groupBox1, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.groupBox2, 1, 1);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 10);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.91904F));
@@ -291,9 +289,9 @@
             this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(4, 377);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(408, 532);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
@@ -304,7 +302,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 25;
             this.listBox1.Location = new System.Drawing.Point(12, 69);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(396, 304);
             this.listBox1.TabIndex = 5;
@@ -313,7 +311,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(100, 396);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(202, 88);
             this.button1.TabIndex = 7;
@@ -325,9 +323,9 @@
             // 
             this.groupBox2.Controls.Add(this.listView1);
             this.groupBox2.Location = new System.Drawing.Point(424, 377);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(412, 532);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
@@ -335,11 +333,8 @@
             // 
             // listView1
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.idHeader,
-            this.availHeader});
             this.listView1.Location = new System.Drawing.Point(16, 69);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(392, 304);
             this.listView1.TabIndex = 8;
@@ -347,22 +342,12 @@
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
-            // idHeader
-            // 
-            this.idHeader.Text = "Id";
-            this.idHeader.Width = 100;
-            // 
-            // availHeader
-            // 
-            this.availHeader.Text = "Availability";
-            this.availHeader.Width = 200;
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox3.Image = global::eShopWinForms.Properties.Resources.main_banner;
             this.pictureBox3.Location = new System.Drawing.Point(4, 59);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(1260, 163);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -373,7 +358,7 @@
             // 
             this.pictureBox2.Image = global::eShopWinForms.Properties.Resources.main_footer_text;
             this.pictureBox2.Location = new System.Drawing.Point(4, 1253);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(348, 27);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -387,7 +372,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1300, 1062);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "eShop WinForms";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -442,8 +427,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxBrand;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader idHeader;
-        private System.Windows.Forms.ColumnHeader availHeader;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView catalogItemDataGridView;

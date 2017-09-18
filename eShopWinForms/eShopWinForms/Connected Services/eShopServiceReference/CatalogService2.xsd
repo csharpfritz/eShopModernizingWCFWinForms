@@ -46,13 +46,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfCatalogType" nillable="true" type="tns:ArrayOfCatalogType" />
-  <xs:complexType name="CatalogItemsStock">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AvailableStock" type="xs:int" />
-      <xs:element minOccurs="0" name="CatalogItemId" type="xs:int" />
-      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="StockId" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="CatalogItemsStock" nillable="true" type="tns:CatalogItemsStock" />
 </xs:schema>

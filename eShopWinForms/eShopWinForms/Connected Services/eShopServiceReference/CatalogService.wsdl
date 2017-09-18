@@ -647,7 +647,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:62314/CatalogService.svc</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>crwilhit@redmond.corp.microsoft.com</Upn>
+          <Upn>adugar@redmond.corp.microsoft.com</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
