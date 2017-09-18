@@ -85,7 +85,7 @@ namespace eShopWinForms
                     object value = property.Getter(catalogitem);
                     row.Cells[column].Value = "" + value;
 
-                    if (name.Equals("PictureFileName"))
+                    if (name.Equals("Picturefilename"))
                     {
                         //We can change this to relative path dont worry
                         string imagename = "C:\\git\\eShopModernizingWCFWinForms\\eShopWinForms\\eShopWinForms\\Assets\\Images\\Catalog\\" + value;
@@ -189,7 +189,7 @@ namespace eShopWinForms
         {
             catalogItemDataGridView.Columns["Id"].Visible = false;
             //catalogItemDataGridView.Columns["AvailableStock"].Visible = false;
-            catalogItemDataGridView.Columns["PictureFileName"].Visible = false;
+            catalogItemDataGridView.Columns["Picturefilename"].Visible = false;
             catalogItemDataGridView.Columns["CatalogBrandId"].Visible = false;
             catalogItemDataGridView.Columns["CatalogTypeId"].Visible = false;
             catalogItemDataGridView.Columns["CatalogBrand"].Visible = false;
