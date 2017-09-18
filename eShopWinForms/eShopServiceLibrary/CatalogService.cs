@@ -12,14 +12,14 @@ namespace eShopServiceLibrary
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "CatalogService" in both code and config file together.
     public class CatalogService : ICatalogService
     {
-        private eShopDatabaseEntities ents;
+        private EntityModel ents;
 
         public CatalogService()
         {
-            ents = new eShopDatabaseEntities();
+            ents = new EntityModel();
         }
 
-        public CatalogService(eShopDatabaseEntities ents)
+        public CatalogService(EntityModel ents)
         {
             this.ents = ents;
         }

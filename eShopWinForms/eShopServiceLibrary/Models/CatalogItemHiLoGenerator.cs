@@ -12,7 +12,7 @@ namespace eShopServiceLibrary.Models
         private int remainningLoIds = 0;
         private object sequenceLock = new object();
 
-        public int GetNextSequenceValue(eShopDatabaseEntities db)
+        public int GetNextSequenceValue(EntityModel db)
         {
             lock (sequenceLock)
             {
