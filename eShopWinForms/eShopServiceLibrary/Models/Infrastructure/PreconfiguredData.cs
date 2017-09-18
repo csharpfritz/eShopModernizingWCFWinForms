@@ -48,5 +48,18 @@ namespace eShopServiceLibrary.Models.Infrastructure
                 new CatalogType() { Id =4, Type = "USB Memory Stick" }
             };
         }
+
+        public static IEnumerable<CatalogItemsStock> GetPreconfiguredCatalogItemsStock()
+        {
+            return new List<CatalogItemsStock>()
+            {
+                new CatalogItemsStock() {StockId=1, CatalogItemId=1, Date=new DateTime(2017, 9, 20), AvailableStock=100},
+                new CatalogItemsStock() {StockId=2, CatalogItemId=1, Date=new DateTime(2017, 9, 21), AvailableStock=120},
+                new CatalogItemsStock() {StockId=3, CatalogItemId=1, Date=new DateTime(2017, 9, 22), AvailableStock=80},
+                new CatalogItemsStock() {StockId=4, CatalogItemId=2, Date=new DateTime(2017, 9, 20), AvailableStock=45},
+                new CatalogItemsStock() {StockId=5, CatalogItemId=4, Date=new DateTime(2017, 9, 25), AvailableStock=65},
+                new CatalogItemsStock() {StockId=6, CatalogItemId=5, Date=new DateTime(2017, 9, 28), AvailableStock=22}
+            };
+        }
     }
 }

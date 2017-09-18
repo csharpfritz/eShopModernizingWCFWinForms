@@ -11,12 +11,18 @@ namespace eShopServiceLibrary
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract]
     public partial class CatalogItemsStock
     {
+        [DataMember]
         public System.DateTime Date { get; set; }
+        [DataMember]
         public int CatalogItemId { get; set; }
+        [DataMember]
         public int AvailableStock { get; set; }
+        [DataMember]
         public int StockId { get; set; }
     }
 }

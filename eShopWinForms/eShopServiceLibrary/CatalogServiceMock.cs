@@ -12,27 +12,15 @@ namespace eShopServiceLibrary
         private List<CatalogItem> catalogItems;
         private List<CatalogBrand> catalogBrands;
         private List<CatalogType> catalogTypes;
+        private List<CatalogItemsStock> catalogItemsStock;
 
         public CatalogServiceMock()
         {
             catalogItems = new List<CatalogItem>(PreconfiguredData.GetPreconfiguredCatalogItems());
             catalogBrands = new List<CatalogBrand>(PreconfiguredData.GetPreconfiguredCatalogBrands());
             catalogTypes = new List<CatalogType>(PreconfiguredData.GetPreconfiguredCatalogTypes());
+            catalogItemsStock = new List<CatalogItemsStock>(PreconfiguredData.GetPreconfiguredCatalogItemsStock());
         }
-
-        /*public PaginatedItemsViewModel<CatalogItem> GetCatalogItemsPaginated(int pageSize = 10, int pageIndex = 0)
-        {
-            var items = ComposeCatalogItems(catalogItems);
-
-            var itemsOnPage = items
-                .OrderBy(c => c.Id)
-                .Skip(pageSize * pageIndex)
-                .Take(pageSize)
-                .ToList();
-
-            return new PaginatedItemsViewModel<CatalogItem>(
-                pageIndex, pageSize, items.Count, itemsOnPage);
-        }*/
 
         public CatalogItem FindCatalogItem(int id)
         {
@@ -41,7 +29,7 @@ namespace eShopServiceLibrary
 
         public IEnumerable<CatalogItem> GetCatalogItems()
         {
-            return catalogItems;
+            return PreconfiguredData.GetPreconfiguredCatalogItems();
         }
 
         public IEnumerable<CatalogType> GetCatalogTypes()
@@ -83,8 +71,8 @@ namespace eShopServiceLibrary
         {
             var catalogTypes = PreconfiguredData.GetPreconfiguredCatalogTypes();
             var catalogBrands = PreconfiguredData.GetPreconfiguredCatalogBrands();
-           // items.ForEach(i => i.CatalogBrand = catalogBrands.First(b => b.Id == i.CatalogBrandId));
-           // items.ForEach(i => i.CatalogType = catalogTypes.First(b => b.Id == i.CatalogTypeId));
+            items.ForEach(i => i.CatalogBrand = catalogBrands.First(b => b.Id == i.CatalogBrandId));
+            items.ForEach(i => i.CatalogType = catalogTypes.First(b => b.Id == i.CatalogTypeId));
 
             return items;
         }
@@ -104,5 +92,27 @@ namespace eShopServiceLibrary
             return catalogItems;
         }
 
+        public int GetAvailableStock(DateTime date, int catalogItemId)
+        {
+            return catalogItemsStock.FirstOrDefault(x => (x.CatalogItemId == catalogItemId && x.Date.Date == date.Date)).AvailableStock;
+        }
+
+        public void CreateAvailableStock(CatalogItemsStock cat)
+        {
+            CatalogItemsStock s = catalogItemsStock.Where(x => x.CatalogItemId == cat.CatalogItemId).ToList()
+                    .Where(y => y.Date.Date == cat.Date.Date).FirstOrDefault();
+
+            /* Overwrite the existing stock item for that date if we already have one for this item. Otherwise, make a new entry*/
+            if (s != null)
+            {
+                s.AvailableStock = cat.AvailableStock;
+            }
+            else
+            {
+                var maxId = catalogItemsStock.Max(i => i.StockId);
+                cat.StockId = ++maxId;
+                catalogItemsStock.Add(cat);
+            }
+        }
     }
 }

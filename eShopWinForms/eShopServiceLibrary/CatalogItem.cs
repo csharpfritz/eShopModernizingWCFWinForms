@@ -11,15 +11,28 @@ namespace eShopServiceLibrary
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract]
     public partial class CatalogItem
     {
+        [DataMember]
         public int Id { get; set; }
+        [DataMember]
         public string Description { get; set; }
+        [DataMember]
         public string Name { get; set; }
+        [DataMember]
         public decimal Price { get; set; }
+        [DataMember]
         public byte[] Picture { get; set; }
+        [DataMember]
         public int CatalogBrandId { get; set; }
+        [DataMember]
         public int CatalogTypeId { get; set; }
+        [IgnoreDataMember]
+        public CatalogType CatalogType { get; set; }
+        [IgnoreDataMember]
+        public CatalogBrand CatalogBrand { get; set; }
     }
 }

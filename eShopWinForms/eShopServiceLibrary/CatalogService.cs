@@ -3,6 +3,7 @@ using eShopServiceLibrary.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Data.SqlClient;
 using System.Linq;
 
@@ -65,6 +66,36 @@ namespace eShopServiceLibrary
         public void Dispose()
         {
             ents.Dispose();
+        }
+
+        public int GetAvailableStock(DateTime date, int catalogItemId)
+        {
+            CatalogItemsStock s = ents.CatalogItemsStocks.Where(x => x.CatalogItemId == catalogItemId).ToList().Where(y => y.Date.Date == date.Date).FirstOrDefault();
+            if (s != null)
+                return s.AvailableStock;
+            else
+                return -1;
+        }
+
+        public void CreateAvailableStock(CatalogItemsStock catalogItemsStock)
+        {
+            CatalogItemsStock s = ents.CatalogItemsStocks.Where(x => x.CatalogItemId == catalogItemsStock.CatalogItemId).ToList()
+                    .Where(y => y.Date.Date == catalogItemsStock.Date.Date).FirstOrDefault();
+
+            /* Overwrite the existing stock item for that date if we already have one for this item. Otherwise, make a new entry*/
+            if(s != null)
+            {
+                s.AvailableStock = catalogItemsStock.AvailableStock;
+                ents.Entry(s).State = EntityState.Modified;
+                ents.SaveChanges();
+            }
+            else
+            {
+                var maxId = ents.CatalogItemsStocks.Max(i => i.StockId);
+                catalogItemsStock.StockId = ++maxId;
+                ents.CatalogItemsStocks.Add(catalogItemsStock);
+                ents.SaveChanges();
+            }
         }
     }
 }

@@ -21,6 +21,10 @@ namespace eShopServiceLibrary
         [OperationContract]
         List<CatalogType> GetCatalogTypes();
         [OperationContract]
+        int GetAvailableStock(System.DateTime date, int catalogItemId);
+        [OperationContract]
+        void CreateAvailableStock(CatalogItemsStock catalogItemsStock);
+        [OperationContract]
         void CreateCatalogItem(CatalogItem catalogItem);
         [OperationContract]
         void UpdateCatalogItem(CatalogItem catalogItem);
