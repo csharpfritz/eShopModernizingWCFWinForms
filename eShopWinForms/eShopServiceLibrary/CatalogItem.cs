@@ -28,10 +28,10 @@ namespace eShopServiceLibrary
         [DataMember]
         public int CatalogTypeId { get; set; }
 
-        [IgnoreDataMember]
+        [DataMember]
         public CatalogType CatalogType { get; set; }
 
-        [IgnoreDataMember]
+        [DataMember]
         public CatalogBrand CatalogBrand { get; set; }
     }
 }

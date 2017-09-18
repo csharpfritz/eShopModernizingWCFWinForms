@@ -26,7 +26,16 @@ namespace eShopServiceLibrary
 
         public CatalogItem FindCatalogItem(int id)
         {
-            return ents.CatalogItems.FirstOrDefault(x => x.Id == id);
+            CatalogItem item = ents.CatalogItems.FirstOrDefault(x => x.Id == id);
+            if (item != null)
+            {
+                item.CatalogBrand = ents.CatalogBrands.FirstOrDefault(x => x.Id == item.CatalogBrandId);
+                item.CatalogType = ents.CatalogTypes.FirstOrDefault(x => x.Id == item.CatalogTypeId);
+
+                return item;
+            }
+            else
+                return null;
         }
         public List<CatalogType> GetCatalogTypes()
         {

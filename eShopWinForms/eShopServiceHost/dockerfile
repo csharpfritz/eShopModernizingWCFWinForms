@@ -14,4 +14,4 @@ EXPOSE 83
 COPY bin/ .
 
 #Run the program on container startup.
-ENTRYPOINT BassicHttpHost.exe
+#ENTRYPOINT bin/Debug/eShopServiceHost.exe
