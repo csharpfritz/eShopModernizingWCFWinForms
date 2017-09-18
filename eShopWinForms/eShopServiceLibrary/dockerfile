@@ -1,0 +1,17 @@
+#Use the Windows Server core image as our base
+FROM microsoft/windowsservercore
+
+#Enable WCF-HTTP in Container
+RUN powershell -Command Add-WindowsFeature NET-WCF-HTTP-Activation45
+
+#Create a directory for the host
+WORKDIR app
+
+#Allow connections on port 83 of container
+EXPOSE 83
+
+#Copy over the WCF host into the container
+COPY bin/ .
+
+#Run the program on container startup.
+ENTRYPOINT BassicHttpHost.exe
