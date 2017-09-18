@@ -94,6 +94,12 @@ namespace eShopWinForms
                         //catalogItemDataGridView.Rows.Insert(0, thumb, 1);
                         row.Cells[0].Value = thumb;
                     }
+
+                    //if (name.Equals("CatalogType"))
+                    //{
+                    //    CatalogType t = (CatalogType)value;
+                    //    row.Cells[column].Value = t.Type;
+                    //}
                     //catalogItemDataGridView.Rows.Insert(0, thumb, 1);
                     column++;
                 }
@@ -108,81 +114,51 @@ namespace eShopWinForms
             //Create IEnumerable List
             IEnumerable<CatalogType> types = service.GetCatalogTypes();
 
-            //Get bound CatalogType data
-            var typeProperties = (from prop in typeof(CatalogType).GetProperties(BindingFlags.Public | BindingFlags.Instance)
-                                  let parameter = Expression.Parameter(typeof(CatalogType), "obj")
-                                  let property = Expression.Property(parameter, prop)
-                                  let lambda = Expression.Lambda<Func<CatalogType, object>>(Expression.Convert(property, typeof(object)), parameter).Compile()
-                                  select
-                                  new
-                                  {
-                                      Getter = lambda,
-                                      Name = prop.Name
-                                  }).ToArray();
-
-            //Load Type ComboBoxData
+            // Bind combobox to dictionary
+            Dictionary<string, string> typeDictionary = new Dictionary<string, string>();
 
             //Create "All" filter
-            catalogTypeComboBox.Items.Add("All");
-            catalogTypeComboBox.SelectedItem = "All";
+            typeDictionary.Add("0", "All");
 
             // Add rest of type filters
             foreach (var catalogtype in types)
             {
-                foreach (var property in typeProperties)
-                {
-                    string name = property.Name;
-                    object value = property.Getter(catalogtype);
-                    if (name == "Type")
-                    {
-                        catalogTypeComboBox.Items.Add(value);
-                    }
-
-                }
+                string idValue = catalogtype.Id.ToString();
+                string typeValue = catalogtype.Type;
+                typeDictionary.Add(idValue,typeValue);
 
             }
+
+            //Load TypeComboBox
+            catalogTypeComboBox.DataSource = new BindingSource(typeDictionary, null);
+            catalogTypeComboBox.DisplayMember = "Value";
+            catalogTypeComboBox.ValueMember = "Key";
+
         }
 
         private void LoadBrandComboBox(eShopServiceReference.ICatalogService service)
         {
 
             IEnumerable<CatalogBrand> brands = service.GetCatalogBrands();
-
-
-            //Get bound CatalogBrand data
-            var brandProperties = (from prop in typeof(CatalogBrand).GetProperties(BindingFlags.Public | BindingFlags.Instance)
-                                   let parameter = Expression.Parameter(typeof(CatalogBrand), "obj")
-                                   let property = Expression.Property(parameter, prop)
-                                   let lambda = Expression.Lambda<Func<CatalogBrand, object>>(Expression.Convert(property, typeof(object)), parameter).Compile()
-                                   select
-                                   new
-                                   {
-                                       Getter = lambda,
-                                       Name = prop.Name
-                                   }).ToArray();
-            
-            
-            //Load Brand ComboBoxData
+            // Bind combobox to dictionary
+            Dictionary<string, string> brandDictionary = new Dictionary<string, string>();
 
             //Create "All" filter
-            catalogBrandComboBox.Items.Add("All");
-            catalogBrandComboBox.SelectedItem = "All";
+            brandDictionary.Add("0", "All");
 
             // Add rest of type filters
             foreach (var catalogbrand in brands)
             {
-                foreach (var property in brandProperties)
-                {
-                    string name = property.Name;
-                    object value = property.Getter(catalogbrand);
-                    if (name == "Brand")
-                    {
-                        catalogBrandComboBox.Items.Add(value);
-                    }
-
-                }
+                string idValue = catalogbrand.Id.ToString();
+                string brandValue = catalogbrand.Brand;
+                brandDictionary.Add(idValue, brandValue);
 
             }
+
+            //Load BrandComboBox
+            catalogBrandComboBox.DataSource = new BindingSource(brandDictionary, null);
+            catalogBrandComboBox.DisplayMember = "Value";
+            catalogBrandComboBox.ValueMember = "Key";
         }
 
         private void AllFilter()
@@ -203,73 +179,30 @@ namespace eShopWinForms
             }
         }
 
-        private void TypeFilter()
+        private void Filter()
         {
-            var selectedTypeValue = catalogTypeComboBox.SelectedItem.ToString();
-           
-            for (int i = 0; i < catalogItemDataGridView.RowCount-1; i++)
-            {
-                var rowTypeValue = catalogItemDataGridView["CatalogType", i].Value.ToString();
-                
-                if (selectedTypeValue == "All")
-                {
-                    AllFilter();
-                }
+            KeyValuePair<string, string> typeValue = (KeyValuePair<string, string>)catalogTypeComboBox.SelectedItem;
+            string selectedTypeValue = typeValue.Key;
 
-                else if (rowTypeValue == selectedTypeValue)
-                {
-                    catalogItemDataGridView.Rows[i].Visible = true;
-                }
+            KeyValuePair<string, string> brandValue = (KeyValuePair<string, string>)catalogBrandComboBox.SelectedItem;
+            string selectedBrandValue = brandValue.Key;
 
-                else
-                {
-                    catalogItemDataGridView.Rows[i].Visible = false;
-                }
-            }
-            
-        }
-
-        private void BrandFilter()
-        {
-            var selectedBrandValue = catalogBrandComboBox.SelectedItem.ToString();
-
-            for (int i = 0; i < catalogItemDataGridView.RowCount - 1; i++)
-            {
-                var rowBrandValue = catalogItemDataGridView["CatalogBrand", i].Value.ToString();
-                if (selectedBrandValue == "All" || selectedBrandValue == "")
-                {
-                    AllFilter();
-                }
-                else if (rowBrandValue == selectedBrandValue)
-                {
-                    catalogItemDataGridView.Rows[i].Visible = true;
-                }
-                else
-                {
-                    catalogItemDataGridView.Rows[i].Visible = false;
-                }
-            }
-
-        }
-
-        private void Filter(string selectedTypeValue, string selectedBrandValue)
-        {
             for (int i = 0; i < catalogItemDataGridView.RowCount - 1; i++)
             {
                 var rowTypeValue = catalogItemDataGridView["CatalogTypeId", i].Value.ToString();
                 var rowBrandValue = catalogItemDataGridView["CatalogBrandId", i].Value.ToString();
 
-                if (selectedTypeValue == "All" && selectedBrandValue == "All")
+                if (selectedTypeValue == "0" && selectedBrandValue == "0")
                 {
                     AllFilter();
                 }
 
-                else if (selectedTypeValue == "All" && selectedBrandValue == rowBrandValue)
+                else if (selectedTypeValue == "0" && selectedBrandValue == rowBrandValue)
                 {
                     catalogItemDataGridView.Rows[i].Visible = true;
                 }
 
-                else if (selectedBrandValue == "All" && selectedTypeValue == rowTypeValue)
+                else if (selectedBrandValue == "0" && selectedTypeValue == rowTypeValue)
                 {
                     catalogItemDataGridView.Rows[i].Visible = true;
                 }
@@ -288,7 +221,7 @@ namespace eShopWinForms
 
         private void LoadListBox(eShopServiceReference.ICatalogService service)
         {
-            
+            //service.GetAvailableStock(monthCalendar1.DateSelected, 2);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -318,19 +251,18 @@ namespace eShopWinForms
 
         private void catalogTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TypeFilter();
-            //var selectedTypeValue = catalogTypeComboBox.SelectedItem.ToString();
-            //var selectedBrandValue = catalogBrandComboBox.SelectedItem.ToString();
-            //Filter(selectedTypeValue, selectedBrandValue);
+            Filter();
 
         }
 
         private void catalogBrandComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BrandFilter();
-            //var selectedTypeValue = catalogTypeComboBox.SelectedItem.ToString();
-            //var selectedBrandValue = catalogBrandComboBox.SelectedItem.ToString();
-            //Filter(selectedTypeValue, selectedBrandValue);
+            Filter();
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            
         }
     }
 

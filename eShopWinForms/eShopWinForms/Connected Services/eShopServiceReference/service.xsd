@@ -51,10 +51,37 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAvailableStock">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="catalogItemId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailableStockResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAvailableStockResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAvailableStock">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/eShopServiceLibrary" minOccurs="0" name="catalogItemsStock" nillable="true" type="q5:CatalogItemsStock" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAvailableStockResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="CreateCatalogItem">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/eShopServiceLibrary" minOccurs="0" name="catalogItem" nillable="true" type="q5:CatalogItem" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/eShopServiceLibrary" minOccurs="0" name="catalogItem" nillable="true" type="q6:CatalogItem" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -66,7 +93,7 @@
   <xs:element name="UpdateCatalogItem">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/eShopServiceLibrary" minOccurs="0" name="catalogItem" nillable="true" type="q6:CatalogItem" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/eShopServiceLibrary" minOccurs="0" name="catalogItem" nillable="true" type="q7:CatalogItem" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -78,7 +105,7 @@
   <xs:element name="RemoveCatalogItem">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/eShopServiceLibrary" minOccurs="0" name="catalogItem" nillable="true" type="q7:CatalogItem" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/eShopServiceLibrary" minOccurs="0" name="catalogItem" nillable="true" type="q8:CatalogItem" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

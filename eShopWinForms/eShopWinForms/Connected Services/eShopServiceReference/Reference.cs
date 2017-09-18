@@ -39,6 +39,18 @@ namespace eShopWinForms.eShopServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetCatalogTypes", ReplyAction="http://tempuri.org/ICatalogService/GetCatalogTypesResponse")]
         System.Threading.Tasks.Task<eShopServiceLibrary.CatalogType[]> GetCatalogTypesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetAvailableStock", ReplyAction="http://tempuri.org/ICatalogService/GetAvailableStockResponse")]
+        int GetAvailableStock(System.DateTime date, int catalogItemId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetAvailableStock", ReplyAction="http://tempuri.org/ICatalogService/GetAvailableStockResponse")]
+        System.Threading.Tasks.Task<int> GetAvailableStockAsync(System.DateTime date, int catalogItemId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/CreateAvailableStock", ReplyAction="http://tempuri.org/ICatalogService/CreateAvailableStockResponse")]
+        void CreateAvailableStock(eShopServiceLibrary.CatalogItemsStock catalogItemsStock);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/CreateAvailableStock", ReplyAction="http://tempuri.org/ICatalogService/CreateAvailableStockResponse")]
+        System.Threading.Tasks.Task CreateAvailableStockAsync(eShopServiceLibrary.CatalogItemsStock catalogItemsStock);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/CreateCatalogItem", ReplyAction="http://tempuri.org/ICatalogService/CreateCatalogItemResponse")]
         void CreateCatalogItem(eShopServiceLibrary.CatalogItem catalogItem);
         
@@ -115,6 +127,22 @@ namespace eShopWinForms.eShopServiceReference {
         
         public System.Threading.Tasks.Task<eShopServiceLibrary.CatalogType[]> GetCatalogTypesAsync() {
             return base.Channel.GetCatalogTypesAsync();
+        }
+        
+        public int GetAvailableStock(System.DateTime date, int catalogItemId) {
+            return base.Channel.GetAvailableStock(date, catalogItemId);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetAvailableStockAsync(System.DateTime date, int catalogItemId) {
+            return base.Channel.GetAvailableStockAsync(date, catalogItemId);
+        }
+        
+        public void CreateAvailableStock(eShopServiceLibrary.CatalogItemsStock catalogItemsStock) {
+            base.Channel.CreateAvailableStock(catalogItemsStock);
+        }
+        
+        public System.Threading.Tasks.Task CreateAvailableStockAsync(eShopServiceLibrary.CatalogItemsStock catalogItemsStock) {
+            return base.Channel.CreateAvailableStockAsync(catalogItemsStock);
         }
         
         public void CreateCatalogItem(eShopServiceLibrary.CatalogItem catalogItem) {

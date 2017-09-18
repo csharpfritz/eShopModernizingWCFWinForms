@@ -31,6 +31,18 @@
   <wsdl:message name="ICatalogService_GetCatalogTypes_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCatalogTypesResponse" />
   </wsdl:message>
+  <wsdl:message name="ICatalogService_GetAvailableStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableStock" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_GetAvailableStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_CreateAvailableStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAvailableStock" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_CreateAvailableStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAvailableStockResponse" />
+  </wsdl:message>
   <wsdl:message name="ICatalogService_CreateCatalogItem_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateCatalogItem" />
   </wsdl:message>
@@ -65,6 +77,14 @@
     <wsdl:operation name="GetCatalogTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/GetCatalogTypes" message="tns:ICatalogService_GetCatalogTypes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/GetCatalogTypesResponse" message="tns:ICatalogService_GetCatalogTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/GetAvailableStock" message="tns:ICatalogService_GetAvailableStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/GetAvailableStockResponse" message="tns:ICatalogService_GetAvailableStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAvailableStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/CreateAvailableStock" message="tns:ICatalogService_CreateAvailableStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/CreateAvailableStockResponse" message="tns:ICatalogService_CreateAvailableStock_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateCatalogItem">
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/CreateCatalogItem" message="tns:ICatalogService_CreateCatalogItem_InputMessage" />
@@ -110,6 +130,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetCatalogTypes">
       <soap:operation soapAction="http://tempuri.org/ICatalogService/GetCatalogTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableStock">
+      <soap:operation soapAction="http://tempuri.org/ICatalogService/GetAvailableStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAvailableStock">
+      <soap:operation soapAction="http://tempuri.org/ICatalogService/CreateAvailableStock" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
