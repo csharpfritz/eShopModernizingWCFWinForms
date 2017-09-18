@@ -23,22 +23,6 @@ namespace eShopServiceLibrary
             this.ents = ents;
         }
 
-        public PaginatedItemsViewModel<CatalogItem> GetCatalogItemsPaginated(int pageSize, int pageIndex)
-        {
-            var totalItems = ents.CatalogItems.LongCount();
-
-            var itemsOnPage = ents.CatalogItems
-                .Include(c => c.CatalogBrand)
-                .Include(c => c.CatalogType)
-                .OrderBy(c => c.Id)
-                .Skip(pageSize * pageIndex)
-                .Take(pageSize)
-                .ToList();
-
-            return new PaginatedItemsViewModel<CatalogItem>(
-                pageIndex, pageSize, totalItems, itemsOnPage);
-        }
-
         public CatalogItem FindCatalogItem(int id)
         {
             return ents.CatalogItems.FirstOrDefault(x => x.Id == id);
@@ -51,6 +35,11 @@ namespace eShopServiceLibrary
         public List<CatalogBrand> GetCatalogBrands()
         {
             return ents.CatalogBrands.ToList();
+        }
+
+        public List<CatalogItem> GetCatalogItems()
+        {
+            return ents.CatalogItems.ToList();
         }
 
         public void CreateCatalogItem(CatalogItem catalogItem)
@@ -76,11 +65,6 @@ namespace eShopServiceLibrary
         public void Dispose()
         {
             ents.Dispose();
-        }
-
-        public List<CatalogItem> GetCatalogItems()
-        {
-            return ents.CatalogItems.ToList();
         }
     }
 }

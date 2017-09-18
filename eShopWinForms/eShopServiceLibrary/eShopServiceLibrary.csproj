@@ -56,34 +56,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CatalogBrand.cs">
-      <DependentUpon>eShopEntityModel.tt</DependentUpon>
+      <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CatalogItem.cs">
-      <DependentUpon>eShopEntityModel.tt</DependentUpon>
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogItemsStock.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CatalogService.cs" />
     <Compile Include="CatalogServiceMock.cs" />
     <Compile Include="CatalogType.cs">
-      <DependentUpon>eShopEntityModel.tt</DependentUpon>
+      <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="eShopEntityModel.Context.cs">
+    <Compile Include="EntityModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>eShopEntityModel.Context.tt</DependentUpon>
+      <DependentUpon>EntityModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="eShopEntityModel.cs">
+    <Compile Include="EntityModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>eShopEntityModel.tt</DependentUpon>
+      <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="eShopEntityModel.Designer.cs">
+    <Compile Include="EntityModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>eShopEntityModel.edmx</DependentUpon>
+      <DependentUpon>EntityModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="ICatalogService.cs" />
     <Compile Include="Models\CatalogItemHiLoGenerator.cs" />
-    <Compile Include="Models\Infrastructure\CatalogDBInitializer.cs" />
     <Compile Include="Models\Infrastructure\PreconfiguredData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\PaginatedItemsViewModel.cs" />
@@ -92,12 +94,12 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="eShopEntityModel.edmx">
+    <EntityDeploy Include="EntityModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>eShopEntityModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>EntityModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="eShopEntityModel.edmx.diagram">
-      <DependentUpon>eShopEntityModel.edmx</DependentUpon>
+    <None Include="EntityModel.edmx.diagram">
+      <DependentUpon>EntityModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -106,20 +108,19 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="eShopEntityModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>eShopEntityModel.Context.cs</LastGenOutput>
-      <DependentUpon>eShopEntityModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="eShopEntityModel.edmx.sql" />
-    <Content Include="eShopEntityModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>eShopEntityModel.edmx</DependentUpon>
-      <LastGenOutput>eShopEntityModel.cs</LastGenOutput>
-    </Content>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
+    <Content Include="EntityModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntityModel.edmx</DependentUpon>
+      <LastGenOutput>EntityModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntityModel.edmx</DependentUpon>
+      <LastGenOutput>EntityModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

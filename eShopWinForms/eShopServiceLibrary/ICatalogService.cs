@@ -18,8 +18,6 @@ namespace eShopServiceLibrary
         List<CatalogBrand> GetCatalogBrands();
         [OperationContract]
         List<CatalogItem> GetCatalogItems();
-        // [CollectionDataContract]
-        //  PaginatedItemsViewModel<CatalogItem> GetCatalogItemsPaginated(int pageSize, int pageIndex);
         [OperationContract]
         List<CatalogType> GetCatalogTypes();
         [OperationContract]

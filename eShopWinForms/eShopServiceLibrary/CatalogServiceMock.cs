@@ -83,8 +83,8 @@ namespace eShopServiceLibrary
         {
             var catalogTypes = PreconfiguredData.GetPreconfiguredCatalogTypes();
             var catalogBrands = PreconfiguredData.GetPreconfiguredCatalogBrands();
-            items.ForEach(i => i.CatalogBrand = catalogBrands.First(b => b.Id == i.CatalogBrandId));
-            items.ForEach(i => i.CatalogType = catalogTypes.First(b => b.Id == i.CatalogTypeId));
+           // items.ForEach(i => i.CatalogBrand = catalogBrands.First(b => b.Id == i.CatalogBrandId));
+           // items.ForEach(i => i.CatalogType = catalogTypes.First(b => b.Id == i.CatalogTypeId));
 
             return items;
         }

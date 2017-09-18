@@ -11,23 +11,10 @@ namespace eShopServiceLibrary
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-
-    [DataContract]
+    
     public partial class CatalogBrand
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CatalogBrand()
-        {
-            this.CatalogItems = new HashSet<CatalogItem>();
-        }
-    
-        [DataMember]
         public int Id { get; set; }
-        [DataMember]
         public string Brand { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [DataMember]
-        public ICollection<CatalogItem> CatalogItems { get; set; }
     }
 }

@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="eShopDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CatalogBrands">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Brand" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CatalogItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Picture" Type="varbinary(max)" />
+          <Property Name="CatalogBrandId" Type="int" Nullable="false" />
+          <Property Name="CatalogTypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatalogItemsStock">
+          <Key>
+            <PropertyRef Name="StockId" />
+          </Key>
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="CatalogItemId" Type="int" Nullable="false" />
+          <Property Name="AvailableStock" Type="int" Nullable="false" />
+          <Property Name="StockId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatalogTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_CatalogItemsStock_CatalogItems">
+          <End Role="CatalogItemsStock" Type="Self.CatalogItemsStock" Multiplicity="1" />
+          <End Role="CatalogItemsStock1" Type="Self.CatalogItemsStock" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CatalogItemsStock">
+              <PropertyRef Name="StockId" />
+            </Principal>
+            <Dependent Role="CatalogItemsStock1">
+              <PropertyRef Name="StockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="eShopDatabaseModelStoreContainer">
+          <EntitySet Name="CatalogBrands" EntityType="Self.CatalogBrands" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatalogItems" EntityType="Self.CatalogItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatalogItemsStock" EntityType="Self.CatalogItemsStock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatalogTypes" EntityType="Self.CatalogTypes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CatalogItemsStock_CatalogItems" Association="Self.FK_CatalogItemsStock_CatalogItems">
+            <End Role="CatalogItemsStock" EntitySet="CatalogItemsStock" />
+            <End Role="CatalogItemsStock1" EntitySet="CatalogItemsStock" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eShopDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CatalogBrand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CatalogItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CatalogBrandId" Type="Int32" Nullable="false" />
+          <Property Name="CatalogTypeId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatalogItemsStock">
+          <Key>
+            <PropertyRef Name="StockId" />
+          </Key>
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CatalogItemId" Type="Int32" Nullable="false" />
+          <Property Name="AvailableStock" Type="Int32" Nullable="false" />
+          <Property Name="StockId" Type="Int32" Nullable="false" />
+          </EntityType>
+        <EntityType Name="CatalogType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="eShopDatabaseEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CatalogBrands" EntityType="Self.CatalogBrand" />
+          <EntitySet Name="CatalogItems" EntityType="Self.CatalogItem" />
+          <EntitySet Name="CatalogItemsStocks" EntityType="Self.CatalogItemsStock" />
+          <EntitySet Name="CatalogTypes" EntityType="Self.CatalogType" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="eShopDatabaseModelStoreContainer" CdmEntityContainer="eShopDatabaseEntities1">
+          <EntitySetMapping Name="CatalogBrands">
+            <EntityTypeMapping TypeName="eShopDatabaseModel.CatalogBrand">
+              <MappingFragment StoreEntitySet="CatalogBrands">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatalogItems">
+            <EntityTypeMapping TypeName="eShopDatabaseModel.CatalogItem">
+              <MappingFragment StoreEntitySet="CatalogItems">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="CatalogBrandId" ColumnName="CatalogBrandId" />
+                <ScalarProperty Name="CatalogTypeId" ColumnName="CatalogTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatalogItemsStocks">
+            <EntityTypeMapping TypeName="eShopDatabaseModel.CatalogItemsStock">
+              <MappingFragment StoreEntitySet="CatalogItemsStock">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CatalogItemId" ColumnName="CatalogItemId" />
+                <ScalarProperty Name="AvailableStock" ColumnName="AvailableStock" />
+                <ScalarProperty Name="StockId" ColumnName="StockId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatalogTypes">
+            <EntityTypeMapping TypeName="eShopDatabaseModel.CatalogType">
+              <MappingFragment StoreEntitySet="CatalogTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
