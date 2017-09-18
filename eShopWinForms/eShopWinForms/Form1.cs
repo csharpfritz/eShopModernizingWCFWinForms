@@ -16,7 +16,7 @@ namespace eShopWinForms
     public partial class Form1 : Form
     {
         //Start service 
-        eShopServiceReference.ICatalogService service = new eShopServiceReference.CatalogServiceClient();
+        ICatalogService service = new eShopServiceReference.CatalogServiceClient();
         //CatalogServiceMock service = new CatalogServiceMock();
 
         public Form1()
@@ -33,6 +33,7 @@ namespace eShopWinForms
             LoadBrandComboBox(service);
 
             LoadCalendarProperties();
+            LoadProductInputComboBox(service);
             LoadListBox(service);
             LoadListView();
 
@@ -44,7 +45,7 @@ namespace eShopWinForms
 
         }
 
-        private void LoadCatalogData(eShopServiceReference.ICatalogService service)
+        private void LoadCatalogData(ICatalogService service)
         {
             IEnumerable<CatalogItem> items = service.GetCatalogItems();
             
@@ -111,7 +112,7 @@ namespace eShopWinForms
 
         }
 
-        private void LoadTypeComboBox(eShopServiceReference.ICatalogService service)
+        private void LoadTypeComboBox(ICatalogService service)
         {
             //Create IEnumerable List
             IEnumerable<CatalogType> types = service.GetCatalogTypes();
@@ -228,16 +229,29 @@ namespace eShopWinForms
 
         }
 
-        private void LoadListBox(eShopServiceReference.ICatalogService service)
+        private void LoadListBox(ICatalogService service)
         {
             IEnumerable<CatalogItem> items = service.GetCatalogItems();
             IList<CatalogItem> itemsList = items.ToList();
 
             foreach (var catalogitem in itemsList)
             {
+                //listBox1.Items.Add(String.Format("{0} {1}", catalogitem.Id, catalogitem.Name));
                 listBox1.Items.Add(catalogitem.Id);
             }
             
+
+        }
+
+        private void LoadProductInputComboBox(ICatalogService service)
+        {
+            IEnumerable<CatalogItem> items = service.GetCatalogItems();
+            IList<CatalogItem> itemsList = items.ToList();
+
+            foreach (var catalogitem in itemsList)
+            {
+                productIdInput.Items.Add(catalogitem.Id);
+            }
 
         }
 
@@ -290,6 +304,18 @@ namespace eShopWinForms
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
             
+        }
+
+        private void addAvailabilityButton_Click(object sender, EventArgs e)
+        {
+            int id = (int)productIdInput.SelectedValue;
+            int quantity = int.Parse(quantityInput.Text);
+            DateTime shipDate = Convert.ToDateTime(arrivalDateInput.Text);
+
+            CatalogItemsStock shipment= new CatalogItemsStock();
+            shipment.CatalogItemId = id;
+            shipment.AvailableStock = quantity;
+            shipment.Date = shipDate;
         }
     }
 
