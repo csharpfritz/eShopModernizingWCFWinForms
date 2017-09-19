@@ -3,15 +3,16 @@ using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using eShopWCFService.Models;
+using eShopWCFService.Models.Infrastructure;
 
 namespace eShopWCFService
 {
-   
     public partial class EntityModel : DbContext
     {
         public EntityModel()
             : base("name=EntityModel")
         {
+            Database.SetInitializer(new CatalogDBInitializer());
         }
 
         public virtual DbSet<CatalogBrand> CatalogBrands { get; set; }

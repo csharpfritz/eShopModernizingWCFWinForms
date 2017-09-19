@@ -1,2 +1,0 @@
-docker run -d -p 1433:1433 -v ${PWD}/databases/:C:/temp/ --name sqlContainer -e sa_password=Testing11@@ -e ACCEPT_EULA=Y -e attach_dbs="[{'dbName':'eShopDatabase','dbFiles':['C:\\temp\\eShopDatabase.mdf','C:\\temp\\eShopDatabase_log.ldf']}]" microsoft/mssql-server-windows
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sqlContainer

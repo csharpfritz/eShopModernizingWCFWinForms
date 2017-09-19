@@ -90,11 +90,11 @@ namespace eShopWinForms
                     if (name.Equals("Picturefilename"))
                     {
                         //We can change this to relative path dont worry
-                        string imagename = "C:\\git\\eShopModernizingWCFWinForms\\eShopWinForms\\eShopWinForms\\Assets\\Images\\Catalog\\" + value;
-                        Image img = Image.FromFile(imagename);
-                        thumb = img.GetThumbnailImage(192, 108, null, IntPtr.Zero);
+                        //string imagename = "C:\\git\\eShopModernizingWCFWinForms\\eShopWinForms\\eShopWinForms\\Assets\\Images\\Catalog\\" + value;
+                        //Image img = Image.FromFile(imagename);
+                        //thumb = img.GetThumbnailImage(192, 108, null, IntPtr.Zero);
                         //catalogItemDataGridView.Rows.Insert(0, thumb, 1);
-                        row.Cells[0].Value = thumb;
+                        //row.Cells[0].Value = thumb;
                     }
 
                     //if (name.Equals("CatalogType"))
