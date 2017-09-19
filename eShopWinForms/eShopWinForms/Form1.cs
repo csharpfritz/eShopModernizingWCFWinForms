@@ -48,7 +48,10 @@ namespace eShopWinForms
         private void LoadCatalogData(ICatalogService service)
         {
             IEnumerable<CatalogItem> items = service.GetCatalogItems();
-            
+
+
+            //var discountResponse = DiscountService.GetDiscount();
+            //var discount = discountResponse.Result;
 
             //Get bound CatalogItem data
             var itemProperties = (from prop in typeof(CatalogItem).GetProperties(BindingFlags.Public | BindingFlags.Instance)
@@ -172,6 +175,7 @@ namespace eShopWinForms
             catalogItemDataGridView.Columns["CatalogTypeId"].Visible = false;
             catalogItemDataGridView.Columns["CatalogBrand"].Visible = false;
             catalogItemDataGridView.Columns["CatalogType"].Visible = false;
+            catalogItemDataGridView.Columns["ExtensionData"].Visible = false;
             catalogItemDataGridView.Columns["Name"].DisplayIndex = 1;
             catalogItemDataGridView.Columns["Description"].DisplayIndex = 2;
             catalogItemDataGridView.Columns["Price"].DisplayIndex = 3;
@@ -308,7 +312,7 @@ namespace eShopWinForms
 
         private void addAvailabilityButton_Click(object sender, EventArgs e)
         {
-            int id = (int)productIdInput.SelectedValue;
+            int id = (int)productIdInput.SelectedItem;
             int quantity = int.Parse(quantityInput.Text);
             DateTime shipDate = Convert.ToDateTime(arrivalDateInput.Text);
 
@@ -316,6 +320,13 @@ namespace eShopWinForms
             shipment.CatalogItemId = id;
             shipment.AvailableStock = quantity;
             shipment.Date = shipDate;
+
+            service.CreateAvailableStock(shipment);
+            MessageBox.Show("Shipment has been added to the database.");
+
+            productIdInput.ResetText();
+            quantityInput.Clear();
+            arrivalDateInput.Clear();
         }
     }
 
