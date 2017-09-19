@@ -49,20 +49,20 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.productIdInput = new System.Windows.Forms.ComboBox();
+            this.addAvailabilityButton = new System.Windows.Forms.Button();
+            this.arrivalDateInput = new System.Windows.Forms.TextBox();
+            this.arrivalDate = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.quantityInput = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.catalogBrandBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.catalogTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.catalogBrandBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.catalogItemBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.quantityInput = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.arrivalDateInput = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.addAvailabilityButton = new System.Windows.Forms.Button();
-            this.productIdInput = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,13 +75,13 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource3)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -352,6 +352,81 @@
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.productIdInput);
+            this.groupBox3.Controls.Add(this.addAvailabilityButton);
+            this.groupBox3.Controls.Add(this.arrivalDateInput);
+            this.groupBox3.Controls.Add(this.arrivalDate);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.quantityInput);
+            this.groupBox3.Location = new System.Drawing.Point(507, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(495, 356);
+            this.groupBox3.TabIndex = 11;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Add new shipments here:";
+            // 
+            // productIdInput
+            // 
+            this.productIdInput.FormattingEnabled = true;
+            this.productIdInput.Location = new System.Drawing.Point(277, 66);
+            this.productIdInput.Name = "productIdInput";
+            this.productIdInput.Size = new System.Drawing.Size(121, 33);
+            this.productIdInput.TabIndex = 7;
+            // 
+            // addAvailabilityButton
+            // 
+            this.addAvailabilityButton.Location = new System.Drawing.Point(173, 241);
+            this.addAvailabilityButton.Name = "addAvailabilityButton";
+            this.addAvailabilityButton.Size = new System.Drawing.Size(164, 79);
+            this.addAvailabilityButton.TabIndex = 6;
+            this.addAvailabilityButton.Text = "Add Shipment";
+            this.addAvailabilityButton.UseVisualStyleBackColor = true;
+            this.addAvailabilityButton.Click += new System.EventHandler(this.addAvailabilityButton_Click);
+            // 
+            // arrivalDateInput
+            // 
+            this.arrivalDateInput.Location = new System.Drawing.Point(277, 172);
+            this.arrivalDateInput.Name = "arrivalDateInput";
+            this.arrivalDateInput.Size = new System.Drawing.Size(121, 31);
+            this.arrivalDateInput.TabIndex = 5;
+            // 
+            // arrivalDate
+            // 
+            this.arrivalDate.AutoSize = true;
+            this.arrivalDate.Location = new System.Drawing.Point(40, 179);
+            this.arrivalDate.Name = "arrivalDate";
+            this.arrivalDate.Size = new System.Drawing.Size(220, 25);
+            this.arrivalDate.TabIndex = 4;
+            this.arrivalDate.Text = "Shipment Arrival Date";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(168, 125);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 25);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Quantity";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(151, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 25);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Product Id";
+            // 
+            // quantityInput
+            // 
+            this.quantityInput.Location = new System.Drawing.Point(277, 119);
+            this.quantityInput.Name = "quantityInput";
+            this.quantityInput.Size = new System.Drawing.Size(121, 31);
+            this.quantityInput.TabIndex = 1;
+            // 
             // pictureBox3
             // 
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -375,87 +450,12 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.productIdInput);
-            this.groupBox3.Controls.Add(this.addAvailabilityButton);
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Controls.Add(this.arrivalDateInput);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.quantityInput);
-            this.groupBox3.Location = new System.Drawing.Point(507, 3);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(495, 356);
-            this.groupBox3.TabIndex = 11;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Add new shipments here:";
-            // 
-            // quantityInput
-            // 
-            this.quantityInput.Location = new System.Drawing.Point(277, 119);
-            this.quantityInput.Name = "quantityInput";
-            this.quantityInput.Size = new System.Drawing.Size(121, 31);
-            this.quantityInput.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(151, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 25);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Product Id";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(168, 125);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 25);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Quantity";
-            // 
-            // arrivalDateInput
-            // 
-            this.arrivalDateInput.AutoSize = true;
-            this.arrivalDateInput.Location = new System.Drawing.Point(40, 179);
-            this.arrivalDateInput.Name = "arrivalDateInput";
-            this.arrivalDateInput.Size = new System.Drawing.Size(220, 25);
-            this.arrivalDateInput.TabIndex = 4;
-            this.arrivalDateInput.Text = "Shipment Arrival Date";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(277, 172);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 31);
-            this.textBox3.TabIndex = 5;
-            // 
-            // addAvailabilityButton
-            // 
-            this.addAvailabilityButton.Location = new System.Drawing.Point(173, 241);
-            this.addAvailabilityButton.Name = "addAvailabilityButton";
-            this.addAvailabilityButton.Size = new System.Drawing.Size(164, 79);
-            this.addAvailabilityButton.TabIndex = 6;
-            this.addAvailabilityButton.Text = "Add Shipment";
-            this.addAvailabilityButton.UseVisualStyleBackColor = true;
-            this.addAvailabilityButton.Click += new System.EventHandler(this.addAvailabilityButton_Click);
-            // 
-            // productIdInput
-            // 
-            this.productIdInput.FormattingEnabled = true;
-            this.productIdInput.Location = new System.Drawing.Point(277, 66);
-            this.productIdInput.Name = "productIdInput";
-            this.productIdInput.Size = new System.Drawing.Size(121, 33);
-            this.productIdInput.TabIndex = 7;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1050, 1336);
+            this.ClientSize = new System.Drawing.Size(1075, 1336);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
@@ -474,14 +474,14 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource3)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -520,8 +520,8 @@
         private System.Windows.Forms.BindingSource catalogItemBindingSource3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button addAvailabilityButton;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label arrivalDateInput;
+        private System.Windows.Forms.TextBox arrivalDateInput;
+        private System.Windows.Forms.Label arrivalDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox quantityInput;
