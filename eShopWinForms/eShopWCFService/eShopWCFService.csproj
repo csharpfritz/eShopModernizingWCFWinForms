@@ -81,6 +81,7 @@
     <Compile Include="Models\CatalogItemHiLoGenerator.cs" />
     <Compile Include="Models\CatalogItemsStock.cs" />
     <Compile Include="Models\CatalogType.cs" />
+    <Compile Include="Models\Infrastructure\CatalogDBInitializer.cs" />
     <Compile Include="Models\Infrastructure\PreconfiguredData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CatalogService.svc.cs">

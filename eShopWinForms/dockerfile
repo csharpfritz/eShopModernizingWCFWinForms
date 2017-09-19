@@ -1,16 +1,11 @@
-# using vNext image
-FROM microsoft/mssql-server-windows
- 
-# create directory within SQL container for database files
-RUN powershell -Command (mkdir C:\\SQLServer)
- 
-#copy the database files from host to container
-COPY eShopDatabase.mdf C:\\SQLServer
-COPY eShopDatabase_log.ldf C:\\SQLServer
- 
-# set environment variables
-ENV sa_password=Testing11@@
- 
-ENV ACCEPT_EULA=Y
- 
-ENV attach_dbs="[{'dbName':'eShopDatabase','dbFiles':['C:\\SQLServer\\eShopDatabase.mdf','C:\\SQLServer\\eShopDatabase_log.ldf']}]"
+FROM microsoft/wcf
+
+RUN mkdir C:\WcfService
+
+RUN powershell -NoProfile -Command \
+    Import-module IISAdministration; \
+    New-IISSite -Name "WcfService" -PhysicalPath C:\WcfService -BindingInformation "*:83:"
+
+EXPOSE 83
+
+ADD eShopWCFService/ WcfService/
