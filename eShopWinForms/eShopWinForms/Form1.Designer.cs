@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.catalogItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.MainCatalog = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -63,9 +62,9 @@
             this.catalogTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.catalogBrandBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.catalogItemBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl.SuspendLayout();
             this.MainCatalog.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -82,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.catalogTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -101,29 +101,18 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.56561F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1023F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1033, 1292);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1194, 1312);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::eShopWinForms.Properties.Resources.brand;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(212, 46);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.MainCatalog);
             this.tabControl.Controls.Add(this.tabPage1);
-            this.tabControl.Location = new System.Drawing.Point(4, 230);
+            this.tabControl.Location = new System.Drawing.Point(4, 250);
             this.tabControl.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1025, 990);
+            this.tabControl.Size = new System.Drawing.Size(1186, 990);
             this.tabControl.TabIndex = 0;
             // 
             // MainCatalog
@@ -133,7 +122,7 @@
             this.MainCatalog.Margin = new System.Windows.Forms.Padding(4);
             this.MainCatalog.Name = "MainCatalog";
             this.MainCatalog.Padding = new System.Windows.Forms.Padding(4);
-            this.MainCatalog.Size = new System.Drawing.Size(1009, 943);
+            this.MainCatalog.Size = new System.Drawing.Size(1170, 943);
             this.MainCatalog.TabIndex = 0;
             this.MainCatalog.Text = "Main Catalog ";
             this.MainCatalog.UseVisualStyleBackColor = true;
@@ -174,7 +163,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1244, 942);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1170, 939);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -243,15 +232,15 @@
             // 
             // catalogItemDataGridView
             // 
-            this.catalogItemDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.catalogItemDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.catalogItemDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.catalogItemDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.catalogItemDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.catalogItemDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.catalogItemDataGridView.Location = new System.Drawing.Point(4, 68);
             this.catalogItemDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.catalogItemDataGridView.Name = "catalogItemDataGridView";
             this.catalogItemDataGridView.RowTemplate.Height = 33;
-            this.catalogItemDataGridView.Size = new System.Drawing.Size(1236, 870);
+            this.catalogItemDataGridView.Size = new System.Drawing.Size(1162, 867);
             this.catalogItemDataGridView.TabIndex = 1;
             this.catalogItemDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.catalogItemDataGridView_CellContentClick);
             // 
@@ -263,7 +252,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1009, 943);
+            this.tabPage1.Size = new System.Drawing.Size(1170, 943);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Inventory";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -281,14 +270,15 @@
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.91904F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.08096F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1009, 908);
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.24064F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.75936F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1162, 935);
             this.tableLayoutPanel4.TabIndex = 5;
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(8, 10);
+            this.monthCalendar1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.monthCalendar1.Location = new System.Drawing.Point(89, 54);
             this.monthCalendar1.Margin = new System.Windows.Forms.Padding(8, 10, 8, 10);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 4;
@@ -298,14 +288,15 @@
             // 
             this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(4, 375);
+            this.groupBox1.Location = new System.Drawing.Point(4, 427);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(408, 529);
+            this.groupBox1.Size = new System.Drawing.Size(573, 504);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Select Id of product from list and click \"Search\" to find stock availability.";
+            this.groupBox1.Text = "Select a product below and click \"Search\" to find the stock availability on a cer" +
+    "tain day.";
             // 
             // listBox1
             // 
@@ -314,13 +305,13 @@
             this.listBox1.Location = new System.Drawing.Point(12, 69);
             this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(396, 304);
+            this.listBox1.Size = new System.Drawing.Size(537, 304);
             this.listBox1.TabIndex = 5;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(100, 396);
+            this.button1.Location = new System.Drawing.Point(183, 394);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(202, 88);
@@ -332,11 +323,11 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.listView1);
-            this.groupBox2.Location = new System.Drawing.Point(508, 375);
+            this.groupBox2.Location = new System.Drawing.Point(585, 427);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(459, 529);
+            this.groupBox2.Size = new System.Drawing.Size(573, 504);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Results";
@@ -346,7 +337,7 @@
             this.listView1.Location = new System.Drawing.Point(16, 69);
             this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(392, 304);
+            this.listView1.Size = new System.Drawing.Size(543, 413);
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -354,6 +345,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox3.Controls.Add(this.productIdInput);
             this.groupBox3.Controls.Add(this.addAvailabilityButton);
             this.groupBox3.Controls.Add(this.arrivalDateInput);
@@ -361,9 +353,9 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.quantityInput);
-            this.groupBox3.Location = new System.Drawing.Point(507, 3);
+            this.groupBox3.Location = new System.Drawing.Point(587, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(495, 356);
+            this.groupBox3.Size = new System.Drawing.Size(569, 417);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Add new shipments here:";
@@ -371,14 +363,14 @@
             // productIdInput
             // 
             this.productIdInput.FormattingEnabled = true;
-            this.productIdInput.Location = new System.Drawing.Point(277, 66);
+            this.productIdInput.Location = new System.Drawing.Point(327, 99);
             this.productIdInput.Name = "productIdInput";
             this.productIdInput.Size = new System.Drawing.Size(121, 33);
             this.productIdInput.TabIndex = 7;
             // 
             // addAvailabilityButton
             // 
-            this.addAvailabilityButton.Location = new System.Drawing.Point(173, 241);
+            this.addAvailabilityButton.Location = new System.Drawing.Point(206, 305);
             this.addAvailabilityButton.Name = "addAvailabilityButton";
             this.addAvailabilityButton.Size = new System.Drawing.Size(164, 79);
             this.addAvailabilityButton.TabIndex = 6;
@@ -388,7 +380,7 @@
             // 
             // arrivalDateInput
             // 
-            this.arrivalDateInput.Location = new System.Drawing.Point(277, 172);
+            this.arrivalDateInput.Location = new System.Drawing.Point(327, 205);
             this.arrivalDateInput.Name = "arrivalDateInput";
             this.arrivalDateInput.Size = new System.Drawing.Size(121, 31);
             this.arrivalDateInput.TabIndex = 5;
@@ -396,7 +388,7 @@
             // arrivalDate
             // 
             this.arrivalDate.AutoSize = true;
-            this.arrivalDate.Location = new System.Drawing.Point(40, 179);
+            this.arrivalDate.Location = new System.Drawing.Point(90, 212);
             this.arrivalDate.Name = "arrivalDate";
             this.arrivalDate.Size = new System.Drawing.Size(220, 25);
             this.arrivalDate.TabIndex = 4;
@@ -405,7 +397,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(168, 125);
+            this.label3.Location = new System.Drawing.Point(218, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 25);
             this.label3.TabIndex = 3;
@@ -414,7 +406,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(151, 66);
+            this.label2.Location = new System.Drawing.Point(201, 99);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 25);
             this.label2.TabIndex = 2;
@@ -422,7 +414,7 @@
             // 
             // quantityInput
             // 
-            this.quantityInput.Location = new System.Drawing.Point(277, 119);
+            this.quantityInput.Location = new System.Drawing.Point(327, 152);
             this.quantityInput.Name = "quantityInput";
             this.quantityInput.Size = new System.Drawing.Size(121, 31);
             this.quantityInput.TabIndex = 1;
@@ -431,10 +423,10 @@
             // 
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox3.Image = global::eShopWinForms.Properties.Resources.main_banner;
-            this.pictureBox3.Location = new System.Drawing.Point(4, 59);
+            this.pictureBox3.Location = new System.Drawing.Point(4, 64);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(1025, 163);
+            this.pictureBox3.Size = new System.Drawing.Size(1186, 178);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
@@ -442,7 +434,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::eShopWinForms.Properties.Resources.main_footer_text;
-            this.pictureBox2.Location = new System.Drawing.Point(4, 1253);
+            this.pictureBox2.Location = new System.Drawing.Point(4, 1273);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(348, 27);
@@ -450,12 +442,23 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::eShopWinForms.Properties.Resources.brand;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(212, 46);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1075, 1336);
+            this.ClientSize = new System.Drawing.Size(1212, 1332);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
@@ -463,7 +466,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl.ResumeLayout(false);
             this.MainCatalog.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -482,13 +484,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.catalogTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.BindingSource catalogItemBindingSource;
         private System.Windows.Forms.BindingSource catalogBrandBindingSource;
         private System.Windows.Forms.BindingSource catalogBrandBindingSource1;
@@ -526,6 +528,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox quantityInput;
         private System.Windows.Forms.ComboBox productIdInput;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

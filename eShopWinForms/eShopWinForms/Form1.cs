@@ -263,6 +263,10 @@ namespace eShopWinForms
             listView1.Columns.Add("Date");
             listView1.Columns.Add("Id");
             listView1.Columns.Add("Availability");
+            listView1.Columns[0].Width = -1;
+            listView1.Columns[1].TextAlign = HorizontalAlignment.Center;
+            listView1.Columns[2].TextAlign = HorizontalAlignment.Center;
+
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -279,7 +283,7 @@ namespace eShopWinForms
             int id = int.Parse(results[0]);
             int availability = service.GetAvailableStock(date, id);
 
-            ListViewItem lvi = new ListViewItem(date.ToString());
+            ListViewItem lvi = new ListViewItem(date.ToShortDateString());
             lvi.SubItems.Add(id.ToString());
             lvi.SubItems.Add(availability.ToString());
             listView1.Items.Add(lvi);
