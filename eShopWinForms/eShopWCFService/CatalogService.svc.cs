@@ -84,7 +84,7 @@ namespace eShopWCFService
             if (s != null)
                 return s.AvailableStock;
             else
-                return -1;
+                return 0;
         }
 
         public void CreateAvailableStock(CatalogItemsStock catalogItemsStock)
