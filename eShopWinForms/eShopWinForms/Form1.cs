@@ -68,14 +68,13 @@ namespace eShopWinForms
             //Create image column
             DataGridViewImageColumn imgcol = new DataGridViewImageColumn();
             catalogItemDataGridView.Columns.Insert(0, imgcol);
+            
 
             // Add columns to datagrid
-            //int col_num = 0;
             foreach (var property in itemProperties)
             {
                 string name = property.Name;
                 catalogItemDataGridView.Columns.Add(name.ToString(), name);
-                //col_num++;
             }
 
             
@@ -113,7 +112,7 @@ namespace eShopWinForms
                     column++;
                 }
                 catalogItemDataGridView.Rows.Add(row);
-
+                catalogItemDataGridView.AllowUserToAddRows = false;
             }
 
         }
@@ -201,7 +200,7 @@ namespace eShopWinForms
             KeyValuePair<string, string> brandValue = (KeyValuePair<string, string>)catalogBrandComboBox.SelectedItem;
             string selectedBrandValue = brandValue.Key;
 
-            for (int i = 0; i < catalogItemDataGridView.RowCount - 1; i++)
+            for (int i = 0; i <= catalogItemDataGridView.RowCount - 1; i++)
             {
                 var rowTypeValue = catalogItemDataGridView["CatalogTypeId", i].Value.ToString();
                 var rowBrandValue = catalogItemDataGridView["CatalogBrandId", i].Value.ToString();
