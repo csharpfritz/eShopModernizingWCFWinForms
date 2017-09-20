@@ -240,8 +240,7 @@ namespace eShopWinForms
 
             foreach (var catalogitem in itemsList)
             {
-                //listBox1.Items.Add(String.Format("{0} {1}", catalogitem.Id, catalogitem.Name));
-                listBox1.Items.Add(catalogitem.Id);
+                listBox1.Items.Add(String.Format("{0} - {1}", catalogitem.Id, catalogitem.Name));
             }
             
 
@@ -273,8 +272,11 @@ namespace eShopWinForms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string[] separator = new string[] { " - " };
+            string[] results = listBox1.SelectedItem.ToString().Split(separator, StringSplitOptions.None);
+
             DateTime date = monthCalendar1.SelectionRange.Start.Date;
-            int id = (int)listBox1.SelectedItem;
+            int id = int.Parse(results[0]);
             int availability = service.GetAvailableStock(date, id);
 
             ListViewItem lvi = new ListViewItem(date.ToString());
