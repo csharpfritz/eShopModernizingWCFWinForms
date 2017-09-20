@@ -94,19 +94,22 @@ namespace eShopWinForms
                     if (name.Equals("Picturefilename"))
                     {
                         //We can change this to relative path dont worry
-                        string imagename = "C:\\git\\eShopModernizingWCFWinForms\\eShopWinForms\\eShopWinForms\\Assets\\Images\\Catalog\\" + value;
+                        string imagename = Environment.CurrentDirectory + "\\..\\..\\Assets\\Images\\Catalog\\" + value;
                         Image img = Image.FromFile(imagename);
                         thumb = img.GetThumbnailImage(192, 108, null, IntPtr.Zero);
                         //catalogItemDataGridView.Rows.Insert(0, thumb, 1);
                         row.Cells[0].Value = thumb;
                     }
 
-                    //if (name.Equals("CatalogType"))
-                    //{
-                    //    CatalogType t = (CatalogType)value;
-                    //    row.Cells[column].Value = t.Type;
-                    //}
-                    //catalogItemDataGridView.Rows.Insert(0, thumb, 1);
+                    else if (name.Equals("Price"))
+                    {
+                        string price = value.ToString();
+                        string[] separator = new string[] { "." };
+                        string[] dollars = price.Split(separator, StringSplitOptions.None);
+                        string shortPrice = "$" + dollars[0] + "." + dollars[1].Substring(0, 2);
+                        row.Cells[10].Value = shortPrice;
+                    }
+
                     column++;
                 }
                 catalogItemDataGridView.Rows.Add(row);
@@ -179,6 +182,10 @@ namespace eShopWinForms
             catalogItemDataGridView.Columns["Name"].DisplayIndex = 1;
             catalogItemDataGridView.Columns["Description"].DisplayIndex = 2;
             catalogItemDataGridView.Columns["Price"].DisplayIndex = 3;
+            catalogItemDataGridView.Columns["Name"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            catalogItemDataGridView.Columns["Description"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            catalogItemDataGridView.Columns["Price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            catalogItemDataGridView.Columns["Price"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             for (int i = 0; i < catalogItemDataGridView.RowCount - 1; i++)
             {
@@ -263,9 +270,7 @@ namespace eShopWinForms
             listView1.Columns.Add("Date");
             listView1.Columns.Add("Id");
             listView1.Columns.Add("Availability");
-            listView1.Columns[0].Width = -1;
-            listView1.Columns[1].TextAlign = HorizontalAlignment.Center;
-            listView1.Columns[2].TextAlign = HorizontalAlignment.Center;
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
         }
 
@@ -284,9 +289,14 @@ namespace eShopWinForms
             int availability = service.GetAvailableStock(date, id);
 
             ListViewItem lvi = new ListViewItem(date.ToShortDateString());
+            
             lvi.SubItems.Add(id.ToString());
             lvi.SubItems.Add(availability.ToString());
             listView1.Items.Add(lvi);
+
+            listView1.Columns[0].Width = -1;
+            listView1.Columns[1].Width = -2;
+            listView1.Columns[2].Width = -2;
 
         }
 
