@@ -181,7 +181,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.4375F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.5625F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 752F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 753F));
             this.tableLayoutPanel3.Controls.Add(this.catalogBrandComboBox, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.typeFilter, 0, 0);
@@ -198,7 +198,7 @@
             // 
             this.catalogBrandComboBox.DisplayMember = "Brand";
             this.catalogBrandComboBox.FormattingEnabled = true;
-            this.catalogBrandComboBox.Location = new System.Drawing.Point(544, 4);
+            this.catalogBrandComboBox.Location = new System.Drawing.Point(543, 4);
             this.catalogBrandComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.catalogBrandComboBox.Name = "catalogBrandComboBox";
             this.catalogBrandComboBox.Size = new System.Drawing.Size(198, 38);
@@ -210,7 +210,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(457, 11);
+            this.label1.Location = new System.Drawing.Point(456, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 30);
