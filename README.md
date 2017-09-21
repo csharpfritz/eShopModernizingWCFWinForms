@@ -11,7 +11,7 @@ The WinForms front-end is a fictional inventory app which allows it's users to t
 
 ## Architecture
 
-![Architecture](assets/architecture.png)
+![Architecture](/assets/architecture.png)
 
 The WCF Service exposes a contract to the front-end; the front-end has no understanding of the underlying data layer, but it doesn't care because it has the assurance of the data contract with WCF to get what it needs.
 
