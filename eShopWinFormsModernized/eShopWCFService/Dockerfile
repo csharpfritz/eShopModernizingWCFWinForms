@@ -7,10 +7,7 @@ RUN mkdir C:\WcfServiceTest
 # configure the new site in IIS.
 RUN powershell -NoProfile -Command \
 Import-module IISAdministration; \
-New-IISSite -Name "WcfServiceTest" -PhysicalPath C:\WcfServiceTest -BindingInformation "*:80:"
-
-# This instruction tells the container to listen on port 80.
-EXPOSE 80
+New-IISSite -Name "WcfServiceTest" -PhysicalPath C:\WcfServiceTest -BindingInformation "*:83:"
 
 # The final instruction copies the site you published earlier into the container.
 COPY /obj/Docker/publish C:\WcfServiceTest
