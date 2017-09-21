@@ -57,14 +57,14 @@
             this.quantityInput = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.discountBanner = new System.Windows.Forms.Label();
             this.catalogItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.catalogBrandBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.catalogTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.catalogBrandBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.catalogItemBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.discountBanner = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.MainCatalog.SuspendLayout();
@@ -78,13 +78,13 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogTypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource3)).BeginInit();
-            this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -181,7 +181,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.4375F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.5625F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 751F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 752F));
             this.tableLayoutPanel3.Controls.Add(this.catalogBrandComboBox, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.typeFilter, 0, 0);
@@ -198,7 +198,7 @@
             // 
             this.catalogBrandComboBox.DisplayMember = "Brand";
             this.catalogBrandComboBox.FormattingEnabled = true;
-            this.catalogBrandComboBox.Location = new System.Drawing.Point(545, 4);
+            this.catalogBrandComboBox.Location = new System.Drawing.Point(544, 4);
             this.catalogBrandComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.catalogBrandComboBox.Name = "catalogBrandComboBox";
             this.catalogBrandComboBox.Size = new System.Drawing.Size(198, 38);
@@ -210,7 +210,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(458, 11);
+            this.label1.Location = new System.Drawing.Point(457, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 30);
@@ -322,7 +322,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(206, 436);
+            this.button1.Location = new System.Drawing.Point(206, 413);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(202, 88);
@@ -345,10 +345,10 @@
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(79, 101);
+            this.listView1.Location = new System.Drawing.Point(77, 78);
             this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(488, 394);
+            this.listView1.Size = new System.Drawing.Size(488, 423);
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -515,13 +515,13 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogTypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogBrandBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.catalogItemBindingSource3)).EndInit();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
