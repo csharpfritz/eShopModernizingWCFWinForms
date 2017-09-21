@@ -1,6 +1,8 @@
 ﻿using DiscountService;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -15,7 +17,11 @@ namespace eShopWinForms
 
         public static Discount GetDiscount()
         {
-            client.BaseAddress = new Uri("http://172.19.173.207/");
+            // Get the AppSettings section.
+            NameValueCollection appSettings = ConfigurationManager.AppSettings;
+            string addr = appSettings["DiscountServiceAddress"];
+
+            client.BaseAddress = new Uri(addr);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
