@@ -9,7 +9,11 @@ namespace DiscountService
     {
         public static Discount GetDiscount()
         {
-            var discount = new Discount(0.1, new DateTime().AddDays(10));
+            double price = 0.2;
+            DateTime start = DateTime.Today;
+            DateTime end = DateTime.Today.AddDays(14);
+
+            var discount = new Discount(price, start, end);
             return discount;
         }
     }

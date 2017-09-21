@@ -13,14 +13,19 @@ namespace eShopWinForms
     {
         static HttpClient client = new HttpClient();
 
-        public static async Task<Discount> GetDiscount()
+        public static Discount GetDiscount()
         {
-            //client.BaseAddress = new Uri("http://localhost:62283/");
-            //client.DefaultRequestHeaders.Accept.Clear();
-            //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.BaseAddress = new Uri("http://localhost:62283/");
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            var response = await client.GetAsync("http://localhost:62283/api/discount");
-            var discount = await response.Content.ReadAsAsync<Discount>();
+            var response = client.GetAsync("/api/discount").Result;
+            Discount discount = null;
+
+            if (response.IsSuccessStatusCode)
+            {
+                discount = response.Content.ReadAsAsync<Discount>().Result;
+            }
 
             return discount;
         }

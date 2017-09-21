@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Linq.Expressions;
 using eShopWinForms.eShopServiceReference;
+using DiscountService;
+using System.Net.Http;
 
 namespace eShopWinForms
 {
@@ -25,6 +27,7 @@ namespace eShopWinForms
 
             //Load Initial Data
             LoadCatalogData(service);
+           
 
             // Adjust Column Display
             AllFilter();
@@ -49,9 +52,7 @@ namespace eShopWinForms
         {
             IEnumerable<CatalogItem> items = service.GetCatalogItems();
 
-
-            //var discountResponse = DiscountService.GetDiscount();
-            //var discount = discountResponse.Result;
+            var discount = DiscountService.GetDiscount();
 
             //Get bound CatalogItem data
             var itemProperties = (from prop in typeof(CatalogItem).GetProperties(BindingFlags.Public | BindingFlags.Instance)
@@ -68,14 +69,13 @@ namespace eShopWinForms
             //Create image column
             DataGridViewImageColumn imgcol = new DataGridViewImageColumn();
             catalogItemDataGridView.Columns.Insert(0, imgcol);
+            
 
             // Add columns to datagrid
-            //int col_num = 0;
             foreach (var property in itemProperties)
             {
                 string name = property.Name;
                 catalogItemDataGridView.Columns.Add(name.ToString(), name);
-                //col_num++;
             }
 
             
@@ -96,24 +96,25 @@ namespace eShopWinForms
                         //We can change this to relative path dont worry
                         string imagename = Environment.CurrentDirectory + "\\..\\..\\Assets\\Images\\Catalog\\" + value;
                         Image img = Image.FromFile(imagename);
-                        thumb = img.GetThumbnailImage(192, 108, null, IntPtr.Zero);
+                        thumb = img.GetThumbnailImage(384, 216, null, IntPtr.Zero);
                         //catalogItemDataGridView.Rows.Insert(0, thumb, 1);
                         row.Cells[0].Value = thumb;
                     }
 
                     else if (name.Equals("Price"))
                     {
-                        string price = value.ToString();
-                        string[] separator = new string[] { "." };
-                        string[] dollars = price.Split(separator, StringSplitOptions.None);
-                        string shortPrice = "$" + dollars[0] + "." + dollars[1].Substring(0, 2);
-                        row.Cells[10].Value = shortPrice;
+                        double price = double.Parse(value.ToString());
+                        double discountPrice = price * (1-discount.Size);
+                        row.Cells[10].Value = "$" + discountPrice.ToString("F");
+
+                        double percent = discount.Size * 100;
+                        discountBanner.Text = "" + percent.ToString() + "% sale ends on " + discount.End.ToShortDateString() + "!";
                     }
 
                     column++;
                 }
                 catalogItemDataGridView.Rows.Add(row);
-
+                catalogItemDataGridView.AllowUserToAddRows = false;
             }
 
         }
@@ -201,7 +202,7 @@ namespace eShopWinForms
             KeyValuePair<string, string> brandValue = (KeyValuePair<string, string>)catalogBrandComboBox.SelectedItem;
             string selectedBrandValue = brandValue.Key;
 
-            for (int i = 0; i < catalogItemDataGridView.RowCount - 1; i++)
+            for (int i = 0; i <= catalogItemDataGridView.RowCount - 1; i++)
             {
                 var rowTypeValue = catalogItemDataGridView["CatalogTypeId", i].Value.ToString();
                 var rowBrandValue = catalogItemDataGridView["CatalogBrandId", i].Value.ToString();

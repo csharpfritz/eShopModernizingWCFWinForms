@@ -7,14 +7,17 @@ namespace DiscountService
 {
     public class Discount
     {
-        public Discount(double size, DateTime ends)
+        public Discount(double size, DateTime start, DateTime end)
         {
             Size = size;
-            Ends = ends;
+            Start = start;
+            End = end;
         }
 
         public double Size { get; private set; }
 
-        public DateTime Ends { get; private set; }
+        public DateTime Start { get; private set; }
+
+        public DateTime End { get; private set; }
     }
 }
