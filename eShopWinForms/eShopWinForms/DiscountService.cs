@@ -15,7 +15,7 @@ namespace eShopWinForms
 
         public static Discount GetDiscount()
         {
-            client.BaseAddress = new Uri("http://localhost:62283/");
+            client.BaseAddress = new Uri("http://localhost:65408/");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 

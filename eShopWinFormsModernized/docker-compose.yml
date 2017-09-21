@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  eshopwcfservice:
+    image: eshopwcfservice
+    build:
+      context: ./eShopWCFService
+      dockerfile: Dockerfile
+    depends_on:
+      - sql.data
+
+  discountservice:
+    image: discountservice
+    build:
+      context: ./DiscountService
+      dockerfile: Dockerfile
+
+  sql.data:
+    image: microsoft/mssql-server-windows-developer
