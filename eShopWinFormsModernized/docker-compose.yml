@@ -8,12 +8,16 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - sql.data
+    ports: 
+      - "83:83"
 
   discountservice:
     image: discountservice
     build:
       context: ./DiscountService
       dockerfile: Dockerfile
+    ports: 
+      - "80:80"
 
   sql.data:
     image: microsoft/mssql-server-windows-developer
