@@ -5,7 +5,7 @@ services:
     environment:
       - ConnectionString=Server=sql.data;Database=eShopDatabase;User Id=sa;Password=Testing11@@
     ports:
-      - "83"
+      - "80"
   discountservice:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
