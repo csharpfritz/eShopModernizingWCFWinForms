@@ -30,3 +30,13 @@ System Requirements:
 ## Adding Docker Support
 
 One of the great features that this demo showscases is the ease with which you can deploy your application into containers. To learn about adding docker support, [check out the wiki!](https://github.com/dotnet-architecture/eShopModernizingWCFWinForms/wiki/1.-Adding-Docker-Support)
+
+## Important Quirks and Work-arounds
+
+We are continually developing and refining the docker experience in Visual Studio--and squashing bugs in the process. There are a few notable quirks that you need to be aware of:
+
+### Docker support for WCF
+
+The file that is generated when adding docker support to the WCF service will not compile and run from the get-go. To work around this, you would need to replace the generated dockerfile with the one recommended here: [microsoft/wcf image](https://hub.docker.com/r/microsoft/wcf/). This link walks through what the content of the dockerfile should be and also teaches you how to verify whether the service is running. We've already made the appropriate changes in the modernized version of the application.
+
+Likewise, Visual Studio generates a docker-compose.vs.debug compose file which is incorrectly passing a volume.
