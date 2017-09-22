@@ -8,8 +8,6 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - sql.data
-    ports: 
-      - "83:83"
 
   sql.data:
     image: microsoft/mssql-server-windows-developer
