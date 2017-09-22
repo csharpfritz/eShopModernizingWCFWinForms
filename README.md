@@ -21,22 +21,6 @@ Because this repo illustrates the modernization of a legacy app, there are two f
 
 Each component of the solution is broken into it's own project (frontend, WCF, etc).
 
-## Prerequisites
-System Requirements:
-- Windows 10 
-- Visual Studio 2017
-- .NET Framework 4.7 Installed
+## Application Walkthrough
 
-## Adding Docker Support
-
-One of the great features that this demo showscases is the ease with which you can deploy your application into containers. To learn about adding docker support, [check out the wiki!](https://github.com/dotnet-architecture/eShopModernizingWCFWinForms/wiki/1.-Adding-Docker-Support)
-
-## Important Quirks and Work-arounds
-
-We are continually developing and refining the docker experience in Visual Studio--and squashing bugs in the process. There are a few notable quirks that you need to be aware of:
-
-### Docker support for WCF
-
-The file that is generated when adding docker support to the WCF service will not compile and run from the get-go. To work around this, you would need to replace the generated dockerfile with the one recommended here: [microsoft/wcf image](https://hub.docker.com/r/microsoft/wcf/). This link walks through what the content of the dockerfile should be and also teaches you how to verify whether the service is running. We've already made the appropriate changes in the modernized version of the application.
-
-Likewise, Visual Studio generates a docker-compose.vs.debug compose file which is incorrectly passing a volume.
+We've broken out a full walkthrough of converting from a legacy version to the modernized version in the wiki. Go [check out the wiki](https://github.com/dotnet-architecture/eShopModernizingWCFWinForms/wiki) to get a step-by-step explanation of the features called out in this readme.
