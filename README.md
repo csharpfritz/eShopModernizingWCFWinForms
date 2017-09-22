@@ -19,14 +19,14 @@ Because this repo illustrates the modernization of a legacy app, there are two f
  - **Legacy**: This solution is the raw WinForms (no High DPI support) interfacing with a local WCF service which talks with a local SQL database.
  - **Modernized**: This solution contains all of the features called out above. The front-end becomes High DPI-aware, the WCF service and SQL databases are wrapped into containers, and the WCF service is partially broken out into an ASP.NET Core Web API, callable from our front-end.
 
-Each component of the solution is broken into it's own project.
+Each component of the solution is broken into it's own project (frontend, WCF, etc).
 
 ## Prerequisites
 System Requirements:
-- Windows XX 
+- Windows 10 
 - Visual Studio 2017
 - .NET Framework 4.7 Installed
 
 ## Adding Docker Support
 
-Containerize app.
+One of the great features that this demo showscases is the ease with which you can deploy your application into containers. To learn about adding docker support, [check out the wiki!](https://github.com/dotnet-architecture/eShopModernizingWCFWinForms/wiki/1.-Adding-Docker-Support)
