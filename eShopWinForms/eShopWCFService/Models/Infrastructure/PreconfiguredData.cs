@@ -42,8 +42,8 @@ namespace eShopWCFService.Models.Infrastructure
         {
             return new List<DiscountItem>()
             {
-                new DiscountItem() { Start = new DateTime(2017, 9, 18), End = new DateTime(2017, 9, 19), Size = 0.3f },
-                new DiscountItem() { Start = new DateTime(2017, 9, 22), End = new DateTime(2017, 9, 23), Size = 0.25f },
+                new DiscountItem() { Start = new DateTime(2017, 9, 18), End = new DateTime(2017, 9, 21), Size = 0.3f },
+                new DiscountItem() { Start = new DateTime(2017, 9, 22), End = new DateTime(2017, 9, 26), Size = 0.25f },
                 new DiscountItem() { Start = new DateTime(2017, 9, 27), End = new DateTime(2017, 9, 30), Size = 0.1f },
                 new DiscountItem() { Start = new DateTime(2017, 10, 5), End = new DateTime(2017, 10, 20), Size = 0.5f },
                 new DiscountItem() { Start = new DateTime(2017, 11, 13), End = new DateTime(2017, 11, 25), Size = 0.3f },

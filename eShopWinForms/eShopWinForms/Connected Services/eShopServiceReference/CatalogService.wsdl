@@ -62,6 +62,12 @@
   <wsdl:message name="ICatalogService_RemoveCatalogItem_OutputMessage">
     <wsdl:part name="parameters" element="tns:RemoveCatalogItemResponse" />
   </wsdl:message>
+  <wsdl:message name="ICatalogService_GetDiscount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiscount" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_GetDiscount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiscountResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICatalogService">
     <wsdl:operation name="FindCatalogItem">
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/FindCatalogItem" message="tns:ICatalogService_FindCatalogItem_InputMessage" />
@@ -98,6 +104,10 @@
     <wsdl:operation name="RemoveCatalogItem">
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/RemoveCatalogItem" message="tns:ICatalogService_RemoveCatalogItem_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/RemoveCatalogItemResponse" message="tns:ICatalogService_RemoveCatalogItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDiscount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/GetDiscount" message="tns:ICatalogService_GetDiscount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/GetDiscountResponse" message="tns:ICatalogService_GetDiscount_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICatalogService" type="tns:ICatalogService">
@@ -176,6 +186,15 @@
     </wsdl:operation>
     <wsdl:operation name="RemoveCatalogItem">
       <soap:operation soapAction="http://tempuri.org/ICatalogService/RemoveCatalogItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiscount">
+      <soap:operation soapAction="http://tempuri.org/ICatalogService/GetDiscount" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -401,6 +401,99 @@ namespace eShopWinForms.eShopServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DiscountItem", Namespace="http://schemas.datacontract.org/2004/07/eShopWCFService.Models")]
+    [System.SerializableAttribute()]
+    public partial class DiscountItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime EndField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double SizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime StartField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime End {
+            get {
+                return this.EndField;
+            }
+            set {
+                if ((this.EndField.Equals(value) != true)) {
+                    this.EndField = value;
+                    this.RaisePropertyChanged("End");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Size {
+            get {
+                return this.SizeField;
+            }
+            set {
+                if ((this.SizeField.Equals(value) != true)) {
+                    this.SizeField = value;
+                    this.RaisePropertyChanged("Size");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Start {
+            get {
+                return this.StartField;
+            }
+            set {
+                if ((this.StartField.Equals(value) != true)) {
+                    this.StartField = value;
+                    this.RaisePropertyChanged("Start");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="eShopServiceReference.ICatalogService")]
     public interface ICatalogService {
@@ -458,6 +551,12 @@ namespace eShopWinForms.eShopServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/RemoveCatalogItem", ReplyAction="http://tempuri.org/ICatalogService/RemoveCatalogItemResponse")]
         System.Threading.Tasks.Task RemoveCatalogItemAsync(eShopWinForms.eShopServiceReference.CatalogItem catalogItem);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetDiscount", ReplyAction="http://tempuri.org/ICatalogService/GetDiscountResponse")]
+        eShopWinForms.eShopServiceReference.DiscountItem GetDiscount(System.DateTime day);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetDiscount", ReplyAction="http://tempuri.org/ICatalogService/GetDiscountResponse")]
+        System.Threading.Tasks.Task<eShopWinForms.eShopServiceReference.DiscountItem> GetDiscountAsync(System.DateTime day);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -557,6 +656,14 @@ namespace eShopWinForms.eShopServiceReference {
         
         public System.Threading.Tasks.Task RemoveCatalogItemAsync(eShopWinForms.eShopServiceReference.CatalogItem catalogItem) {
             return base.Channel.RemoveCatalogItemAsync(catalogItem);
+        }
+        
+        public eShopWinForms.eShopServiceReference.DiscountItem GetDiscount(System.DateTime day) {
+            return base.Channel.GetDiscount(day);
+        }
+        
+        public System.Threading.Tasks.Task<eShopWinForms.eShopServiceReference.DiscountItem> GetDiscountAsync(System.DateTime day) {
+            return base.Channel.GetDiscountAsync(day);
         }
     }
 }

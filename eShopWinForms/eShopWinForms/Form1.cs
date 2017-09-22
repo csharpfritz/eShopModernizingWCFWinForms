@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Linq.Expressions;
 using eShopWinForms.eShopServiceReference;
-using DiscountService;
 using System.Net.Http;
 
 namespace eShopWinForms
@@ -52,7 +51,7 @@ namespace eShopWinForms
         {
             IEnumerable<CatalogItem> items = service.GetCatalogItems();
 
-            var discount = DiscountService.GetDiscount();
+            var discount = service.GetDiscount(new DateTime(2017,9,22));
 
             //Get bound CatalogItem data
             var itemProperties = (from prop in typeof(CatalogItem).GetProperties(BindingFlags.Public | BindingFlags.Instance)

@@ -46,4 +46,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfCatalogType" nillable="true" type="tns:ArrayOfCatalogType" />
+  <xs:complexType name="DiscountItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="End" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Size" type="xs:double" />
+      <xs:element minOccurs="0" name="Start" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DiscountItem" nillable="true" type="tns:DiscountItem" />
 </xs:schema>

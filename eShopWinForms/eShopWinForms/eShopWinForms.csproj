@@ -93,8 +93,6 @@
     </Compile>
     <Compile Include="Controllers\CatalogController.cs" />
     <Compile Include="Controllers\PicController.cs" />
-    <Compile Include="Discount.cs" />
-    <Compile Include="DiscountService.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +149,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\eShopServiceReference\eShopWinForms.eShopServiceReference.CatalogType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\eShopServiceReference\eShopWinForms.eShopServiceReference.DiscountItem.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="packages.config" />
