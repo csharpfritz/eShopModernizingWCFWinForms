@@ -16,6 +16,7 @@ namespace eShopWCFService.Models.Infrastructure
             AddCatalogBrands(context);
             AddCatalogItems(context);
             AddCatalogItemsStock(context);
+            AddDiscountItems(context);
         }
 
         private void AddCatalogTypes(EntityModel context)
@@ -37,6 +38,18 @@ namespace eShopWCFService.Models.Infrastructure
             foreach (var brand in preconfiguredBrands)
             {
                 context.CatalogBrands.Add(brand);
+            }
+
+            context.SaveChanges();
+        }
+
+        private void AddDiscountItems(EntityModel context)
+        {
+            var preconfiguredDiscounts = PreconfiguredData.GetPreconfiguredDiscountItems();
+
+            foreach (var discount in preconfiguredDiscounts)
+            {
+                context.DiscountItems.Add(discount);
             }
 
             context.SaveChanges();

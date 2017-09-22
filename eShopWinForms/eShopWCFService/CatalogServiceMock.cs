@@ -115,5 +115,10 @@ namespace eShopWCFService
                 catalogItemsStock.Add(cat);
             }
         }
+
+        public DiscountItem GetDiscount(DateTime day)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

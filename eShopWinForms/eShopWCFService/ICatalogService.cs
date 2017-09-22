@@ -30,5 +30,7 @@ namespace eShopWCFService
         void UpdateCatalogItem(CatalogItem catalogItem);
         [OperationContract]
         void RemoveCatalogItem(CatalogItem catalogItem);
+        [OperationContract]
+        DiscountItem GetDiscount(DateTime day);
     }
 }

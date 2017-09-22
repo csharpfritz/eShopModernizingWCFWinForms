@@ -19,6 +19,7 @@ namespace eShopWCFService
         public virtual DbSet<CatalogItem> CatalogItems { get; set; }
         public virtual DbSet<CatalogItemsStock> CatalogItemsStocks { get; set; }
         public virtual DbSet<CatalogType> CatalogTypes { get; set; }
+        public virtual DbSet<DiscountItem> DiscountItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -35,6 +36,8 @@ namespace eShopWCFService
             modelBuilder.Entity<CatalogType>()
                 .Property(e => e.Type)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<DiscountItem>();
         }
     }
 }

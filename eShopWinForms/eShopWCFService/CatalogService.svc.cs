@@ -25,6 +25,11 @@ namespace eShopWCFService
             this.ents = ents;
         }
 
+        public DiscountItem GetDiscount(DateTime _day)
+        {
+            return ents.DiscountItems.Where(y => y.Start.Date <= _day.Date.Date && y.End.Date >= _day.Date.Date).FirstOrDefault();
+        }
+
         public CatalogItem FindCatalogItem(int id)
         {
             CatalogItem item = ents.CatalogItems.FirstOrDefault(x => x.Id == id);
