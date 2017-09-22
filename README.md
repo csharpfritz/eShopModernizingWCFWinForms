@@ -11,24 +11,20 @@ The project showcases the following features:
 - Updating a WinForms App to High DPI compatibility
 - Deploying a WinForms App via Centennial
 
+## Repository and Project Structure
+
+Because this repo illustrates the modernization of a legacy app, there are two folders containing separate solutions: a legacy version (eShopWinForms) and a modernized version (eShopWinFormsModernized). 
+ - **Legacy**: This solution is the raw WinForms (no High DPI support) interfacing with a local WCF service which talks with a local SQL database.
+ - **Modernized**: This solution contains all of the features called out above. The front-end becomes High DPI-aware, the WCF service and SQL databases are wrapped into containers, and the WCF service is partially broken out into an ASP.NET Core Web API, callable from our front-end.
+
+Each component of the solution is broken into it's own project.
+
 ## Prerequisites
 System Requirements:
 - Windows XX 
 - Visual Studio 2017
 - .NET Framework 4.7 Installed
 
-## Architecture
-
-![Architecture](assets/architecture.PNG)
-
-The WCF Service exposes a contract to the front-end; the front-end has no understanding of the underlying data layer, but it doesn't care because it has the assurance of the data contract with WCF to get what it needs.
-
-As for the API service, in normal production this service would call out to a back-end. For the purposes of this demo,the API returns a "canned" response.
-
-## WinForms High DPI
-
-High DPI here.
-
-## Containertizing our Application
+## Adding Docker Support
 
 Containerize app.
