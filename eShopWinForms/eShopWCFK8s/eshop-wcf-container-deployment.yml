@@ -1,35 +1,41 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: sql-data
+  name: eshop-modernized-wcf
 spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
   template:
     metadata:
       labels:
-        app: sql-data
+        app: eshop-modernized-wcf
     spec:
       containers:
-      - name: sql-data
-        image: microsoft/mssql-server-windows-developer
+      - name: eshop-modernized-wcf
+        image: eshop/wcfservice
+        ports:
+        - containerPort: 83
+        imagePullPolicy: Always
         env:
-        - name: ACCEPT_EULA
-          value: "Y"
-        - name: SA_PASSWORD
-          value: Pass@word
+        - name: ConnectionString
+          value: "Server=sql-data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word"
       nodeSelector:
        beta.kubernetes.io/os: windows
 ---
 apiVersion: v1
 kind: Service
 metadata:
+  name: eshop-modernized-wcf
   labels:
-    app: sql-data
-  name: sql-data
+    app: eshop-modernized-wcf
 spec:
   type: LoadBalancer
-  #loadBalancerIP: 52.187.173.125
   ports:
-  - port: 1433
-    targetPort: 1433
+  - port: 80
+    targetPort: 83
   selector:
-    app: sql-data
+    app: eshop-modernized-wcf
