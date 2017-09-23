@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="751bc82b-eb39-4c88-b01e-e9d102810fe2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:62314/CatalogService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CatalogService.xsd" MetadataType="Schema" ID="3973b801-c01a-487f-8b72-610268e2a02b" SourceId="1" SourceUrl="http://localhost:62314/CatalogService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CatalogService1.xsd" MetadataType="Schema" ID="39092a48-49aa-413f-b229-77e8507ce512" SourceId="1" SourceUrl="http://localhost:62314/CatalogService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CatalogService2.xsd" MetadataType="Schema" ID="1c5cb166-d17d-4f58-b889-d02826ab775c" SourceId="1" SourceUrl="http://localhost:62314/CatalogService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CatalogService3.xsd" MetadataType="Schema" ID="90878018-1da8-4548-bc01-82b7b63865d6" SourceId="1" SourceUrl="http://localhost:62314/CatalogService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CatalogService.wsdl" MetadataType="Wsdl" ID="d8f56f11-d97f-4bb5-83ea-49efa6e8ad8e" SourceId="1" SourceUrl="http://localhost:62314/CatalogService.svc?wsdl" />
+    <MetadataFile FileName="CatalogService.disco" MetadataType="Disco" ID="587c4d3b-b8c1-4291-8a39-34dc63bd66c7" SourceId="1" SourceUrl="http://localhost:62314/CatalogService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
