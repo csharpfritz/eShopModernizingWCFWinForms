@@ -5,7 +5,7 @@ services:
     environment:
       - ConnectionString=Server=sql.data;Database=eShopDatabase;User Id=sa;Password=Testing11@@
     ports:
-     - "80:83"
+     - "80:80"
   sql.data:
     environment:
       - SA_PASSWORD=Testing11@@
