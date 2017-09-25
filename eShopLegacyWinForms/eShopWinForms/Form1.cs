@@ -145,7 +145,14 @@ namespace eShopWinForms
             }
 
             //Load TypeComboBox
-            catalogTypeComboBox.DataSource = new BindingSource(typeDictionary, null);
+            try
+            {
+                catalogTypeComboBox.DataSource = new BindingSource(typeDictionary, null);
+            }
+            catch (ArgumentException ex)
+            {
+                ex.ToString();
+            }
             catalogTypeComboBox.DisplayMember = "Value";
             catalogTypeComboBox.ValueMember = "Key";
 
