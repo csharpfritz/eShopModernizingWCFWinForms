@@ -1,4 +1,6 @@
 # eShopModernizingWCFWinForms
+> ### DISCLAIMER
+> **IMPORTANT:** The current state of this sample application is **BETA**, consider it version a 0.01, therefore, many areas will be improved and changed significantly. This is purely built with the purpose of showing off a concept/demo at this point. 
 
 ![WinForms](assets/winForms.PNG)
 
