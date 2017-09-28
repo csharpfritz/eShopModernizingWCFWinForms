@@ -17,7 +17,7 @@ namespace eShopWCFService
         [OperationContract]
         List<CatalogBrand> GetCatalogBrands();
         [OperationContract]
-        List<CatalogItem> GetCatalogItems();
+        List<CatalogItem> GetCatalogItems(int brandIdFilter, int typeIdFilter);
         [OperationContract]
         List<CatalogType> GetCatalogTypes();
         [OperationContract]
