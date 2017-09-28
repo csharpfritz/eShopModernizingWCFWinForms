@@ -69,6 +69,12 @@ namespace eShopWinForms.Controllers
             _view.SetCatalogItems(items, discountVal);
         }
 
+        private void SetShipmentView()
+        {
+            IEnumerable<CatalogItem> items = _service.GetCatalogItems(0, 0);
+            _view.SetShipmentView(items);
+        }
+
         private void LoadBrandFilters()
         {
             //Fetch the list of catalog item brands
@@ -120,6 +126,7 @@ namespace eShopWinForms.Controllers
             LoadCatalogItems(0, 0);
             LoadBrandFilters();
             LoadTypeFilters();
+            SetShipmentView();
         }
     }
 }

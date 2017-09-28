@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace eShopWinForms.Controllers
 {
-    public delegate void ViewHandler<ICatalogView>(ICatalogView sender, FilterEventArgs e);
+    public delegate void ViewHandler<I
+        >(ICatalogView sender, FilterEventArgs e);
     public delegate void AvailabilityHandler<ICatalogView>(ICatalogView sender, AvailabilityEventArgs e);
     public delegate void SearchStockHandler<ICatalogView>(ICatalogView sender, SearchStockEventArgs e);
     public class FilterEventArgs : EventArgs
@@ -63,5 +64,6 @@ namespace eShopWinForms.Controllers
         void ClearGrid();
         void NotifyAvailabilityUpdated();
         void ShowStockAvailability(int stock);
+        void SetShipmentView(IEnumerable<CatalogItem> items);
     }
 }

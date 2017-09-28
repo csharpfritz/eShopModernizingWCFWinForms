@@ -34,96 +34,33 @@ namespace eShopWinForms
 
         public void ClearGrid()
         {
-            catalogItemDataGridView.Rows.Clear();
-            catalogItemDataGridView.Refresh();
+            CatalogGridView.Rows.Clear();
+            CatalogGridView.Refresh();
         }
 
         public void SetCatalogItems(IEnumerable<CatalogItem> items, double discountVal)
         {
-            //Get bound CatalogItem data
-            var itemProperties = (from prop in typeof(CatalogItem).GetProperties(BindingFlags.Public | BindingFlags.Instance)
-                                  let parameter = Expression.Parameter(typeof(CatalogItem), "obj")
-                                  let property = Expression.Property(parameter, prop)
-                                  let lambda = Expression.Lambda<Func<CatalogItem, object>>(Expression.Convert(property, typeof(object)), parameter).Compile()
-                                  select
-                                  new
-                                  {
-                                      Getter = lambda,
-                                      Name = prop.Name
-                                  }).ToArray();
-
-            //Create image column
-            DataGridViewImageColumn imgcol = new DataGridViewImageColumn();
-            catalogItemDataGridView.Columns.Clear();
-            catalogItemDataGridView.Columns.Insert(0, imgcol);
-
-            // Add columns to datagrid
-            foreach (var property in itemProperties)
+            foreach(CatalogItem catalogItem in items)
             {
-                string name = property.Name;
-                catalogItemDataGridView.Columns.Add(name.ToString(), name);
+                double price = double.Parse(catalogItem.Price.ToString());
+                double discountPrice = price * (1 - discountVal);
+
+                string imagename = Environment.CurrentDirectory + "\\..\\..\\Assets\\Images\\Catalog\\" + catalogItem.Picturefilename;
+                Image img = Image.FromFile(imagename);
+                Image thumb = img.GetThumbnailImage(384, 216, null, IntPtr.Zero);
+
+                CatalogGridView.Rows.Add(thumb, catalogItem.Id.ToString(), catalogItem.Name, catalogItem.Description, String.Concat("$", discountPrice.ToString("F")));
             }
-
-            // Load data into columns
-            foreach (var catalogitem in items)
-            {
-                Image thumb = null;
-                DataGridViewRow row = new DataGridViewRow();
-                foreach (var property in itemProperties)
-                {
-                    DataGridViewCell newCell;
-                    string name = property.Name;
-                    object value = property.Getter(catalogitem);
-
-                    if (name.Equals("Picturefilename"))
-                    {
-                        //We can change this to relative path dont worry
-                        string imagename = Environment.CurrentDirectory + "\\..\\..\\Assets\\Images\\Catalog\\" + value;
-                        Image img = Image.FromFile(imagename);
-                        thumb = img.GetThumbnailImage(384, 216, null, IntPtr.Zero);
-                        //catalogItemDataGridView.Rows.Insert(0, thumb, 1);
-
-                        newCell = new DataGridViewImageCell();
-                        newCell.Value = thumb;
-                    }
-                    else if (name.Equals("Price"))
-                    {
-                        double price = double.Parse(value.ToString());
-                        double discountPrice = price * (1 - discountVal);
-                        newCell = new DataGridViewTextBoxCell();
-                        newCell.Value = "$" + discountPrice.ToString("F");
-                    }
-                    else
-                    {
-                        newCell = new DataGridViewTextBoxCell();
-                        newCell.Value =  value;
-                    }
-
-                    row.Cells.Add(newCell);
-                }
-
-                catalogItemDataGridView.Rows.Add(row);
-            }
-
-            catalogItemDataGridView.Columns[""].Visible = false;
-            catalogItemDataGridView.Columns["Id"].Visible = false;
-            catalogItemDataGridView.Columns["Picturefilename"].Visible = false;
-            catalogItemDataGridView.Columns["CatalogBrandId"].Visible = false;
-            catalogItemDataGridView.Columns["CatalogTypeId"].Visible = false;
-            catalogItemDataGridView.Columns["CatalogBrand"].Visible = false;
-            catalogItemDataGridView.Columns["CatalogType"].Visible = false;
-            catalogItemDataGridView.Columns["ExtensionData"].Visible = false;
-            catalogItemDataGridView.Columns["Name"].DisplayIndex = 1;
-            catalogItemDataGridView.Columns["Description"].DisplayIndex = 2;
-            catalogItemDataGridView.Columns["Price"].DisplayIndex = 3;
-            catalogItemDataGridView.Columns["Name"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            catalogItemDataGridView.Columns["Description"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            catalogItemDataGridView.Columns["Price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            catalogItemDataGridView.Columns["Price"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-            catalogItemDataGridView.AllowUserToAddRows = false;
         }
 
+        public void SetShipmentView(IEnumerable<CatalogItem> items)
+        {
+            foreach(CatalogItem catalogItem in items)
+            {
+                listBox1.Items.Add(String.Format("{0} - {1}", catalogItem.Id, catalogItem.Name));
+                productIdInput.Items.Add(catalogItem.Id);
+            }
+        }
 
         public void SetDiscountBanner(String text)
         {
