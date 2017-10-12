@@ -511,10 +511,10 @@ namespace eShopWinForms.eShopServiceReference {
         System.Threading.Tasks.Task<eShopWinForms.eShopServiceReference.CatalogBrand[]> GetCatalogBrandsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetCatalogItems", ReplyAction="http://tempuri.org/ICatalogService/GetCatalogItemsResponse")]
-        eShopWinForms.eShopServiceReference.CatalogItem[] GetCatalogItems();
+        eShopWinForms.eShopServiceReference.CatalogItem[] GetCatalogItems(int brandIdFilter, int typeIdFilter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetCatalogItems", ReplyAction="http://tempuri.org/ICatalogService/GetCatalogItemsResponse")]
-        System.Threading.Tasks.Task<eShopWinForms.eShopServiceReference.CatalogItem[]> GetCatalogItemsAsync();
+        System.Threading.Tasks.Task<eShopWinForms.eShopServiceReference.CatalogItem[]> GetCatalogItemsAsync(int brandIdFilter, int typeIdFilter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogService/GetCatalogTypes", ReplyAction="http://tempuri.org/ICatalogService/GetCatalogTypesResponse")]
         eShopWinForms.eShopServiceReference.CatalogType[] GetCatalogTypes();
@@ -602,12 +602,12 @@ namespace eShopWinForms.eShopServiceReference {
             return base.Channel.GetCatalogBrandsAsync();
         }
         
-        public eShopWinForms.eShopServiceReference.CatalogItem[] GetCatalogItems() {
-            return base.Channel.GetCatalogItems();
+        public eShopWinForms.eShopServiceReference.CatalogItem[] GetCatalogItems(int brandIdFilter, int typeIdFilter) {
+            return base.Channel.GetCatalogItems(brandIdFilter, typeIdFilter);
         }
         
-        public System.Threading.Tasks.Task<eShopWinForms.eShopServiceReference.CatalogItem[]> GetCatalogItemsAsync() {
-            return base.Channel.GetCatalogItemsAsync();
+        public System.Threading.Tasks.Task<eShopWinForms.eShopServiceReference.CatalogItem[]> GetCatalogItemsAsync(int brandIdFilter, int typeIdFilter) {
+            return base.Channel.GetCatalogItemsAsync(brandIdFilter, typeIdFilter);
         }
         
         public eShopWinForms.eShopServiceReference.CatalogType[] GetCatalogTypes() {

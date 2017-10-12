@@ -15,7 +15,6 @@ services:
     healthcheck:
       test: [ "CMD", "sqlcmd", "-U", "sa", "-P", "Testing11@@", "-Q", "select 1" ]
       interval: 1s
-      retries: 20
 networks:
   default:
     external:

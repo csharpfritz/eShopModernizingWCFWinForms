@@ -28,9 +28,13 @@ namespace eShopWCFService
             return catalogItems.FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<CatalogItem> GetCatalogItems()
+        public List<CatalogItem> GetCatalogItems(int brandIdFilter, int typeIdFilter)
         {
-            return PreconfiguredData.GetPreconfiguredCatalogItems();
+            bool brandFilterIsNull = brandIdFilter == 0;
+            bool typeFilterIsNull = typeIdFilter == 0;
+            return catalogItems.ToList().Where(x =>
+                (brandFilterIsNull ? true : x.CatalogBrandId == brandIdFilter) &&
+                (typeFilterIsNull ? true : x.CatalogTypeId == typeIdFilter)).ToList();
         }
 
         public IEnumerable<CatalogType> GetCatalogTypes()
@@ -86,11 +90,6 @@ namespace eShopWCFService
         List<CatalogType> ICatalogService.GetCatalogTypes()
         {
             return catalogTypes;
-        }
-
-        List<CatalogItem> ICatalogService.GetCatalogItems()
-        {
-            return catalogItems;
         }
 
         public int GetAvailableStock(DateTime date, int catalogItemId)

@@ -1,69 +1,132 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 using eShopWinForms.eShopServiceReference;
+using System;
 
 namespace eShopWinForms.Controllers
 {
     public class CatalogController
     {
-        private ICatalogService service;
+        private ICatalogService _service;
+        private ICatalogView _view;
 
-        public CatalogController(ICatalogService service)
+        public CatalogController(ICatalogService service, ICatalogView view)
         {
-            this.service = service;
+            this._service = service;
+            this._view = view;
+            this._view.filterChanged += new ViewHandler<ICatalogView>(this.filterChanged);
+            this._view.availabilityButtonClicked += new AvailabilityHandler<ICatalogView>(this.addAvailability);
+            this._view.searchStockButtonClicked += new SearchStockHandler<ICatalogView>(this.searchStockAvailable);
         }
 
-        // GET /[?pageSize=3&pageIndex=10]
-        public void Index(int pageSize = 10, int pageIndex = 0)
+        private void filterChanged(ICatalogView view, FilterEventArgs e)
         {
+            LoadCatalogItems(e.brandFilterValue, e.typeFilterValue);
         }
 
-        // GET: Catalog/Details/5
-        public void Details(int? id)
+        private void addAvailability(ICatalogView view, AvailabilityEventArgs e)
         {
+            CatalogItemsStock shipment = new CatalogItemsStock();
+            shipment.CatalogItemId = e.itemId;
+            shipment.AvailableStock = e.itemStock;
+            shipment.Date = e.shipDate;
+
+            _service.CreateAvailableStock(shipment);
+            _view.NotifyAvailabilityUpdated();
         }
 
-        // GET: Catalog/Create
-        public void Create()
+        private void searchStockAvailable(ICatalogView view, SearchStockEventArgs e)
         {
+            int res = _service.GetAvailableStock(e.date, e.itemId);
+
+            _view.ShowStockAvailability(res);
         }
 
-        public void Create(CatalogItem catalogItem)
+        /*
+         * Queries the service to see if a discount is running for today. If so, it will update the view's discount banner
+         */
+        private void CheckForDiscounts()
         {
-        }
-
-        // GET: Catalog/Edit/5
-        public void Edit(int? id)
-        {
-        }
-
-        public void Edit(CatalogItem catalogItem)
-        {
-        }
-
-        // GET: Catalog/Delete/5
-        public void Delete(int? id)
-        { 
-        }
-
-        public void DeleteConfirmed(int id)
-        {
-        }
-
-        protected void Dispose(bool disposing)
-        {
-        }
-
-        private void ChangeUriPlaceholder(IEnumerable<CatalogItem> items)
-        {
-            foreach (var catalogItem in items)
+            double discountPercentage = 0;
+            DiscountItem discount = _service.GetDiscount(DateTime.Now);
+            if (discount != null)
             {
-                AddUriPlaceHolder(catalogItem);
+                discountPercentage = Math.Round(discount.Size * 100, 0);
+                String bannerText = String.Format("{0}% sale endson {1}!", discountPercentage.ToString(), discount.End.ToShortDateString());
+                _view.SetDiscountBanner(bannerText);
             }
         }
 
-        private void AddUriPlaceHolder(CatalogItem item)
+        public void LoadCatalogItems(int brandIdFilter, int typeIdFilter)
         {
+            _view.ClearGrid();
+            IEnumerable<CatalogItem> items = _service.GetCatalogItems(brandIdFilter, typeIdFilter);
+            double discountVal = 0;
+            DiscountItem discount = _service.GetDiscount(DateTime.Now);
+            if (discount != null)
+                discountVal = discount.Size;
+
+            _view.SetCatalogItems(items, discountVal);
+        }
+
+        private void SetShipmentView()
+        {
+            IEnumerable<CatalogItem> items = _service.GetCatalogItems(0, 0);
+            _view.SetShipmentView(items);
+        }
+
+        private void LoadBrandFilters()
+        {
+            //Fetch the list of catalog item brands
+            IEnumerable<CatalogBrand> brands = _service.GetCatalogBrands();
+
+            // Bind combobox to dictionary
+            Dictionary<int, string> brandDictionary = new Dictionary<int, string>();
+
+            //The service does not return an 'all' item by default, so we must add it.
+            brandDictionary.Add(0, "All");
+
+            // Add rest of type filters
+            foreach (var catalogBrand in brands)
+            {
+                int idValue = catalogBrand.Id;
+                string typeValue = catalogBrand.Brand;
+                brandDictionary.Add(idValue, typeValue);
+            }
+
+            _view.SetBrandFilter(brandDictionary);
+        }
+
+        private void LoadTypeFilters()
+        {
+            //Fetch the list of catalog item types
+            IEnumerable<CatalogType> types = _service.GetCatalogTypes();
+
+            // Bind combobox to dictionary
+            Dictionary<int, string> typeDictionary = new Dictionary<int, string>();
+
+            //The service does not return an 'all' item by default, so we must add it.
+            typeDictionary.Add(0, "All");
+
+            // Add rest of type filters
+            foreach (var catalogtype in types)
+            {
+                int idValue = catalogtype.Id;
+                string typeValue = catalogtype.Type;
+                typeDictionary.Add(idValue, typeValue);
+            }
+
+            _view.SetTypeFilter(typeDictionary);
+        }
+
+        public void LoadView()
+        {
+            _view.SetController(this);
+            CheckForDiscounts();
+            LoadCatalogItems(0, 0);
+            LoadBrandFilters();
+            LoadTypeFilters();
+            SetShipmentView();
         }
     }
 }

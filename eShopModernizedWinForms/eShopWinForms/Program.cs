@@ -1,4 +1,6 @@
-﻿using System;
+﻿using eShopWinForms.Controllers;
+using eShopWinForms.eShopServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +18,13 @@ namespace eShopWinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            CatalogView catalogView = new CatalogView();
+            ICatalogService service = new eShopServiceReference.CatalogServiceClient();
+            CatalogController catalogController = new CatalogController(service, catalogView);
+
+            catalogController.LoadView();
+            catalogView.ShowDialog();
         }
 
     }
