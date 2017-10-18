@@ -1,6 +1,6 @@
 ﻿namespace eShopWinForms
 {
-    partial class Form1
+    partial class CatalogView
     {
         /// <summary>
         /// Required designer variable.
@@ -39,14 +39,22 @@
             this.typeFilter = new System.Windows.Forms.Label();
             this.catalogTypeComboBox = new System.Windows.Forms.ComboBox();
             this.catalogItemDataGridView = new System.Windows.Forms.DataGridView();
+            this.Preview = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.searchAvailabilityButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ItemId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Availability = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.productIdInput = new System.Windows.Forms.ComboBox();
             this.addAvailabilityButton = new System.Windows.Forms.Button();
@@ -184,7 +192,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.4375F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.5625F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 754F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 757F));
             this.tableLayoutPanel3.Controls.Add(this.catalogBrandComboBox, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.typeFilter, 0, 0);
@@ -201,7 +209,7 @@
             // 
             this.catalogBrandComboBox.DisplayMember = "Brand";
             this.catalogBrandComboBox.FormattingEnabled = true;
-            this.catalogBrandComboBox.Location = new System.Drawing.Point(542, 4);
+            this.catalogBrandComboBox.Location = new System.Drawing.Point(539, 4);
             this.catalogBrandComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.catalogBrandComboBox.Name = "catalogBrandComboBox";
             this.catalogBrandComboBox.Size = new System.Drawing.Size(198, 38);
@@ -213,7 +221,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(455, 11);
+            this.label1.Location = new System.Drawing.Point(452, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 30);
@@ -235,7 +243,7 @@
             // 
             this.catalogTypeComboBox.DisplayMember = "Type";
             this.catalogTypeComboBox.FormattingEnabled = true;
-            this.catalogTypeComboBox.Location = new System.Drawing.Point(129, 4);
+            this.catalogTypeComboBox.Location = new System.Drawing.Point(128, 4);
             this.catalogTypeComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.catalogTypeComboBox.Name = "catalogTypeComboBox";
             this.catalogTypeComboBox.Size = new System.Drawing.Size(189, 38);
@@ -248,14 +256,56 @@
             this.catalogItemDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.catalogItemDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.catalogItemDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.catalogItemDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Preview,
+            this.Id,
+            this.ItemName,
+            this.Description,
+            this.Price});
             this.catalogItemDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.catalogItemDataGridView.Location = new System.Drawing.Point(4, 72);
             this.catalogItemDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.catalogItemDataGridView.Name = "catalogItemDataGridView";
+            this.catalogItemDataGridView.ReadOnly = true;
             this.catalogItemDataGridView.RowTemplate.Height = 33;
             this.catalogItemDataGridView.Size = new System.Drawing.Size(1293, 917);
             this.catalogItemDataGridView.TabIndex = 1;
-            this.catalogItemDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.catalogItemDataGridView_CellContentClick);
+            // 
+            // Preview
+            // 
+            this.Preview.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Preview.FillWeight = 101F;
+            this.Preview.HeaderText = "Preview";
+            this.Preview.Name = "Preview";
+            this.Preview.ReadOnly = true;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 76;
+            // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "Name";
+            this.ItemName.Name = "ItemName";
+            this.ItemName.ReadOnly = true;
+            this.ItemName.Width = 114;
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            this.Description.Width = 163;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Width = 103;
             // 
             // tabPage1
             // 
@@ -265,7 +315,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1301, 1000);
+            this.tabPage1.Size = new System.Drawing.Size(1308, 1000);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Inventory";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -296,12 +346,11 @@
             this.monthCalendar1.Margin = new System.Windows.Forms.Padding(8, 10, 8, 10);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 4;
-            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.listBox1);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.searchAvailabilityButton);
             this.groupBox1.Location = new System.Drawing.Point(4, 449);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
@@ -321,18 +370,17 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(482, 304);
             this.listBox1.TabIndex = 5;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // button1
+            // searchAvailabilityButton
             // 
-            this.button1.Location = new System.Drawing.Point(206, 413);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(202, 88);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.searchAvailabilityButton.Location = new System.Drawing.Point(206, 413);
+            this.searchAvailabilityButton.Margin = new System.Windows.Forms.Padding(4);
+            this.searchAvailabilityButton.Name = "searchAvailabilityButton";
+            this.searchAvailabilityButton.Size = new System.Drawing.Size(202, 88);
+            this.searchAvailabilityButton.TabIndex = 7;
+            this.searchAvailabilityButton.Text = "Search";
+            this.searchAvailabilityButton.UseVisualStyleBackColor = true;
+            this.searchAvailabilityButton.Click += new System.EventHandler(this.searchAvailabilityButton_Click);
             // 
             // groupBox2
             // 
@@ -348,6 +396,10 @@
             // 
             // listView1
             // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Date,
+            this.ItemId,
+            this.Availability});
             this.listView1.Location = new System.Drawing.Point(77, 78);
             this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
@@ -355,7 +407,18 @@
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // Date
+            // 
+            this.Date.Text = "Date";
+            // 
+            // ItemId
+            // 
+            this.ItemId.Text = "Id";
+            // 
+            // Availability
+            // 
+            this.Availability.Text = "Availability";
             // 
             // groupBox3
             // 
@@ -494,16 +557,15 @@
             this.discountBanner.TabIndex = 1;
             this.discountBanner.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // Form1
+            // CatalogView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1346, 1398);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
+            this.Name = "CatalogView";
             this.Text = "eShop WinForms";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.MainCatalog.ResumeLayout(false);
@@ -555,7 +617,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxType;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxBrand;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button searchAvailabilityButton;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -572,6 +634,14 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label discountBanner;
+        private System.Windows.Forms.DataGridViewImageColumn Preview;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.ColumnHeader Date;
+        private System.Windows.Forms.ColumnHeader ItemId;
+        private System.Windows.Forms.ColumnHeader Availability;
     }
 }
 

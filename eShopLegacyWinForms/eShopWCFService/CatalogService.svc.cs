@@ -53,9 +53,13 @@ namespace eShopWCFService
             return ents.CatalogBrands.ToList();
         }
 
-        public List<CatalogItem> GetCatalogItems()
+        public List<CatalogItem> GetCatalogItems(int brandIdFilter, int typeIdFilter)
         {
-            return ents.CatalogItems.ToList();
+            bool brandFilterIsNull = brandIdFilter == 0;
+            bool typeFilterIsNull = typeIdFilter == 0;
+            return ents.CatalogItems.ToList().Where(x =>
+                (brandFilterIsNull ? true : x.CatalogBrandId == brandIdFilter) &&
+                (typeFilterIsNull ? true : x.CatalogTypeId == typeIdFilter)).ToList();
         }
 
         public void CreateCatalogItem(CatalogItem catalogItem)
