@@ -39,7 +39,7 @@ namespace eShopWinForms.Controllers
         {
             int res = _service.GetAvailableStock(e.date, e.itemId);
 
-            _view.ShowStockAvailability(res);
+            _view.ShowStockAvailability(e, res);
         }
 
         /*

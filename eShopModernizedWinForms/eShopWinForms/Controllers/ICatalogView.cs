@@ -63,7 +63,7 @@ namespace eShopWinForms.Controllers
         void SetBrandFilter(Dictionary<int, string> brandFilter);
         void ClearGrid();
         void NotifyAvailabilityUpdated();
-        void ShowStockAvailability(int stock);
+        void ShowStockAvailability(SearchStockEventArgs args, int stock);
         void SetShipmentView(IEnumerable<CatalogItem> items);
     }
 }

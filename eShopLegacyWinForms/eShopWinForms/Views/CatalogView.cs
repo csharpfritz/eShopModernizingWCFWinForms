@@ -20,13 +20,14 @@ namespace eShopWinForms
         public CatalogView()
         {
             InitializeComponent();
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private CatalogController _controller;
         public event ViewHandler<ICatalogView> filterChanged;
         public event SearchStockHandler<ICatalogView> searchStockButtonClicked;
         public event AvailabilityHandler<ICatalogView> availabilityButtonClicked;
-        
+
         public void SetController(CatalogController controller)
         {
             _controller = controller;
@@ -34,13 +35,13 @@ namespace eShopWinForms
 
         public void ClearGrid()
         {
-            CatalogGridView.Rows.Clear();
-            CatalogGridView.Refresh();
+            catalogItemDataGridView.Rows.Clear();
+            catalogItemDataGridView.Refresh();
         }
 
         public void SetCatalogItems(IEnumerable<CatalogItem> items, double discountVal)
         {
-            foreach(CatalogItem catalogItem in items)
+            foreach (CatalogItem catalogItem in items)
             {
                 double price = double.Parse(catalogItem.Price.ToString());
                 double discountPrice = price * (1 - discountVal);
@@ -49,13 +50,13 @@ namespace eShopWinForms
                 Image img = Image.FromFile(imagename);
                 Image thumb = img.GetThumbnailImage(384, 216, null, IntPtr.Zero);
 
-                CatalogGridView.Rows.Add(thumb, catalogItem.Id.ToString(), catalogItem.Name, catalogItem.Description, String.Concat("$", discountPrice.ToString("F")));
+                catalogItemDataGridView.Rows.Add(thumb, catalogItem.Id.ToString(), catalogItem.Name, catalogItem.Description, String.Concat("$", discountPrice.ToString("F")));
             }
         }
 
         public void SetShipmentView(IEnumerable<CatalogItem> items)
         {
-            foreach(CatalogItem catalogItem in items)
+            foreach (CatalogItem catalogItem in items)
             {
                 listBox1.Items.Add(String.Format("{0} - {1}", catalogItem.Id, catalogItem.Name));
                 productIdInput.Items.Add(catalogItem.Id);
@@ -109,7 +110,7 @@ namespace eShopWinForms
             filterChanged.Invoke(this, new FilterEventArgs(typeId, brandId));
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void searchAvailabilityButton_Click(object sender, EventArgs e)
         {
             string[] separator = new string[] { " - " };
             string[] results = listBox1.SelectedItem.ToString().Split(separator, StringSplitOptions.None);
@@ -119,10 +120,6 @@ namespace eShopWinForms
 
             SearchStockEventArgs ex = new SearchStockEventArgs(id, date);
             searchStockButtonClicked.Invoke(this, ex);
-
-            ListViewItem lvi = new ListViewItem(date.ToShortDateString());
-            lvi.SubItems.Add(id.ToString());
-            listView1.Items.Add(lvi);
         }
 
         private void addAvailabilityButton_Click(object sender, EventArgs e)
@@ -138,9 +135,13 @@ namespace eShopWinForms
             availabilityButtonClicked.Invoke(this, args);
         }
 
-        public void ShowStockAvailability(int availability)
+        public void ShowStockAvailability(SearchStockEventArgs args, int availability)
         {
-            //lvi.SubItems.Add(availability.ToString());
+            ListViewItem lvi = new ListViewItem(args.date.ToShortDateString());
+            lvi.SubItems.Add(args.itemId.ToString());
+            lvi.SubItems.Add(availability.ToString());
+            listView1.Items.Add(lvi);
+
             listView1.Columns[0].Width = -1;
             listView1.Columns[1].Width = -2;
             listView1.Columns[2].Width = -2;
