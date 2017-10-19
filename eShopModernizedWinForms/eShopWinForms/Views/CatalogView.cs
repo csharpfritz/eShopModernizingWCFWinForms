@@ -33,12 +33,18 @@ namespace eShopWinForms
             _controller = controller;
         }
 
+        /*
+         * Removes all catalog items from the gridview
+         */
         public void ClearGrid()
         {
             catalogItemDataGridView.Rows.Clear();
             catalogItemDataGridView.Refresh();
         }
 
+        /*
+         * Populates the gridview with catalog items and applies an appropriate discount to their price if there is one.
+         */
         public void SetCatalogItems(IEnumerable<CatalogItem> items, double discountVal)
         {
             foreach (CatalogItem catalogItem in items)
@@ -46,6 +52,8 @@ namespace eShopWinForms
                 double price = double.Parse(catalogItem.Price.ToString());
                 double discountPrice = price * (1 - discountVal);
 
+                /* Item assets are stored relative to the program executable's directory. In the database, they have a filename.
+                   We depend on the fact that this filename refences an image already in the "assets" directory */
                 string imagename = Environment.CurrentDirectory + "\\..\\..\\Assets\\Images\\Catalog\\" + catalogItem.Picturefilename;
                 Image img = Image.FromFile(imagename);
                 Image thumb = img.GetThumbnailImage(384, 216, null, IntPtr.Zero);
@@ -63,11 +71,17 @@ namespace eShopWinForms
             }
         }
 
+        /*
+         * Should there be a discount for the current day, we populate a banner reflecting the value of the discount
+         */
         public void SetDiscountBanner(String text)
         {
             discountBanner.Text = text;
         }
 
+        /*
+         * Populates the catalog item type dropdown with all types stored in the database
+         */
         public void SetTypeFilter(Dictionary<int, string> typeFilters)
         {
             catalogTypeComboBox.DataSource = new BindingSource(typeFilters, null);
@@ -75,6 +89,9 @@ namespace eShopWinForms
             catalogTypeComboBox.ValueMember = "Key";
         }
 
+        /*
+         * Populates the catalog item brands dropdown with all brands stored in the database
+         */
         public void SetBrandFilter(Dictionary<int, string> brandFilter)
         {
             catalogBrandComboBox.DataSource = new BindingSource(brandFilter, null);
@@ -82,6 +99,10 @@ namespace eShopWinForms
             catalogBrandComboBox.ValueMember = "Key";
         }
 
+        /*
+         * Called in response to the catalog brand dropdown being changed. Fire an event
+         * to notify the controller that we've changed a filter.
+         */
         private void catalogBrandComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int brandId = 0;
@@ -96,6 +117,10 @@ namespace eShopWinForms
             filterChanged.Invoke(this, new FilterEventArgs(typeId, brandId));
         }
 
+        /*
+         * Called in response to the catalog type dropdown being changed. Fire an event
+         * to notify the controller that we've changed a brand filter
+         */
         private void catalogTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int brandId = 0;
@@ -110,6 +135,10 @@ namespace eShopWinForms
             filterChanged.Invoke(this, new FilterEventArgs(typeId, brandId));
         }
 
+        /*
+         * Fire an event to notify the controller that the user wants to check for stock availability
+         * of the selected item.
+         */
         private void searchAvailabilityButton_Click(object sender, EventArgs e)
         {
             string[] separator = new string[] { " - " };
@@ -122,6 +151,9 @@ namespace eShopWinForms
             searchStockButtonClicked.Invoke(this, ex);
         }
 
+        /*
+         * Fire an event to notify the controller that the user wants to add stock for a given item.
+         */
         private void addAvailabilityButton_Click(object sender, EventArgs e)
         {
             if (productIdInput.SelectedItem == null || String.IsNullOrEmpty(quantityInput.Text) || String.IsNullOrEmpty(arrivalDateInput.Text))
@@ -135,6 +167,9 @@ namespace eShopWinForms
             availabilityButtonClicked.Invoke(this, args);
         }
 
+        /*
+         * Updates the stock availability listview to show the latest stock availability result.
+         */
         public void ShowStockAvailability(SearchStockEventArgs args, int availability)
         {
             ListViewItem lvi = new ListViewItem(args.date.ToShortDateString());
@@ -147,6 +182,10 @@ namespace eShopWinForms
             listView1.Columns[2].Width = -2;
         }
 
+        /*
+         * Display a message box to the user indicating that we've successfully added
+         * an item availability to the database
+         */
         public void NotifyAvailabilityUpdated()
         {
             MessageBox.Show("Shipment has been added to the database.");

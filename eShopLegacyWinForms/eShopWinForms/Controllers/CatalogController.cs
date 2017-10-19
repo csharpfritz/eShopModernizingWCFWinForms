@@ -7,6 +7,7 @@ namespace eShopWinForms.Controllers
 {
     public class CatalogController
     {
+        /*Reference to the service (for fetching data) and the view (so we can tell the view how to update)*/
         private ICatalogService _service;
         private ICatalogView _view;
 
@@ -19,11 +20,18 @@ namespace eShopWinForms.Controllers
             this._view.searchStockButtonClicked += new SearchStockHandler<ICatalogView>(this.searchStockAvailable);
         }
 
+        /*
+         * When a filter is changed in the view, we need to request all catalog items
+         * in the database which satisfy the new filter
+         */
         private void filterChanged(ICatalogView view, FilterEventArgs e)
         {
             LoadCatalogItems(e.brandFilterValue, e.typeFilterValue);
         }
 
+        /*
+         * Adds a new "shipment" to the database for the given day, item id, and stock quantity
+         */
         private void addAvailability(ICatalogView view, AvailabilityEventArgs e)
         {
             CatalogItemsStock shipment = new CatalogItemsStock();
@@ -35,6 +43,10 @@ namespace eShopWinForms.Controllers
             _view.NotifyAvailabilityUpdated();
         }
 
+        /*
+         * Gets the number of stock available for a given item and date, then updates the 
+         * view to reflect the result.
+         */
         private void searchStockAvailable(ICatalogView view, SearchStockEventArgs e)
         {
             int res = _service.GetAvailableStock(e.date, e.itemId);
@@ -57,6 +69,9 @@ namespace eShopWinForms.Controllers
             }
         }
 
+        /*
+         * Queries the service for all catalog items which match the brand and type filter (if any)
+         */
         public void LoadCatalogItems(int brandIdFilter, int typeIdFilter)
         {
             _view.ClearGrid();
@@ -69,12 +84,17 @@ namespace eShopWinForms.Controllers
             _view.SetCatalogItems(items, discountVal);
         }
 
+
         private void SetShipmentView()
         {
             IEnumerable<CatalogItem> items = _service.GetCatalogItems(0, 0);
             _view.SetShipmentView(items);
         }
 
+        /*
+         * Queries the service for all brand filters and then updates the view with
+         * the result of the query
+         */
         private void LoadBrandFilters()
         {
             //Fetch the list of catalog item brands
@@ -97,6 +117,10 @@ namespace eShopWinForms.Controllers
             _view.SetBrandFilter(brandDictionary);
         }
 
+        /*
+         * Queries the service for all type filters and then updates the view with
+         * the result of the query
+         */
         private void LoadTypeFilters()
         {
             //Fetch the list of catalog item types
@@ -119,6 +143,10 @@ namespace eShopWinForms.Controllers
             _view.SetTypeFilter(typeDictionary);
         }
 
+        /*
+         * Called at the beginning of the lifecycle of the controller
+         * to set up our view and get all inital data
+         */
         public void LoadView()
         {
             _view.SetController(this);
