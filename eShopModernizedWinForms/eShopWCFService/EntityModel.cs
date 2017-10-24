@@ -10,7 +10,7 @@ namespace eShopWCFService
     public partial class EntityModel : DbContext
     {
         public EntityModel()
-            : base("name=EntityModel")
+            : base(CatalogConfiguration.ConnectionString)
         {
             Database.SetInitializer(new CatalogDBInitializer());
         }

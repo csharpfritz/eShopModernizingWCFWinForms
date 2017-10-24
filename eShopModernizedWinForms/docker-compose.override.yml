@@ -3,7 +3,7 @@ version: '3'
 services:
   eshopwcfservice:
     environment:
-      - ConnectionString=EntityModel=sql.data;Database=eShopDatabase;User Id=sa;Password=Testing11@@
+      - ConnectionString=Server=sql.data;Database=eShopDatabase;User Id=sa;Password=Testing11@@
     ports:
      - "80:80"
   sql.data:
