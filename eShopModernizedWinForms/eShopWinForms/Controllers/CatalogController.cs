@@ -64,7 +64,7 @@ namespace eShopWinForms.Controllers
             if (discount != null)
             {
                 discountPercentage = Math.Round(discount.Size * 100, 0);
-                String bannerText = String.Format("{0}% sale endson {1}!", discountPercentage.ToString(), discount.End.ToShortDateString());
+                String bannerText = String.Format("{0}% sale ends on {1}!", discountPercentage.ToString(), discount.End.ToShortDateString());
                 _view.SetDiscountBanner(bannerText);
             }
         }
