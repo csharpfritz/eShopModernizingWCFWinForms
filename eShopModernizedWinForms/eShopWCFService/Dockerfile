@@ -1,10 +1,12 @@
-FROM microsoft/aspnet:4.6.2
+FROM microsoft/wcf
 
-#These features are required for WCF
-RUN Add-WindowsFeature Web-Server; \
-Add-WindowsFeature NET-WCF-TCP-Activation45; \
-Add-WindowsFeature NET-WCF-HTTP-Activation45; \
-Add-WindowsFeature Web-WebSockets
+WORKDIR WcfService
+
+RUN powershell -NoProfile -Command \
+    Import-module IISAdministration; \
+    New-IISSite -Name "WcfService" -PhysicalPath C:\WcfService -BindingInformation "*:83:"
+
+EXPOSE 83
 
 ARG source
 WORKDIR /inetpub/wwwroot
